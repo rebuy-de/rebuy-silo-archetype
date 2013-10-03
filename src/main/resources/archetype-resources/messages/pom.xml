@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>base</artifactId>
+        <version>${version}</version>
+    </parent>
+    <artifactId>messages</artifactId>
+    <packaging>jar</packaging>
+
+    <name>(restful reBuy) Messages</name>
+    <url>http://maven.apache.org</url>
+
+    <build>
+        <finalName>messages</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <inherited>true</inherited>
+                    <configuration>
+                        <source>${compiler.version}</source>
+                        <target>${compiler.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>${wagon-ssh.version}</version>
+            </extension>
+        </extensions>
+    </build>
+
+    <properties>
+        <compiler.version>1.7</compiler.version>
+        <wagon-ssh.version>2.2</wagon-ssh.version>
+    </properties>
+</project>
