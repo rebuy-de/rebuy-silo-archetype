@@ -28,6 +28,7 @@
         <module name="base-archetype" />
         <module name="messages (1)" />
         <module name="messages (3) (archetype.it)" />
+        <module name="rebuy-silo-archetype" />
         <module name="silo (1)" />
         <module name="silo (2)" />
         <module name="silo (3) (archetype.it)" />

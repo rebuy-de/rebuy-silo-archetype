@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.rebuy.archetypes</groupId>
-  <artifactId>silo-base-archetype</artifactId>
+  <artifactId>rebuy-silo-archetype</artifactId>
   <version>0.0.1</version>
   <packaging>maven-archetype</packaging>
-  <name>base-silo-archetype</name>
+  <name>rebuy-silo-archetype</name>
 
   <build>
     <extensions>
