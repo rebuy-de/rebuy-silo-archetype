@@ -50,10 +50,6 @@ public class LogConfiguration
     {
         configureLog4j();
 
-        SLF4JBridgeHandler.removeHandlersForRootLogger();
-        SLF4JBridgeHandler.install();
-        LogManager.getLogManager().getLogger("").setLevel(Level.FINER);
-
         return LoggerFactory.getLogger(loggerName);
     }
 }
