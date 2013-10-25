@@ -8,7 +8,6 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -49,10 +48,6 @@ public class LogConfiguration
     public Logger logger(@Value("${logger.name}") String loggerName)
     {
         configureLog4j();
-
-        SLF4JBridgeHandler.removeHandlersForRootLogger();
-        SLF4JBridgeHandler.install();
-        LogManager.getLogManager().getLogger("").setLevel(Level.FINER);
 
         return LoggerFactory.getLogger(loggerName);
     }
