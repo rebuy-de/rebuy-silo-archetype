@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile({"development", "sandbox", "production", "testingpostgres"})
+@Profile({"development", "sandbox", "production"})
 public class LocalRabbitConfiguration extends RabbitConfiguration
 {
 }
