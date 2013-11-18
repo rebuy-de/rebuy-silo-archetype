@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile({"testing", "testingpostgres"})
+@Profile({"testing"})
 public class LocalInboundMessagingTestConfiguration extends MessagingInboundConfiguration
 {
     @Override

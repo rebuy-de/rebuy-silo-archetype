@@ -71,6 +71,7 @@
                     <directory>src/test/java</directory>
                     <includes>
                         <include>silo/demos/*.java</include>
+                        <include>silo/annotation/*.java</include>
                     </includes>
                 </fileSet>
             </fileSets>
