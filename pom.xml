@@ -5,12 +5,19 @@
 
     <groupId>com.rebuy.archetypes</groupId>
     <artifactId>rebuy-silo-archetype</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
     <name>rebuy-silo-archetype</name>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:rebuy-de/rebuy-silo-archetype.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <properties>
+        <maven-archetype-plugin.version>2.2</maven-archetype-plugin.version>
         <wagon-ssh.version>2.2</wagon-ssh.version>
+        <maven-release-plugin.version>2.4.2</maven-release-plugin.version>
     </properties>
 
     <build>
@@ -18,8 +25,9 @@
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
                 <artifactId>archetype-packaging</artifactId>
-                <version>2.2</version>
+                <version>${maven-archetype-plugin.version}</version>
             </extension>
+
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ssh</artifactId>
@@ -31,7 +39,16 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-archetype-plugin</artifactId>
-                    <version>2.2</version>
+                    <version>${maven-archetype-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
+                    <configuration>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
