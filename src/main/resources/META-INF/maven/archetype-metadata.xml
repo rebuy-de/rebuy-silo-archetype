@@ -61,7 +61,7 @@
                         <include>silo/web/dto/request/*.java</include>
                     </includes>
                 </fileSet>
-                <fileSet encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/main/resources</directory>
                     <includes>
                         <include>**/*</include>
@@ -72,6 +72,7 @@
                     <includes>
                         <include>silo/demos/*.java</include>
                         <include>silo/annotation/*.java</include>
+                        <include>silo/configuration/*.java</include>
                     </includes>
                 </fileSet>
             </fileSets>
