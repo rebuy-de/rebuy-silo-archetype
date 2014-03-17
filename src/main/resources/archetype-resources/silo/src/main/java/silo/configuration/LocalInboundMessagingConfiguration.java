@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile({"local", "development", "sandbox", "production"})
+@Profile({"local", "vagrant", "sandbox", "production"})
 public class LocalInboundMessagingConfiguration extends MessagingInboundConfiguration
 {
     @Override

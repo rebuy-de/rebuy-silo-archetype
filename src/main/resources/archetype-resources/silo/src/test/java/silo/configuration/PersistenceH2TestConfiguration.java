@@ -31,7 +31,7 @@ public class PersistenceH2TestConfiguration
     {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         return builder
-                .setName("yourname")
+                .setName("${rootArtifactId}")
                 .addScript("database/schema.sql")
                 .setType(EmbeddedDatabaseType.H2)
                 .build();
