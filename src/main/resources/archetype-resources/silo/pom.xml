@@ -68,13 +68,13 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
-                    <groups>${groupId}.silo.annotation.UnitTest</groups>
+                    <groups>${project.groupId}.silo.annotation.UnitTest</groups>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <configuration>
-                    <groups>${groupId}.silo.annotation.IntegrationTest</groups>
+                    <groups>${project.groupId}.silo.annotation.IntegrationTest</groups>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                 </configuration>
                 <executions>

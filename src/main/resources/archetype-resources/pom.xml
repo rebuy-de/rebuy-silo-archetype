@@ -12,6 +12,11 @@
     <url>http://maven.apache.org</url>
     <name>service (restful reBuy)</name>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:rebuy-de/${project.artifactId}.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -93,6 +98,7 @@
         <jacoco-maven-plugin.version>0.6.3.201306030806</jacoco-maven-plugin.version>
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
         <wagon-ssh.version>2.2</wagon-ssh.version>
+        <maven-release-plugin.version>2.4.2</maven-release-plugin.version>
     </properties>
 
     <repositories>
