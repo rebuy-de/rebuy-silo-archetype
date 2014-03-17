@@ -14,6 +14,6 @@ public class LocalInboundMessagingTestConfiguration extends MessagingInboundConf
     @Override
     public String queuePrefix()
     {
-        return "your-silo-test";
+        return "${rootArtifactId}-test";
     }
 }
