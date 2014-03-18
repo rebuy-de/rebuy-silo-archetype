@@ -13,7 +13,7 @@
     <version>${version}</version>
 
     <properties>
-        <rebuy.messaging.version>2.5.0</rebuy.messaging.version>
+        <rebuy.messaging.version>2.5.1</rebuy.messaging.version>
         <rebuy.projector.version>2.0.1</rebuy.projector.version>
         <jetty.version>9.1.3.v20140225</jetty.version>
         <apache.war.version>2.4</apache.war.version>
