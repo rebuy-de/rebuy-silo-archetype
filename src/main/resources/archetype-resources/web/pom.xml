@@ -8,12 +8,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}.${rootArtifactId}</groupId>
-    <artifactId>messages</artifactId>
+    <artifactId>web</artifactId>
     <name>${rootArtifactId} (restful reBuy) message</name>
     <packaging>jar</packaging>
     <version>${version}</version>
     <build>
-        <finalName>messages</finalName>
+        <finalName>web</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>

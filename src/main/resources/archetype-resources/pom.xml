@@ -94,7 +94,7 @@
         <compiler.version>1.7</compiler.version>
         <jacoco-maven-plugin.version>0.6.3.201306030806</jacoco-maven-plugin.version>
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-        <wagon-ssh.version>2.2</wagon-ssh.version>
+        <wagon-ssh.version>2.6</wagon-ssh.version>
         <maven-release-plugin.version>2.4.2</maven-release-plugin.version>
     </properties>
 
