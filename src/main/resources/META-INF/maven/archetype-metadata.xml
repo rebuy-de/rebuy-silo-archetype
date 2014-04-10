@@ -45,6 +45,29 @@
             </fileSets>
         </module>
 
+        <module id="web" dir="web" name="web">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>web/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+                    <includes>
+                        <include>web/*.java</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+
         <module id="silo" dir="silo" name="silo">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
