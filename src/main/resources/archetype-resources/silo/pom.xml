@@ -28,8 +28,8 @@
         <spring.aop.version>3.2.9.RELEASE</spring.aop.version>
         <spring.core.version>3.2.9.RELEASE</spring.core.version>
         <spring.test.version>3.2.9.RELEASE</spring.test.version>
-        <spring.data.jpa.version>1.4.3.RELEASE</spring.data.jpa.version>
-        <jackson.version>2.3.0</jackson.version>
+        <spring.data.jpa.version>1.6.1.RELEASE</spring.data.jpa.version>
+        <jackson.version>2.4.1</jackson.version>
         <hibernate.entitymanager.version>4.3.5.Final</hibernate.entitymanager.version>
         <hibernate.validator.version>4.3.1.Final</hibernate.validator.version>
         <aspectjweaver.version>1.6.11</aspectjweaver.version>
