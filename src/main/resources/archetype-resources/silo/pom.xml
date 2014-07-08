@@ -21,7 +21,7 @@
         <slf4j.version>1.7.5</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
         <c3p0.version>0.9.1.2</c3p0.version>
-        <querydsl.version>3.2.4</querydsl.version>
+        <querydsl.version>3.4.1</querydsl.version>
         <junit.version>4.11</junit.version>
         <spring.web.version>3.2.9.RELEASE</spring.web.version>
         <spring.webmvc.version>3.2.9.RELEASE</spring.webmvc.version>
