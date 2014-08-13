@@ -12,6 +12,12 @@
     <name>${rootArtifactId} (restful reBuy) message</name>
     <packaging>jar</packaging>
     <version>${version}</version>
+
+    <scm>
+        <developerConnection>scm:git:git@github.com:rebuy-de/${project.artifactId}.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <build>
         <finalName>messages</finalName>
         <pluginManagement>
