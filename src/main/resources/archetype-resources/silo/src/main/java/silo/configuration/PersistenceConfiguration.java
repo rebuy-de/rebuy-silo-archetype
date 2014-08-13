@@ -6,6 +6,7 @@ package ${package}.${artifactId}.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.dao.support.ChainedPersistenceExceptionTranslator;
 import org.springframework.dao.support.PersistenceExceptionTranslator;
@@ -23,6 +24,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "${package}.${artifactId}.domain.persistence")
+@Profile("!testing")
 public class PersistenceConfiguration
 {
     @Bean

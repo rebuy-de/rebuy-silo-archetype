@@ -3,8 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.${artifactId}.configuration;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,11 +13,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
+import org.springframework.data.web.SortHandlerMethodArgumentResolver;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Configuration
 @EnableWebMvc
@@ -58,5 +60,10 @@ public class WebConfig extends WebMvcConfigurerAdapter
         PageableHandlerMethodArgumentResolver pageableHandlerMethodArgumentResolver = new PageableHandlerMethodArgumentResolver();
         pageableHandlerMethodArgumentResolver.setPrefix("page.");
         argumentResolvers.add(pageableHandlerMethodArgumentResolver);
+
+        SortHandlerMethodArgumentResolver sortResolver = new SortHandlerMethodArgumentResolver();
+        sortResolver.setSortParameter("page.sort");
+
+        argumentResolvers.add(sortResolver);
     }
 }

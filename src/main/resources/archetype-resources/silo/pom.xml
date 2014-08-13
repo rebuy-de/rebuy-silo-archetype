@@ -23,10 +23,11 @@
         <rebuy.projector.version>3.0.2</rebuy.projector.version>
         <jetty.version>9.2.1.v20140609</jetty.version>
         <apache.war.version>2.4</apache.war.version>
-        <slf4j.version>1.7.5</slf4j.version>
+        <slf4j.version>1.7.7</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
         <c3p0.version>0.9.1.2</c3p0.version>
         <querydsl.version>3.4.1</querydsl.version>
+        <apt.version>1.0.4</apt.version>
         <junit.version>4.11</junit.version>
         <spring.web.version>3.2.9.RELEASE</spring.web.version>
         <spring.webmvc.version>3.2.9.RELEASE</spring.webmvc.version>
@@ -35,8 +36,8 @@
         <spring.test.version>3.2.9.RELEASE</spring.test.version>
         <spring.data.jpa.version>1.6.1.RELEASE</spring.data.jpa.version>
         <jackson.version>2.4.1</jackson.version>
-        <hibernate.entitymanager.version>4.3.5.Final</hibernate.entitymanager.version>
-        <hibernate.validator.version>4.3.1.Final</hibernate.validator.version>
+        <hibernate.entitymanager.version>4.2.3.Final</hibernate.entitymanager.version>
+        <hibernate.validator.version>5.0.1.Final</hibernate.validator.version>
         <aspectjweaver.version>1.6.11</aspectjweaver.version>
         <gelf4j.version>1.8</gelf4j.version>
         <hamcrest.version>1.3</hamcrest.version>
@@ -87,7 +88,23 @@
                     <webAppSourceDirectory>${basedir}/src/main/webapp</webAppSourceDirectory>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>com.mysema.maven</groupId>
+                <artifactId>maven-apt-plugin</artifactId>
+                <version>${apt.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/generated-sources/querydsl</outputDirectory>
+                            <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -138,6 +155,12 @@
             <groupId>com.rebuy.library</groupId>
             <artifactId>messaging</artifactId>
             <version>${rebuy.messaging.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
