@@ -1,1 +1,3 @@
--- dummy TODO: Add schema.sql
+create table test (
+    id int primary key
+);

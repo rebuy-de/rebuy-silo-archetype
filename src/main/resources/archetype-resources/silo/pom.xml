@@ -19,7 +19,7 @@
     </scm>
 
     <properties>
-        <rebuy.messaging.version>2.6.0</rebuy.messaging.version>
+        <rebuy.messaging.version>3.0.0</rebuy.messaging.version>
         <rebuy.projector.version>3.0.2</rebuy.projector.version>
         <jetty.version>9.2.1.v20140609</jetty.version>
         <apache.war.version>2.4</apache.war.version>
