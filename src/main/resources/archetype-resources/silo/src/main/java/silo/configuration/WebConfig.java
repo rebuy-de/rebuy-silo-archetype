@@ -29,12 +29,6 @@ import java.util.List;
 @EnableAspectJAutoProxy
 public class WebConfig extends WebMvcConfigurerAdapter
 {
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer()
-    {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
-
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters)
     {

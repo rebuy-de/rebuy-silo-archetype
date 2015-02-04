@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile({"local", "vagrant", "sandbox", "production"})
-public class LocalInboundMessagingConfiguration extends MessagingInboundConfiguration
+@Profile("!testing")
+public class LocalMessagingInboundConfiguration extends MessagingInboundConfiguration
 {
     @Override
     public String queuePrefix()

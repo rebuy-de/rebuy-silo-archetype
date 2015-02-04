@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
 @Configuration
-public class LocalOutboundMessagingConfiguration extends MessagingOutboundConfiguration
+public class LocalMessagingOutboundConfiguration extends MessagingOutboundConfiguration
 {
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)

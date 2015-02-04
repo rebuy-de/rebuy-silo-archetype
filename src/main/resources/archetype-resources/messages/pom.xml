@@ -42,7 +42,7 @@
     </build>
 
     <properties>
-        <compiler.version>1.7</compiler.version>
+        <compiler.version>1.8</compiler.version>
         <wagon-ssh.version>2.6</wagon-ssh.version>
     </properties>
 </project>

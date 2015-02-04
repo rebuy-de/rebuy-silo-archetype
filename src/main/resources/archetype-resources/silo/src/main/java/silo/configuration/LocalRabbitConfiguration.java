@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile({"vagrant", "sandbox", "production"})
+@Profile("!testing")
 public class LocalRabbitConfiguration extends RabbitConfiguration
 {
 }
