@@ -4,21 +4,23 @@
 package ${package}.${artifactId}.demos;
 
 
+import ${package}.${artifactId}.Application;
 import ${package}.${artifactId}.annotation.IntegrationTest;
-import ${package}.${artifactId}.configuration.WebConfig;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = WebConfig.class)
-@WebAppConfiguration
 @Category(IntegrationTest.class)
+@SpringApplicationConfiguration(classes = Application.class)
+@WebIntegrationTest(
+    value = {"spring.profiles.active=vagrant", "spring.jpa.hibernate.ddl-auto=none"}
+)
 public class DemoIntegrationTest
 {
     @Test

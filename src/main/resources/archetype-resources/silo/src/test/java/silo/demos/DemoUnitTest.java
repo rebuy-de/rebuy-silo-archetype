@@ -13,7 +13,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static junit.framework.Assert.*;
 
-
 @RunWith(MockitoJUnitRunner.class)
 @Category(UnitTest.class)
 public class DemoUnitTest
