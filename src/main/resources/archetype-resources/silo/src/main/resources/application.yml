@@ -2,8 +2,27 @@ server:
     port: 8080
 
 spring:
+    datasource:
+        # TODO: dont forget to CHANGE the url
+        url: jdbc:MYSQL_OR_POSTGRES_OR...
+        user: CHANGEME
+        password: CHANGEME
+        poolSize: 3
     http:
         encoding:
             charset: UTF-8
             enabled: true
             force: true
+
+clients:
+    common:
+        readTimeout: 5000
+        connectTimeout: 5000
+        oauthToken: SOMEUUID4
+
+    customerClient:
+        host: http://customer-silo.vg
+
+flyway:
+    locations: classpath:db.migration, classpath:db.common
+    baseLineOnMigrate: true

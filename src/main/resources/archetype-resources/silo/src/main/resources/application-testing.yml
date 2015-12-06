@@ -1,0 +1,6 @@
+spring:
+    main:
+        show_banner: false
+
+flyway:
+    locations: classpath:db.test, classpath:db.common

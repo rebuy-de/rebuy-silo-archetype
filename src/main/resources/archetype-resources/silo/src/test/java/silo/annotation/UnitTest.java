@@ -3,7 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.${artifactId}.annotation;
 
-
 public interface UnitTest
 {
 }

@@ -3,7 +3,6 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId}.configuration;
 
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
@@ -17,38 +16,28 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
+import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:${spring.profiles.active}/log4j.properties")
-public class LogConfiguration
-{
+public class LogConfiguration {
     @Autowired
-    Environment env;
+    private Environment env;
 
-    public void configureLog4j()
-    {
+    private void configureLog4j() throws IOException {
         for (String profile : env.getActiveProfiles()) {
             ClassPathResource resource = new ClassPathResource(profile + "/log4j.properties");
-
-            try (InputStream configFile = resource.getInputStream()) {
-                PropertyConfigurator.configure(configFile);
-                return;
-            } catch (IOException exception) {
-                continue;
-            }
+            Properties properties = new Properties();
+            properties.load(resource.getInputStream());
+            PropertyConfigurator.configure(properties);
         }
 
         BasicConfigurator.configure();
     }
 
     @Bean
-    public Logger logger(@Value("${logger.name}") String loggerName)
-    {
+    public Logger logger(@Value("${logger.name}") String loggerName) throws IOException {
         configureLog4j();
-
         return LoggerFactory.getLogger(loggerName);
     }
 }

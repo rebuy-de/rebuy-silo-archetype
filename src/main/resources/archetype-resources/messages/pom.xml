@@ -2,36 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>${groupId}</groupId>
         <artifactId>${rootArtifactId}</artifactId>
+        <groupId>${groupId}</groupId>
         <version>${version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}.${rootArtifactId}</groupId>
     <artifactId>messages</artifactId>
-    <name>${rootArtifactId} (restful reBuy) message</name>
     <packaging>jar</packaging>
+    <name>${rootArtifactId} (restful reBuy) message</name>
     <version>${version}</version>
-
     <scm>
         <developerConnection>scm:git:git@github.com:rebuy-de/${project.artifactId}.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
     <build>
-        <finalName>messages</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <inherited>true</inherited>
-                    <configuration>
-                        <source>${compiler.version}</source>
-                        <target>${compiler.version}</target>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
@@ -39,10 +24,17 @@
                 <version>${wagon-ssh.version}</version>
             </extension>
         </extensions>
+        <finalName>messages</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <inherited>true</inherited>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
-
     <properties>
-        <compiler.version>1.8</compiler.version>
         <wagon-ssh.version>2.6</wagon-ssh.version>
     </properties>
 </project>

@@ -14,6 +14,6 @@ public class LocalMessagingInboundConfiguration extends MessagingInboundConfigur
     @Override
     public String queuePrefix()
     {
-        return "your-silo";
+        return "${rootArtifactId}";
     }
 }

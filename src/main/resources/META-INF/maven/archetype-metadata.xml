@@ -14,7 +14,7 @@
         </fileSet>
 
         <fileSet encoding="UTF-8">
-            <directory></directory>
+            <directory />
             <includes>
                 <include>README.md</include>
             </includes>
@@ -75,6 +75,7 @@
                     <includes>
                         <include>silo/*.java</include>
                         <include>silo/configuration/*.java</include>
+                        <include>silo/configuration/settings/*.java</include>
                         <include>silo/domain/*.java</include>
                         <include>silo/domain/entity/*.java</include>
                         <include>silo/domain/persistence/*.java</include>
@@ -88,12 +89,14 @@
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/main/resources</directory>
                     <includes>
+                        <include>*</include>
                         <include>**/*</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/test/java</directory>
                     <includes>
+                        <include>silo/*.java</include>
                         <include>silo/demos/*.java</include>
                         <include>silo/annotation/*.java</include>
                         <include>silo/configuration/*.java</include>

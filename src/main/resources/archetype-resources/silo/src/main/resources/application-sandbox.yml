@@ -1,0 +1,8 @@
+spring:
+    datasource:
+        # TODO: dont forget to CHANGE the url
+        url: jdbc:MYSQL_OR_POSTGRES_OR...
+
+clients:
+    customerClient:
+        host: http://customer-silo.localhost

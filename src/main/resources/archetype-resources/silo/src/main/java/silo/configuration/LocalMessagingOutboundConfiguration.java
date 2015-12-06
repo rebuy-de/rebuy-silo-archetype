@@ -6,12 +6,10 @@ package ${package}.${artifactId}.configuration;
 import com.rebuy.library.messaging.bus.TransactionAwareBus;
 import com.rebuy.library.messaging.configuration.MessagingOutboundConfiguration;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.context.annotation.*;
 
 @Configuration
+@Profile("!testing")
 public class LocalMessagingOutboundConfiguration extends MessagingOutboundConfiguration
 {
     @Bean
