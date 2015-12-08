@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-@EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "${package}.${artifactId}")
 public class PersistenceConfiguration
 {
