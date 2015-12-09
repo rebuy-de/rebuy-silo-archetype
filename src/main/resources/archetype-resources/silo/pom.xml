@@ -1,85 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>${rootArtifactId}</artifactId>
         <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
         <version>${version}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}.${rootArtifactId}</groupId>
     <artifactId>silo</artifactId>
+    <version>${version}</version>
     <packaging>jar</packaging>
     <name>${rootArtifactId} (restful reBuy) silo</name>
-    <version>${version}</version>
     <scm>
         <developerConnection>scm:git:git@github.com:rebuy-de/${project.artifactId}.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-    <build>
-        <finalName>${project.parent.artifactId}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>com.mysema.maven</groupId>
-                <artifactId>maven-apt-plugin</artifactId>
-                <version>${apt.version}</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>target/generated-sources/querydsl</outputDirectory>
-                            <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${maven-failsafe-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>integration-test</id>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                        <configuration>
-                            <includes>
-                                <include>**/*.class</include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <groups>${package}.${artifactId}.annotation.IntegrationTest</groups>
-                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-                <configuration>
-                    <groups>${package}.${artifactId}.annotation.UnitTest</groups>
-                </configuration>
-            </plugin>
-            <plugin>
+    <properties>
+        <HikariCP.version>2.4.3</HikariCP.version>
+        <aspectjweaver.version>1.8.7</aspectjweaver.version>
+        <flyway-core.version>3.2.1</flyway-core.version>
+        <gelf4j.version>1.9</gelf4j.version>
+        <h2.version>1.4.190</h2.version>
+        <hamcrest-all.version>1.3</hamcrest-all.version>
+        <hibernate-entitymanager.version>5.0.5.Final</hibernate-entitymanager.version>
+        <hibernate-validator.version>5.2.2.Final</hibernate-validator.version>
+        <jackson-databind.version>2.6.4</jackson-databind.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <json-path.version>2.1.0</json-path.version>
+        <junit.version>4.12</junit.version>
+        <maven-apt-plugin.version>1.0.4</maven-apt-plugin.version>
+        <maven-failsafe-plugin.version>2.19</maven-failsafe-plugin.version>
+        <maven-surefire-plugin.version>2.19</maven-surefire-plugin.version>
+        <mockito.version>1.10.19</mockito.version>
+        <querydsl.version>3.7.0</querydsl.version>
+        <rebuy.common.version>4.1.0</rebuy.common.version>
+        <rebuy.customer-client.version>2.0.0</rebuy.customer-client.version>
+        <rebuy.messaging.version>3.0.1</rebuy.messaging.version>
+        <rebuy.projector.version>4.1.0</rebuy.projector.version>
+        <rebuy.security.version>4.0.0</rebuy.security.version>
+        <spring-integration-amqp.version>4.2.2.RELEASE</spring-integration-amqp.version>
+        <spring-integration-core.version>4.2.2.RELEASE</spring-integration-core.version>
+        <spring.boot.version>1.3.0.RELEASE</spring.boot.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -103,12 +77,12 @@
             <version>${rebuy.messaging.version}</version>
             <exclusions>
                 <exclusion>
-                    <artifactId>spring-integration-amqp</artifactId>
                     <groupId>org.springframework.integration</groupId>
+                    <artifactId>spring-integration-amqp</artifactId>
                 </exclusion>
                 <exclusion>
-                    <artifactId>spring-integration-core</artifactId>
                     <groupId>org.springframework.integration</groupId>
+                    <artifactId>spring-integration-core</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -123,12 +97,12 @@
             <version>${rebuy.security.version}</version>
             <exclusions>
                 <exclusion>
-                    <artifactId>slf4j-log4j12</artifactId>
                     <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
                 </exclusion>
                 <exclusion>
-                    <artifactId>log4j-over-slf4j</artifactId>
                     <groupId>org.slf4j</groupId>
+                    <artifactId>log4j-over-slf4j</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -183,8 +157,8 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <exclusions>
                 <exclusion>
-                    <artifactId>spring-boot-starter-logging</artifactId>
                     <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -205,8 +179,8 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
                 <exclusion>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
                     <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -251,8 +225,8 @@
             <scope>test</scope>
             <exclusions>
                 <exclusion>
-                    <artifactId>hamcrest-core</artifactId>
                     <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -263,42 +237,68 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
+    <build>
+        <finalName>${project.parent.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>com.mysema.maven</groupId>
+                <artifactId>maven-apt-plugin</artifactId>
+                <version>${maven-apt-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <outputDirectory>target/generated-sources/querydsl</outputDirectory>
+                            <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
+                <configuration>
+                    <groups>${package}.${artifactId}.annotation.IntegrationTest</groups>
+                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/*.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <groups>${package}.${artifactId}.annotation.UnitTest</groups>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <properties>
-        <HikariCP.version>2.4.3</HikariCP.version>
-        <apt.version>1.1.3</apt.version>
-        <aspectjweaver.version>1.8.7</aspectjweaver.version>
-        <flyway-core.version>3.2.1</flyway-core.version>
-        <gelf4j.version>1.9</gelf4j.version>
-        <h2.version>1.4.190</h2.version>
-        <hamcrest-all.version>1.3</hamcrest-all.version>
-        <hibernate-entitymanager.version>5.0.5.Final</hibernate-entitymanager.version>
-        <hibernate-validator.version>5.2.2.Final</hibernate-validator.version>
-        <jackson-databind.version>2.6.4</jackson-databind.version>
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-        <json-path.version>2.1.0</json-path.version>
-        <junit.version>4.12</junit.version>
-        <maven-failsafe-plugin.version>2.19</maven-failsafe-plugin.version>
-        <maven-surefire-plugin.version>2.19</maven-surefire-plugin.version>
-        <mockito.version>1.10.19</mockito.version>
-        <querydsl.version>3.7.0</querydsl.version>
-        <rebuy.common.version>4.1.0</rebuy.common.version>
-        <rebuy.customer-client.version>2.0.0</rebuy.customer-client.version>
-        <rebuy.messaging.version>3.0.1</rebuy.messaging.version>
-        <rebuy.projector.version>4.1.0</rebuy.projector.version>
-        <rebuy.security.version>4.0.0</rebuy.security.version>
-        <spring-integration-amqp.version>4.2.2.RELEASE</spring-integration-amqp.version>
-        <spring-integration-core.version>4.2.2.RELEASE</spring-integration-core.version>
-        <spring.boot.version>1.3.0.RELEASE</spring.boot.version>
-    </properties>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

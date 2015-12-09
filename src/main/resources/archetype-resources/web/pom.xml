@@ -25,10 +25,6 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <inherited>true</inherited>
-                    <configuration>
-                        <source>${compiler.version}</source>
-                        <target>${compiler.version}</target>
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -42,7 +38,6 @@
     </build>
 
     <properties>
-        <compiler.version>1.8</compiler.version>
-        <wagon-ssh.version>2.6</wagon-ssh.version>
+        <wagon-ssh.version>2.10</wagon-ssh.version>
     </properties>
 </project>

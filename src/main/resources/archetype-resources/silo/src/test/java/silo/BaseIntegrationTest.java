@@ -21,7 +21,7 @@ import org.springframework.web.context.WebApplicationContext;
 @Category(IntegrationTest.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebIntegrationTest(
-        value = {"spring.profiles.active=testing"}
+    value = {"spring.profiles.active=testing"}
 )
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public abstract class BaseIntegrationTest

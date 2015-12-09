@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.mock;
 
 @Configuration
 @Profile("testing")

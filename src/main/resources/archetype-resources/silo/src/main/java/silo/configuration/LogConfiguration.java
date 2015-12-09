@@ -20,11 +20,13 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:${spring.profiles.active}/log4j.properties")
-public class LogConfiguration {
+public class LogConfiguration
+{
     @Autowired
     private Environment env;
 
-    private void configureLog4j() throws IOException {
+    private void configureLog4j() throws IOException
+    {
         for (String profile : env.getActiveProfiles()) {
             ClassPathResource resource = new ClassPathResource(profile + "/log4j.properties");
             Properties properties = new Properties();
@@ -36,7 +38,8 @@ public class LogConfiguration {
     }
 
     @Bean
-    public Logger logger(@Value("${logger.name}") String loggerName) throws IOException {
+    public Logger logger(@Value("${logger.name}") String loggerName) throws IOException
+    {
         configureLog4j();
         return LoggerFactory.getLogger(loggerName);
     }

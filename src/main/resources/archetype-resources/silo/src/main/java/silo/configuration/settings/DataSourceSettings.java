@@ -4,9 +4,11 @@
 package ${package}.${artifactId}.configuration.settings;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("!testing")
 @ConfigurationProperties("spring.datasource")
 public class DataSourceSettings
 {

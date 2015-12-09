@@ -4,7 +4,8 @@
 package ${package}.${artifactId}.configuration;
 
 import com.rebuy.sdk.customer.CustomerClient;
-import ${package}.${artifactId}.configuration.settings.*;
+import ${package}.${artifactId}.configuration.settings.CommonClientSettings;
+import ${package}.${artifactId}.configuration.settings.CustomerClientSettings;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 import org.springframework.context.annotation.Bean;
