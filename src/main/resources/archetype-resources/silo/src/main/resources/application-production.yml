@@ -7,3 +7,16 @@ spring:
 clients:
     customerClient:
         host: http://customer-silo.proxy.dc1.rebuy
+
+    permissionClient:
+        host: customer-silo.proxy.dc1.rebuy
+
+permissions:
+    cache:
+        duration: 24
+        timeunit: h
+
+remoteTokenServices:
+    clientId=${rootArtifactId}
+    secret=CHANGEME
+    endpoint=http://customer-silo.proxy.dc1.rebuy/oauth/check_token

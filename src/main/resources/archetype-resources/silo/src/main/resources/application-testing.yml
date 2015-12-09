@@ -4,3 +4,8 @@ spring:
 
 flyway:
     locations: classpath:db.test, classpath:db.common
+
+permissions:
+    cache:
+        duration: 1
+        timeunit: s

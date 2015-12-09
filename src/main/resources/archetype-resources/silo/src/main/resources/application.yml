@@ -23,6 +23,23 @@ clients:
     customerClient:
         host: http://customer-silo.vg
 
+    permissionClient:
+        clientId: ${rootArtifactId}
+        secret: CHANGEME
+        host: customer-silo.vg
+        port: 80
+        keepAliveDurationMs: 300000
+
 flyway:
     locations: classpath:db.migration, classpath:db.common
     baseLineOnMigrate: true
+
+permissions:
+    cache:
+        duration: 10
+        timeunit: s
+
+remoteTokenServices:
+    clientId=${rootArtifactId}
+    secret=CHANGEME
+    endpoint=http://customer-silo.vg/oauth/check_token

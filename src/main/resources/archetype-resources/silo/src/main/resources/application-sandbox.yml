@@ -6,3 +6,16 @@ spring:
 clients:
     customerClient:
         host: http://customer-silo.localhost
+
+    permissionClient:
+        host: customer-silo.localhost
+
+permissions:
+    cache:
+        duration: 24
+        timeunit: h
+
+remoteTokenServices:
+    clientId=${rootArtifactId}
+    secret=CHANGEME
+    endpoint=http://customer-silo.localhost/oauth/check_token
