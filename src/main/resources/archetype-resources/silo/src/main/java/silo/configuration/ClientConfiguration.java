@@ -36,7 +36,6 @@ public class ClientConfiguration
         ClientConfig config = getClientConfig(commonClientSettings);
 
         CustomerClient customerClient = new CustomerClient(clientSettings.host, config);
-        customerClient.setOAuthToken(commonClientSettings.oauthToken);
 
         return customerClient;
     }

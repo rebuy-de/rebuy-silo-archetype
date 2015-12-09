@@ -23,8 +23,6 @@
         <gelf4j.version>1.9</gelf4j.version>
         <h2.version>1.4.190</h2.version>
         <hamcrest-all.version>1.3</hamcrest-all.version>
-        <hibernate-entitymanager.version>5.0.5.Final</hibernate-entitymanager.version>
-        <hibernate-validator.version>5.2.2.Final</hibernate-validator.version>
         <jackson-databind.version>2.6.4</jackson-databind.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <json-path.version>2.1.0</json-path.version>
@@ -143,16 +141,6 @@
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <version>${flyway-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate-entitymanager.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate-validator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.realityforge.gelf4j</groupId>

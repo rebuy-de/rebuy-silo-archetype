@@ -1,13 +1,25 @@
 server:
-    port: 8080
+    port: 0
 
 spring:
     datasource:
-        # TODO: dont forget to CHANGE the url
-        url: jdbc:MYSQL_OR_POSTGRES_OR...
-        user: CHANGEME
-        password: CHANGEME
-        poolSize: 3
+      url: jdbc:CHANGEME
+      host: CHANGEME
+      port: CHANGEME
+      username: CHANGEME
+      password: CHANGEME
+      schema: CHANGEME
+      driver-class-name: CHANGEME
+    jpa:
+      properties:
+        hibernate:
+          jdbc:
+            batch_size: 50
+            fetch_size: 50
+            batch_versioned_data: true
+          order_updates: true
+          order_inserts: true
+
     http:
         encoding:
             charset: UTF-8
@@ -18,7 +30,6 @@ clients:
     common:
         readTimeout: 5000
         connectTimeout: 5000
-        oauthToken: SOMEUUID4
 
     customerClient:
         host: http://customer-silo.vg
@@ -32,7 +43,8 @@ clients:
 
 flyway:
     locations: classpath:db.migration, classpath:db.common
-    baseLineOnMigrate: true
+    schemas: flyway_migrations
+    table: ${rootArtifactId}_schema
 
 permissions:
     cache:

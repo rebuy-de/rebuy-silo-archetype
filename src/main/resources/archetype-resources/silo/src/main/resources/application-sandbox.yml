@@ -1,7 +1,13 @@
+server:
+    port: 0
+
 spring:
     datasource:
-        # TODO: dont forget to CHANGE the url
-        url: jdbc:MYSQL_OR_POSTGRES_OR...
+      url: jdbc:CHANGEME
+      host: CHANGEME
+      port: CHANGEME
+      username: CHANGEME
+      password: CHANGEME
 
 clients:
     customerClient:
@@ -10,12 +16,5 @@ clients:
     permissionClient:
         host: customer-silo.localhost
 
-permissions:
-    cache:
-        duration: 24
-        timeunit: h
-
 remoteTokenServices:
-    clientId=${rootArtifactId}
-    secret=CHANGEME
     endpoint=http://customer-silo.localhost/oauth/check_token
