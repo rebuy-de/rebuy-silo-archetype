@@ -4,6 +4,9 @@
 package ${package}.${artifactId}.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rebuy.library.security.client.PermissionClient;
+import com.rebuy.library.security.client.PermissionClientConfig;
+import com.rebuy.library.security.service.RemoteTokenServicesBuilder;
 import com.rebuy.sdk.customer.CustomerClient;
 import ${package}.${artifactId}.configuration.settings.CommonClientSettings;
 import ${package}.${artifactId}.configuration.settings.CustomerClientSettings;
@@ -16,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 
 @Configuration
 @Profile("!testing")
@@ -43,6 +47,7 @@ public class ClientConfiguration
 
         config.property(ClientProperties.READ_TIMEOUT, commonClientSettings.readTimeout);
         config.property(ClientProperties.CONNECT_TIMEOUT, commonClientSettings.connectTimeout);
+
         return config;
     }
 

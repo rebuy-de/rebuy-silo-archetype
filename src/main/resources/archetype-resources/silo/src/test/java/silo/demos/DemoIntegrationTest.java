@@ -7,12 +7,9 @@ import ${package}.${artifactId}.BaseIntegrationTest;
 import ${package}.${artifactId}.Application;
 import ${package}.${artifactId}.annotation.IntegrationTest;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-
 
 import static org.junit.Assert.*;
 
-@Category(IntegrationTest.class)
 public class DemoIntegrationTest extends BaseIntegrationTest
 {
     @Test
