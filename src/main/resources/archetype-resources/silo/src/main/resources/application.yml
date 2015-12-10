@@ -4,21 +4,10 @@ server:
 spring:
     datasource:
         url: jdbc:CHANGEME
-        host: CHANGEME
-        port: CHANGEME
         username: CHANGEME
         password: CHANGEME
         schema: CHANGEME
-        driver-class-name: CHANGEME
-    jpa:
-        properties:
-          hibernate:
-            jdbc:
-              batch_size: 50
-              fetch_size: 50
-              batch_versioned_data: true
-            order_updates: true
-            order_inserts: true
+        maximum-pool-size: 3
 
     http:
         encoding:

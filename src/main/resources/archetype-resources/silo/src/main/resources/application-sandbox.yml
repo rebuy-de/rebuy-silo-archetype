@@ -4,10 +4,6 @@ server:
 spring:
     datasource:
         url: jdbc:CHANGEME
-        host: CHANGEME
-        port: CHANGEME
-        username: CHANGEME
-        password: CHANGEME
 
 clients:
     customerClient:
