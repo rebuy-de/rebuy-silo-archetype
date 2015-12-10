@@ -6,15 +6,12 @@ package ${package}.${artifactId}.configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.client.PermissionClientConfig;
+import com.rebuy.library.security.configuration.RemoteTokenServicesConfig;
 import com.rebuy.library.security.service.RemoteTokenServicesBuilder;
-import com.rebuy.sdk.customer.CustomerClient;
-import ${package}.${artifactId}.configuration.settings.CommonClientSettings;
-import ${package}.${artifactId}.configuration.settings.CustomerClientSettings;
+import com.rebuy.service.something.silo.configuration.settings.PermissionClientSettings;
 import ${package}.${artifactId}.configuration.settings.RemoteTokenServicesSettings;
 import com.squareup.okhttp.ConnectionPool;
 import com.squareup.okhttp.OkHttpClient;
-import org.glassfish.jersey.client.ClientConfig;
-import org.glassfish.jersey.client.ClientProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,29 +24,6 @@ public class ClientConfiguration
 {
     @Autowired
     private ObjectMapper objectMapper;
-
-    @Bean
-    public CustomerClient customerClient(
-        CustomerClientSettings clientSettings, CommonClientSettings commonClientSettings
-    )
-    {
-        ClientConfig config = getClientConfig(commonClientSettings);
-
-        CustomerClient customerClient = new CustomerClient(clientSettings.host, config);
-        customerClient.setOAuthToken(commonClientSettings.oauthToken);
-
-        return customerClient;
-    }
-
-    private ClientConfig getClientConfig(CommonClientSettings commonClientSettings)
-    {
-        ClientConfig config = new ClientConfig();
-
-        config.property(ClientProperties.READ_TIMEOUT, commonClientSettings.readTimeout);
-        config.property(ClientProperties.CONNECT_TIMEOUT, commonClientSettings.connectTimeout);
-
-        return config;
-    }
 
     @Bean
     public RemoteTokenServices remoteTokenServices(RemoteTokenServicesSettings remoteTokenServicesSettings)

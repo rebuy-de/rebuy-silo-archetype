@@ -25,10 +25,10 @@ public class FlywayConfiguration
     {
         Flyway flyway = new Flyway();
         flyway.setDataSource(dataSource);
-        flyway.setTable("${artifactId}_schema");
-        flyway.setSchemas("flyway_migrations");
+        flyway.setTable(flywaySettings.getTable());
+        flyway.setSchemas(flywaySettings.getSchemas());
         flyway.setBaselineVersionAsString("0");
-        flyway.setBaselineOnMigrate(flywaySettings.getBaseLineOnMigrate());
+        flyway.setBaselineOnMigrate(true);
         flyway.setLocations(flywaySettings.getLocations());
 
         flyway.migrate();

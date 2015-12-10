@@ -13,13 +13,25 @@ import java.util.List;
 @ConfigurationProperties("flyway")
 public class FlywaySettings
 {
-    public List<String> locations = new ArrayList<>();
+    private List<String> locations = new ArrayList<>();
 
-    public String baseLineOnMigrate;
+    private List<String> schemas = new ArrayList<>();
+
+    private String table;
 
     public void setLocations(List<String> locations)
     {
         this.locations = locations;
+    }
+
+    public void setSchemas(List<String> schemas)
+    {
+        this.schemas = schemas;
+    }
+
+    public void setTable(String table)
+    {
+        this.table = table;
     }
 
     public String[] getLocations()
@@ -27,13 +39,13 @@ public class FlywaySettings
         return locations.toArray(new String[locations.size()]);
     }
 
-    public void setBaseLineOnMigrate(String baseLineOnMigrate)
+    public String[] getSchemas()
     {
-        this.baseLineOnMigrate = baseLineOnMigrate;
+        return schemas.toArray(new String[locations.size()]);
     }
 
-    public Boolean getBaseLineOnMigrate()
+    public String getTable()
     {
-        return Boolean.valueOf(baseLineOnMigrate);
+        return table;
     }
 }
