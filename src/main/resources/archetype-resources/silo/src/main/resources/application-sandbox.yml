@@ -6,9 +6,6 @@ spring:
         url: jdbc:CHANGEME
 
 clients:
-    customerClient:
-        host: http://customer-silo.localhost
-
     permissionClient:
         host: customer-silo.localhost
 

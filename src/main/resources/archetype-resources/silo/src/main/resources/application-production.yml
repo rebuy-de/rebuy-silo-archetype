@@ -6,9 +6,6 @@ spring:
         url: jdbc:CHANGEME
 
 clients:
-    customerClient:
-        host: customer-silo.proxy.dc1.rebuy
-
     permissionClient:
         host: customer-silo.proxy.dc1.rebuy
 
