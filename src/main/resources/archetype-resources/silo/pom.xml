@@ -299,6 +299,24 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>${flyway-core.version}</version>
+                <configuration>
+                    <user>DB USERNAME HERE!</user>
+                    <password>DB PASSWORD HERE!</password>
+                    <schemas>
+                        <schema>flyway_migrations</schema>
+                    </schemas>
+                    <baselineOnMigrate>true</baselineOnMigrate>
+                    <baselineVersion>0</baselineVersion>
+                    <locations>
+                        <location>classpath:db.migration</location>
+                        <location>classpath:db.common</location>
+                    </locations>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
