@@ -3,11 +3,11 @@ server:
 
 spring:
     datasource:
-      url: jdbc:CHANGEME
-      host: CHANGEME
-      port: CHANGEME
-      username: CHANGEME
-      password: CHANGEME
+        url: jdbc:CHANGEME
+        host: CHANGEME
+        port: CHANGEME
+        username: CHANGEME
+        password: CHANGEME
 
 clients:
     customerClient:
@@ -17,4 +17,4 @@ clients:
         host: customer-silo.proxy.dc1.rebuy
 
 remoteTokenServices:
-    endpoint=http://customer-silo.proxy.dc1.rebuy/oauth/check_token
+    endpoint: http://customer-silo.proxy.dc1.rebuy/oauth/check_token

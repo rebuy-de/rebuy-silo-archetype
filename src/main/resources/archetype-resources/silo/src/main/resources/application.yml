@@ -3,22 +3,22 @@ server:
 
 spring:
     datasource:
-      url: jdbc:CHANGEME
-      host: CHANGEME
-      port: CHANGEME
-      username: CHANGEME
-      password: CHANGEME
-      schema: CHANGEME
-      driver-class-name: CHANGEME
+        url: jdbc:CHANGEME
+        host: CHANGEME
+        port: CHANGEME
+        username: CHANGEME
+        password: CHANGEME
+        schema: CHANGEME
+        driver-class-name: CHANGEME
     jpa:
-      properties:
-        hibernate:
-          jdbc:
-            batch_size: 50
-            fetch_size: 50
-            batch_versioned_data: true
-          order_updates: true
-          order_inserts: true
+        properties:
+          hibernate:
+            jdbc:
+              batch_size: 50
+              fetch_size: 50
+              batch_versioned_data: true
+            order_updates: true
+            order_inserts: true
 
     http:
         encoding:
@@ -27,13 +27,6 @@ spring:
             force: true
 
 clients:
-    common:
-        readTimeout: 5000
-        connectTimeout: 5000
-
-    customerClient:
-        host: http://customer-silo.vg
-
     permissionClient:
         clientId: ${rootArtifactId}
         secret: CHANGEME
@@ -48,10 +41,10 @@ flyway:
 
 permissions:
     cache:
-        duration: 10
-        timeunit: s
+        duration: 24
+        timeunit: h
 
 remoteTokenServices:
-    clientId=${rootArtifactId}
-    secret=CHANGEME
-    endpoint=http://customer-silo.vg/oauth/check_token
+    clientId: ${rootArtifactId}
+    secret: CHANGEME
+    endpoint: http://customer-silo.vg/oauth/check_token
