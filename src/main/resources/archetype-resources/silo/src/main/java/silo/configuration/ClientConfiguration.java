@@ -8,7 +8,7 @@ import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.client.PermissionClientConfig;
 import com.rebuy.library.security.configuration.RemoteTokenServicesConfig;
 import com.rebuy.library.security.service.RemoteTokenServicesBuilder;
-import com.rebuy.service.something.silo.configuration.settings.PermissionClientSettings;
+import ${package}.${artifactId}.configuration.settings.PermissionClientSettings;
 import ${package}.${artifactId}.configuration.settings.RemoteTokenServicesSettings;
 import com.squareup.okhttp.ConnectionPool;
 import com.squareup.okhttp.OkHttpClient;
