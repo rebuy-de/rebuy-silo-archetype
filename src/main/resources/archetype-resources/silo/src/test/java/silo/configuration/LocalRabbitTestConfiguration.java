@@ -3,6 +3,7 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId}.configuration;
 
+import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Exchange;
@@ -15,8 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @Configuration
 @Profile({"testing"})
@@ -25,9 +25,7 @@ public class LocalRabbitTestConfiguration
     @Bean
     public AmqpTemplate amqpTemplate()
     {
-        RabbitTemplate template = mock(RabbitTemplate.class);
-        when(template.getConnectionFactory()).thenReturn(connectionFactory());
-        return template;
+        return mock(RabbitTemplate.class);
     }
 
     @Bean
@@ -46,7 +44,11 @@ public class LocalRabbitTestConfiguration
     public ConnectionFactory connectionFactory()
     {
         ConnectionFactory factory = mock(ConnectionFactory.class);
-        when(factory.createConnection()).thenReturn(mock(Connection.class));
+        Connection connection = mock(Connection.class);
+
+        when(factory.createConnection()).thenReturn(connection);
+        when(connection.createChannel(anyBoolean())).thenReturn(mock(Channel.class));
+
         return factory;
     }
 
@@ -55,6 +57,7 @@ public class LocalRabbitTestConfiguration
     {
         final Exchange mock = mock(Exchange.class);
         when(mock.getName()).thenReturn("rebuy");
+
         return mock;
     }
 }

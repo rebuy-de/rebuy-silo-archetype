@@ -1,15 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>pom</packaging>
-    <url>http://maven.apache.org</url>
     <name>${artifactId} service (restful reBuy)</name>
-
+    <url>http://maven.apache.org</url>
+    <modules>
+        <module>messages</module>
+        <module>web</module>
+        <module>silo</module>
+    </modules>
+    <distributionManagement>
+        <repository>
+            <id>com-rebuy-maven</id>
+            <name>reBuy maven repository</name>
+            <url>scp://maven:maven@maven.dc1.rebuy/home/maven/repo-local/</url>
+        </repository>
+    </distributionManagement>
+    <properties>
+        <compiler.version>1.8</compiler.version>
+        <jacoco-maven-plugin.version>0.7.5.201505241946</jacoco-maven-plugin.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <maven-source-plugin.version>2.4</maven-source-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <wagon-ssh.version>2.10</wagon-ssh.version>
+    </properties>
+    <repositories>
+        <repository>
+            <id>com-rebuy-maven</id>
+            <name>reBuy maven repository</name>
+            <url>http://maven.dc1.rebuy/repository</url>
+        </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <name>Spring Maven MILESTONE Repository</name>
+            <url>http://maven.springframework.org/milestone</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>m2.java.net</id>
+            <name>Java.net Maven 2 Repository</name>
+            <url>http://download.java.net/maven/2</url>
+            <layout>default</layout>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <pluginManagement>
             <plugins>
@@ -22,34 +61,13 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco-maven-plugin.version}</version>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
                     <configuration>
-                        <propertyName>jacoco.agent.argLine</propertyName>
-                        <!-- default: argLine -->
-                        <includes>
-                            <include>com/rebuy/**</include>
-                        </includes>
-                        <destFile>${project.build.directory}/jacoco-integration.exec</destFile>
-                        <dataFile>${project.build.directory}/jacoco-integration.exec</dataFile>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat>
                     </configuration>
-                    <executions>
-                        <execution>
-                            <id>agent</id>
-                            <phase>pre-integration-test</phase>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>report</id>
-                            <phase>site</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -65,13 +83,33 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>${maven-release-plugin.version}</version>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco-maven-plugin.version}</version>
                     <configuration>
-                        <autoVersionSubmodules>true</autoVersionSubmodules>
-                        <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat>
+                        <dataFile>${project.build.directory}/jacoco-integration.exec</dataFile>
+                        <destFile>${project.build.directory}/jacoco-integration.exec</destFile>
+                        <includes>
+                            <include>com/rebuy/**</include>
+                        </includes>
+                        <propertyName>jacoco.agent.argLine</propertyName>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>agent</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                            <phase>pre-integration-test</phase>
+                        </execution>
+                        <execution>
+                            <id>report</id>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                            <phase>site</phase>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -83,40 +121,4 @@
             </extension>
         </extensions>
     </build>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <compiler.version>1.8</compiler.version>
-        <jacoco-maven-plugin.version>0.7.2.201409121644</jacoco-maven-plugin.version>
-        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-        <wagon-ssh.version>2.6</wagon-ssh.version>
-        <maven-release-plugin.version>2.4.2</maven-release-plugin.version>
-    </properties>
-
-    <repositories>
-        <repository>
-            <id>com-rebuy-maven</id>
-            <name>reBuy maven repository</name>
-            <url>http://maven.dc1.rebuy/repository</url>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>m2.java.net</id>
-            <name>Java.net Maven 2 Repository</name>
-            <url>http://download.java.net/maven/2</url>
-            <layout>default</layout>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <distributionManagement>
-        <repository>
-            <id>com-rebuy-maven</id>
-            <name>reBuy maven repository</name>
-            <url>scp://maven:maven@maven.dc1.rebuy/home/maven/repo-local/</url>
-        </repository>
-    </distributionManagement>
-
 </project>

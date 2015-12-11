@@ -3,6 +3,7 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId};
 
+import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -14,7 +15,7 @@ public class Application
     public static void main(String[] args)
     {
         new SpringApplicationBuilder()
-            .showBanner(false)
+            .bannerMode(Banner.Mode.OFF)
             .sources(Application.class)
             .run(args);
     }

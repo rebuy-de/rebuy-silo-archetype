@@ -1,0 +1,13 @@
+server:
+    port: 0
+
+spring:
+    datasource:
+        url: jdbc:CHANGEME
+
+clients:
+    permissionClient:
+        host: customer-silo.localhost
+
+remoteTokenServices:
+    endpoint: http://customer-silo.localhost/oauth/check_token

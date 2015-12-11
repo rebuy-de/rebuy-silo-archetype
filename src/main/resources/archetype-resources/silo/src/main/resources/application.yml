@@ -1,9 +1,39 @@
 server:
-    port: 8080
+    port: 0
 
 spring:
+    datasource:
+        url: jdbc:CHANGEME
+        username: CHANGEME
+        password: CHANGEME
+        schema: CHANGEME
+        maximum-pool-size: 3
+
     http:
         encoding:
             charset: UTF-8
             enabled: true
             force: true
+
+clients:
+    permissionClient:
+        clientId: ${rootArtifactId}
+        secret: CHANGEME
+        host: customer-silo.vg
+        port: 80
+        keepAliveDurationMs: 300000
+
+flyway:
+    locations: classpath:db.migration, classpath:db.common
+    schemas: flyway_migrations
+    table: CHANGEME
+
+permissions:
+    cache:
+        duration: 24
+        timeunit: h
+
+remoteTokenServices:
+    clientId: ${rootArtifactId}
+    secret: CHANGEME
+    endpoint: http://customer-silo.vg/oauth/check_token

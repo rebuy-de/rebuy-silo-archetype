@@ -8,10 +8,12 @@ import com.rebuy.library.messaging.configuration.MessagingOutboundConfiguration;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
 @Configuration
+@Profile("!testing")
 public class LocalMessagingOutboundConfiguration extends MessagingOutboundConfiguration
 {
     @Bean

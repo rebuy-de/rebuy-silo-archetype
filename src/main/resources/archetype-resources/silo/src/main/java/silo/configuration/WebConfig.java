@@ -3,14 +3,10 @@
 #set( $symbol_escape = '\' )
 package ${package}.${artifactId}.configuration;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.data.web.SortHandlerMethodArgumentResolver;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -19,7 +15,6 @@ import org.springframework.integration.config.EnableIntegration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Configuration
@@ -27,23 +22,16 @@ import java.util.List;
 @EnableIntegration
 public class WebConfig extends WebMvcConfigurerAdapter
 {
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters)
     {
         MappingJackson2HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter();
-        jacksonConverter.setObjectMapper(objectMapper());
+        jacksonConverter.setObjectMapper(objectMapper);
         converters.add(jacksonConverter);
         super.configureMessageConverters(converters);
-    }
-
-    @Bean
-    public ObjectMapper objectMapper()
-    {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setDateFormat(new ISO8601DateFormat());
-        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.PUBLIC_ONLY);
-
-        return mapper;
     }
 
     @Override

@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>${groupId}</groupId>
         <artifactId>${rootArtifactId}</artifactId>
         <version>${version}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}.${rootArtifactId}</groupId>
     <artifactId>messages</artifactId>
-    <name>${rootArtifactId} (restful reBuy) message</name>
-    <packaging>jar</packaging>
     <version>${version}</version>
-
+    <packaging>jar</packaging>
+    <name>${rootArtifactId} (restful reBuy) message</name>
     <scm>
         <developerConnection>scm:git:git@github.com:rebuy-de/${project.artifactId}.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
+    <properties>
+        <wagon-ssh.version>2.10</wagon-ssh.version>
+    </properties>
     <build>
         <finalName>messages</finalName>
         <pluginManagement>
@@ -25,10 +26,6 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <inherited>true</inherited>
-                    <configuration>
-                        <source>${compiler.version}</source>
-                        <target>${compiler.version}</target>
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -40,9 +37,4 @@
             </extension>
         </extensions>
     </build>
-
-    <properties>
-        <compiler.version>1.8</compiler.version>
-        <wagon-ssh.version>2.6</wagon-ssh.version>
-    </properties>
 </project>
