@@ -26,7 +26,7 @@ clients:
 flyway:
     locations: classpath:db.migration, classpath:db.common
     schemas: flyway_migrations
-    table: ${artifactId}_schema
+    table: CHANGEME
 
 permissions:
     cache:
