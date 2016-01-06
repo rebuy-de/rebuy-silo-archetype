@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 
-@Controller
+@RestController
 @RequestMapping(value = "/examples", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ExampleController
 {
