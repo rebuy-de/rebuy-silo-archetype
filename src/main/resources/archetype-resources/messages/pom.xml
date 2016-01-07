@@ -18,17 +18,12 @@
     </scm>
     <properties>
         <wagon-ssh.version>2.10</wagon-ssh.version>
+        <properties>
+            <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
+        </properties>
     </properties>
     <build>
         <finalName>messages</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <inherited>true</inherited>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
