@@ -20,14 +20,6 @@
 
     <build>
         <finalName>web</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <inherited>true</inherited>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
@@ -39,5 +31,6 @@
 
     <properties>
         <wagon-ssh.version>2.10</wagon-ssh.version>
+        <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
     </properties>
 </project>
