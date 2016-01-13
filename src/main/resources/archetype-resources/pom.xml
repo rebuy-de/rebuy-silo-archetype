@@ -7,7 +7,11 @@
     <version>${version}</version>
     <packaging>pom</packaging>
     <name>${artifactId} service (restful reBuy)</name>
-    <url>http://maven.apache.org</url>
+    <url>https://github.com/rebuy-de/CHANGEME</url>
+    <scm>
+        <developerConnection>scm:git:git@github.com:rebuy-de/CHANGEME.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <modules>
         <module>messages</module>
         <module>web</module>
