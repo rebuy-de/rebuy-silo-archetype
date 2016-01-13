@@ -309,6 +309,7 @@
                 <configuration>
                     <user>DB USERNAME HERE!</user>
                     <password>DB PASSWORD HERE!</password>
+                    <table>${artifactId}_schema</table>
                     <schemas>
                         <schema>flyway_migrations</schema>
                     </schemas>
