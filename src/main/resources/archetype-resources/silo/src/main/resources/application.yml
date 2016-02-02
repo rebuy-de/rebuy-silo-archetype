@@ -1,9 +1,11 @@
+stage: vagrant
+
 server:
     port: 0
 
 spring:
     datasource:
-        url: jdbc:CHANGEME
+        url: jdbc:CHANGEME://${spring.config.name}.CHANGME.service.${stage}.consul/CHANGEME
         username: CHANGEME
         password: CHANGEME
         schema: CHANGEME
@@ -14,6 +16,8 @@ spring:
             charset: UTF-8
             enabled: true
             force: true
+    config:
+        name: CHANGEME
 
 clients:
     permissionClient:
@@ -37,3 +41,7 @@ remoteTokenServices:
     clientId: ${rootArtifactId}
     secret: CHANGEME
     endpoint: http://customer-silo.vg/oauth/check_token
+
+consul:
+    name: ${spring.config.name}
+    agent: 192.168.33.10
