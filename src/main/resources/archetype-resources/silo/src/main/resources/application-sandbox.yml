@@ -1,9 +1,7 @@
+stage: sandbox
+
 server:
     port: 0
-
-spring:
-    datasource:
-        url: jdbc:CHANGEME
 
 clients:
     permissionClient:

@@ -79,6 +79,7 @@
                         <include>silo/domain/*.java</include>
                         <include>silo/domain/entity/*.java</include>
                         <include>silo/domain/persistence/*.java</include>
+                        <include>silo/domain/service/*.java</include>
                         <include>silo/web/*.java</include>
                         <include>silo/web/controller/*.java</include>
                         <include>silo/web/dto/*.java</include>
