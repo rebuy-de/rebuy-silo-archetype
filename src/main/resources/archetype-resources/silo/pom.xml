@@ -38,7 +38,7 @@
         <rebuy.messaging.version>3.1.0</rebuy.messaging.version>
         <rebuy.projector.version>4.1.0</rebuy.projector.version>
         <rebuy.security.version>4.0.0</rebuy.security.version>
-        <rebuy.consul-client.version>1.2.0</rebuy.consul-client.version>
+        <rebuy.consul-client.version>1.4.0</rebuy.consul-client.version>
         <spring-integration-amqp.version>4.2.4.RELEASE</spring-integration-amqp.version>
         <spring-integration-core.version>4.2.4.RELEASE</spring-integration-core.version>
         <spring-security-oauth2.version>2.0.8.RELEASE</spring-security-oauth2.version>
