@@ -9,3 +9,6 @@ clients:
 
 remoteTokenServices:
     endpoint: http://customer-silo.proxy.dc1.rebuy/oauth/check_token
+
+consulClient:
+    agent: 127.0.0.1
