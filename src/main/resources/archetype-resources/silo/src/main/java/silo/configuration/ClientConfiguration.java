@@ -7,9 +7,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.client.PermissionClientConfig;
 import com.rebuy.library.security.configuration.RemoteTokenServicesConfig;
+import com.rebuy.consul.ConsulService;
+import com.rebuy.consul.ConsulServiceBuilder;
 import com.rebuy.library.security.service.RemoteTokenServicesBuilder;
 import ${package}.${artifactId}.configuration.settings.PermissionClientSettings;
 import ${package}.${artifactId}.configuration.settings.RemoteTokenServicesSettings;
+import ${package}.${artifactId}.configuration.settings.ConsulSettings;
 import com.squareup.okhttp.ConnectionPool;
 import com.squareup.okhttp.OkHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +55,19 @@ public class ClientConfiguration
         okHttpClient.setConnectionPool(new ConnectionPool(2, permissionClientSettings.keepAliveDurationMs));
 
         return new PermissionClient(config, okHttpClient, objectMapper);
+    }
+
+    @Bean
+    public ConsulService consulService(ConsulSettings consulSettings)
+    {
+        ConsulServiceBuilder consulServiceBuilder = new ConsulServiceBuilder();
+
+        return consulServiceBuilder
+            .agent(consulSettings.agent)
+            .port(consulSettings.siloPort)
+            .name(consulSettings.name)
+            .tag("silo")
+            .tag("vhost")
+            .build();
     }
 }

@@ -15,6 +15,8 @@ public class ConsulSettings
 
     public String agent;
 
+    public int siloPort;
+
     public void setName(String name)
     {
         this.name = name;
@@ -23,5 +25,9 @@ public class ConsulSettings
     public void setAgent(String agent)
     {
         this.agent = agent;
+    }
+
+    public void setSiloPort(int siloPort) {
+        this.siloPort = siloPort;
     }
 }

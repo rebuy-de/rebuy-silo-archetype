@@ -45,3 +45,4 @@ remoteTokenServices:
 consul:
     name: ${spring.config.name}
     agent: 192.168.33.10
+    siloPort: ${server.port}
