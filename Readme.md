@@ -4,4 +4,4 @@ Maven stuff
 
 ## Primary responsible person (PRP)
 
-* Tome Poljaric, [@peterpunch](https://github.com/peterpunch)
+* PRP-Rebuy-Silo-Archetype, [@prp-rebuy-silo-archetype](https://github.com/orgs/rebuy-de/teams/prp-rebuy-silo-archetype)
