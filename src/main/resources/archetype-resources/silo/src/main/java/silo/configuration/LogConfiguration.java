@@ -15,6 +15,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 
+import java.io.InputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -25,13 +26,16 @@ public class LogConfiguration
     @Autowired
     private Environment env;
 
-    private void configureLog4j() throws IOException
+    private void configureLog4j()
     {
         for (String profile : env.getActiveProfiles()) {
             ClassPathResource resource = new ClassPathResource(profile + "/log4j.properties");
-            Properties properties = new Properties();
-            properties.load(resource.getInputStream());
-            PropertyConfigurator.configure(properties);
+
+            try (InputStream configFile = resource.getInputStream()) {
+                PropertyConfigurator.configure(configFile);
+                return;
+            } catch (IOException ignore) {
+            }
         }
 
         BasicConfigurator.configure();
