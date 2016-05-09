@@ -27,7 +27,8 @@ public class ConsulSettings
         this.agent = agent;
     }
 
-    public void setSiloPort(int siloPort) {
+    public void setSiloPort(int siloPort)
+    {
         this.siloPort = siloPort;
     }
 }
