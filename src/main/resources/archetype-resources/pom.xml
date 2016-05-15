@@ -1,151 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>com.github.rebuy-de</groupId>
+        <artifactId>uber-pom</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>pom</packaging>
     <name>${artifactId} service (restful reBuy)</name>
-    <url>https://github.com/rebuy-de/CHANGEME</url>
+
     <scm>
-        <developerConnection>scm:git:git@github.com:rebuy-de/CHANGEME.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:rebuy-de/${artifactId}.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
+
     <modules>
         <module>messages</module>
         <module>web</module>
         <module>silo</module>
     </modules>
-    <distributionManagement>
-        <repository>
-            <id>com-rebuy-maven</id>
-            <name>reBuy maven repository</name>
-            <url>scp://maven:maven@maven.dc1.rebuy/home/maven/repo-local/</url>
-        </repository>
-    </distributionManagement>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <compiler.version>1.8</compiler.version>
-
-        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <maven-source-plugin.version>2.4</maven-source-plugin.version>
-
-        <wagon-ssh.version>2.10</wagon-ssh.version>
-
         <jacoco-maven-plugin.version>0.7.5.201505241946</jacoco-maven-plugin.version>
-
         <jacoco.outputDir>${project.basedir}/target/jacoco</jacoco.outputDir>
         <jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
         <jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
         <sonar.jacoco.reportPath>${jacoco.outputDir}/${jacoco.out.ut.file}</sonar.jacoco.reportPath>
         <sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
     </properties>
-    <repositories>
-        <repository>
-            <id>com-rebuy-maven</id>
-            <name>reBuy maven repository</name>
-            <url>http://maven.dc1.rebuy/repository</url>
-        </repository>
-    </repositories>
+
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <source>${compiler.version}</source>
-                        <target>${compiler.version}</target>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>${maven-release-plugin.version}</version>
-                    <configuration>
-                        <autoVersionSubmodules>true</autoVersionSubmodules>
-                        <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven-source-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>                
-            </plugins>
-        </pluginManagement>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh</artifactId>
-                <version>${wagon-ssh.version}</version>
-            </extension>
-        </extensions>
+        <finalName>${artifactId}</finalName>
     </build>
 
     <profiles>
-    <profile>
-        <id>sonar-coverage</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <build>
-            <pluginManagement>
+        <profile>
+            <id>sonar-coverage</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.jacoco</groupId>
+                            <artifactId>jacoco-maven-plugin</artifactId>
+                            <version>${jacoco-maven-plugin.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>${jacoco-maven-plugin.version}</version>
+                        <configuration>
+                            <append>true</append>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>prepare-ut-agent</id>
+                                <phase>process-test-classes</phase>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                                    <propertyName>jacoco.agent.ut.arg</propertyName>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>prepare-it-agent</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>prepare-agent-integration</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${sonar.jacoco.itReportPath}</destFile>
+                                    <propertyName>jacoco.agent.it.arg</propertyName>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
-            </pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <configuration>
-                        <append>true</append>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>prepare-ut-agent</id>
-                            <phase>process-test-classes</phase>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                            <configuration>
-                                <destFile>${sonar.jacoco.reportPath}</destFile>
-                                <propertyName>jacoco.agent.ut.arg</propertyName>
-                                <append>true</append>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>prepare-it-agent</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>prepare-agent-integration</goal>
-                            </goals>
-                            <configuration>
-                                <destFile>${sonar.jacoco.itReportPath}</destFile>
-                                <propertyName>jacoco.agent.it.arg</propertyName>
-                                <append>true</append>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </build>
-    </profile>
-</profiles>
+            </build>
+        </profile>
+    </profiles>
 </project>
