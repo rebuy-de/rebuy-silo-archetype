@@ -17,17 +17,9 @@
         <tag>HEAD</tag>
     </scm>
     <properties>
-        <wagon-ssh.version>2.10</wagon-ssh.version>
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
     </properties>
     <build>
         <finalName>messages</finalName>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh</artifactId>
-                <version>${wagon-ssh.version}</version>
-            </extension>
-        </extensions>
     </build>
 </project>
