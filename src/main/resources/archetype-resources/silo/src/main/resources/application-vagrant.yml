@@ -1,0 +1,15 @@
+stage: vagrant
+
+spring:
+    datasource:
+        url: jdbc:CHANGEME://${spring.config.name}.CHANGME.service.vagrant.consul/CHANGEME
+
+clients:
+    permissionClient:
+        host: customer-silo.vg
+
+remoteTokenServices:
+    endpoint: http://customer-silo.vg/oauth/check_token
+
+consul:
+    agent: 192.168.33.10
