@@ -1,7 +1,5 @@
-stage: vagrant
-
 server:
-    port: 0
+    port: CHANGEME
 
 spring:
     datasource:
@@ -23,7 +21,6 @@ clients:
     permissionClient:
         clientId: ${rootArtifactId}
         secret: CHANGEME
-        host: customer-silo.vg
         port: 80
         keepAliveDurationMs: 300000
 
@@ -40,9 +37,7 @@ permissions:
 remoteTokenServices:
     clientId: ${rootArtifactId}
     secret: CHANGEME
-    endpoint: http://customer-silo.vg/oauth/check_token
 
 consul:
     name: ${spring.config.name}
-    agent: 192.168.33.10
     siloPort: ${server.port}
