@@ -26,6 +26,7 @@
     </properties>
 
     <build>
+        <finalName>rebuy-silo-archetype</finalName>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
