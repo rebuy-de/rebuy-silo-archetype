@@ -33,7 +33,7 @@ public class ClientConfiguration
         return new RemoteTokenServicesBuilder()
             .setClientId(remoteTokenServicesSettings.clientId)
             .setClientSecret(remoteTokenServicesSettings.secret)
-            .setHost(remoteTokenServicesSettings.secret)
+            .setHost(remoteTokenServicesSettings.endpoint)
             .build();
     }
 
