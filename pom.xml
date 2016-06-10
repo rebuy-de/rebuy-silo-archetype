@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.github.rebuy-de</groupId>
+        <artifactId>uber-pom</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.rebuy.archetypes</groupId>
     <artifactId>rebuy-silo-archetype</artifactId>
-    <version>3.2.1-SNAPSHOT</version>
+    <version>5.0.0-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
     <name>rebuy-silo-archetype</name>
 
     <scm>
         <developerConnection>scm:git:git@github.com:rebuy-de/rebuy-silo-archetype.git</developerConnection>
-        <tag>rebuy-silo-archetype-2.4.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
@@ -52,35 +58,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <repositories>
-        <repository>
-            <id>com-rebuy-maven</id>
-            <name>reBuy maven repository</name>
-            <url>http://maven.dc1.rebuy/repository</url>
-        </repository>
-        <repository>
-            <id>spring-milestone</id>
-            <name>Spring Maven MILESTONE Repository</name>
-            <url>http://maven.springframework.org/milestone</url>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>m2.java.net</id>
-            <name>Java.net Maven 2 Repository</name>
-            <url>http://download.java.net/maven/2</url>
-            <layout>default</layout>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <distributionManagement>
-        <repository>
-            <id>com-rebuy-maven</id>
-            <name>reBuy maven repository</name>
-            <url>scp://maven:maven@maven.dc1.rebuy/home/maven/repo-local/</url>
-        </repository>
-    </distributionManagement>
-    <url>http://maven.apache.org</url>
 </project>
