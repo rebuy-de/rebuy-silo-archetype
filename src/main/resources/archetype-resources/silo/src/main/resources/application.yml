@@ -40,7 +40,7 @@ permissions:
 remoteTokenServices:
     clientId: ${rootArtifactId}
     secret: CHANGEME
-    endpoint: http://customer-silo.vg/oauth/check_token
+    endpoint: customer-silo.vg
 
 consul:
     name: ${spring.config.name}

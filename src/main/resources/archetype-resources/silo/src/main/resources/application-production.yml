@@ -8,7 +8,7 @@ clients:
         host: customer-silo.proxy.dc1.rebuy
 
 remoteTokenServices:
-    endpoint: http://customer-silo.proxy.dc1.rebuy/oauth/check_token
+    endpoint: customer-silo.proxy.dc1.rebuy
 
 consul:
     agent: 127.0.0.1
