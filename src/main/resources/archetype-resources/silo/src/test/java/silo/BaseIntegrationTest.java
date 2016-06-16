@@ -20,6 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 @Category(IntegrationTest.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebIntegrationTest(
+    randomPort = true,
     value = {"spring.profiles.active=testing"}
 )
 public abstract class BaseIntegrationTest

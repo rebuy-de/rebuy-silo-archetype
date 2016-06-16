@@ -3,8 +3,6 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId}.demos;
 
-import ${package}.${artifactId}.annotation.UnitTest;
-
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.Test;
