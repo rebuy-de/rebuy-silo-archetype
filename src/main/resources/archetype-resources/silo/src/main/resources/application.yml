@@ -17,11 +17,11 @@ spring:
             enabled: true
             force: true
     config:
-        name: CHANGEME
+        name: ${rootArtifactId}
 
 clients:
     permissionClient:
-        clientId: ${rootArtifactId}
+        clientId: ${spring.config.name}
         secret: CHANGEME
         host: customer-silo.vg
         port: 80
@@ -38,11 +38,11 @@ permissions:
         timeunit: h
 
 remoteTokenServices:
-    clientId: ${rootArtifactId}
+    clientId: ${spring.config.name}
     secret: CHANGEME
     endpoint: customer-silo.vg
 
 consul:
-    name: ${spring.config.name}
+    name: ${spring.config.name}-silo
     agent: 192.168.33.10
     siloPort: ${server.port}

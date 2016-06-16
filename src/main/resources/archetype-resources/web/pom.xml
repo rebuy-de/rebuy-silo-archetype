@@ -9,12 +9,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}.${rootArtifactId}</groupId>
     <artifactId>web</artifactId>
-    <name>${rootArtifactId} (restful reBuy) message</name>
+    <name>${rootArtifactId} (restful reBuy) web</name>
     <packaging>jar</packaging>
     <version>${version}</version>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:rebuy-de/${project.artifactId}.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:rebuy-de/${parent.artifactId}-silo.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
