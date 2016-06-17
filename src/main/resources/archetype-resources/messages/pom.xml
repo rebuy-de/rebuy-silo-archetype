@@ -13,7 +13,7 @@
     <packaging>jar</packaging>
     <name>${rootArtifactId} (restful reBuy) message</name>
     <scm>
-        <developerConnection>scm:git:git@github.com:rebuy-de/${project.artifactId}.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:rebuy-de/${parent.artifactId}-silo.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     <properties>

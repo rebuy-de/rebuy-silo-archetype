@@ -15,7 +15,7 @@
     <name>${artifactId} service (restful reBuy)</name>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:rebuy-de/${artifactId}.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:rebuy-de/${artifactId}-silo.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
