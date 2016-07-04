@@ -39,11 +39,11 @@ public class WebConfig extends WebMvcConfigurerAdapter
     {
         PageableHandlerMethodArgumentResolver pageableHandlerMethodArgumentResolver = new PageableHandlerMethodArgumentResolver();
         pageableHandlerMethodArgumentResolver.setPrefix("page.");
+        pageableHandlerMethodArgumentResolver.setOneIndexedParameters(true);
         argumentResolvers.add(pageableHandlerMethodArgumentResolver);
 
         SortHandlerMethodArgumentResolver sortResolver = new SortHandlerMethodArgumentResolver();
         sortResolver.setSortParameter("page.sort");
-
         argumentResolvers.add(sortResolver);
     }
 }
