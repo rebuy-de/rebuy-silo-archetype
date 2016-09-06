@@ -49,22 +49,14 @@ public class SecurityLibraryConfiguration extends ResourceServerConfigurerAdapte
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception
     {
         resources.resourceId("${rootArtifactId}");
-
         resources.tokenServices(remoteTokenServices);
     }
 
-    @Bean
-    public TokenCache tokenCache()
+    @Bean(name = "permissionEvaluator")
+    public RebuyPermissionEvaluator rebuyPermissionEvaluator(PermissionCacheSettings permissionCacheSettings, TokenCache tokenCache)
     {
-        return new TokenCache(new TokenCacheLoader(permissionClient));
-    }
 
-    @Bean
-    public RebuyPermissionEvaluator rebuyPermissionEvaluator(
-        PermissionCacheSettings permissionCacheSettings
-    )
-    {
-        PermissionCacheLoader permissionCacheLoader = new PermissionCacheLoader(permissionClient, tokenCache());
+        PermissionCacheLoader permissionCacheLoader = new PermissionCacheLoader(permissionClient, tokenCache);
         PermissionCache permissionCache = new PermissionCache(
             permissionCacheLoader, permissionCacheSettings.duration, permissionCacheSettings.timeunit
         );
@@ -73,8 +65,8 @@ public class SecurityLibraryConfiguration extends ResourceServerConfigurerAdapte
     }
 
     @Bean
-    public AuthorizationService authorizationService()
+    public AuthorizationService authorizationService(TokenCache tokenCache)
     {
-        return new AuthorizationService(tokenCache(), remoteTokenServices);
+        return new AuthorizationService(tokenCache, remoteTokenServices);
     }
 }
