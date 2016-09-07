@@ -20,6 +20,8 @@ import static org.mockito.Mockito.*;
 @Profile("testing")
 public class ClientTestConfiguration
 {
+    public static final UUID ACCESS_TOKEN = UUID.randomUUID();
+
     @Bean
     public RemoteTokenServices remoteTokenServices()
     {
@@ -29,14 +31,15 @@ public class ClientTestConfiguration
     @Bean
     public PermissionClient permissionClient()
     {
-        PermissionClient permissionClient = mock(PermissionClient.class);
+        PermissionClient client = mock(PermissionClient.class);
 
         TokenDto tokenDto = new TokenDto();
-        tokenDto.accessToken = UUID.randomUUID();
-        tokenDto.expiresIn = TimeUnit.MINUTES.toMillis(5);
-        when(permissionClient.createToken()).thenReturn(tokenDto);
+        tokenDto.accessToken = ACCESS_TOKEN;
+        tokenDto.expiresIn = TimeUnit.HOURS.toSeconds(1);
 
-        return permissionClient;
+        when(client.createToken()).thenReturn(tokenDto);
+
+        return client;
     }
 
     @Bean
