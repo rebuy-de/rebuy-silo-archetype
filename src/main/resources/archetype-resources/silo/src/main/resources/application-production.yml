@@ -1,8 +1,5 @@
 stage: dc1
 
-server:
-    port: 0
-
 clients:
     permissionClient:
         host: customer-silo.proxy.dc1.rebuy

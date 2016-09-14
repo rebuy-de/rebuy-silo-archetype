@@ -1,8 +1,5 @@
 stage: sandbox
 
-server:
-    port: 0
-
 clients:
     permissionClient:
         host: customer-silo.localhost
