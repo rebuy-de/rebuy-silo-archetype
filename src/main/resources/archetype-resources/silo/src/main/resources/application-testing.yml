@@ -2,5 +2,9 @@ spring:
     main:
         show_banner: false
 
+    jpa:
+        hibernate:
+            ddlAuto: none
+
 flyway:
     locations: classpath:db.test, classpath:db.common
