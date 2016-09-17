@@ -17,31 +17,29 @@
         <tag>HEAD</tag>
     </scm>
     <properties>
-        <HikariCP.version>2.4.3</HikariCP.version>
+        <HikariCP.version>2.5.0</HikariCP.version>
         <aspectjweaver.version>1.8.7</aspectjweaver.version>
         <flyway-core.version>4.0.3</flyway-core.version>
-        <gelf4j.version>1.9</gelf4j.version>
         <h2.version>1.4.190</h2.version>
         <hamcrest-all.version>1.3</hamcrest-all.version>
-        <jackson-databind.version>2.6.4</jackson-databind.version>
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-        <json-path.version>2.1.0</json-path.version>
+        <jackson-databind.version>2.8.2</jackson-databind.version>
+        <json-path.version>2.2.0</json-path.version>
         <junit.version>4.12</junit.version>
-        <maven-apt-plugin.version>1.0.4</maven-apt-plugin.version>
+        <apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
         <maven-failsafe-plugin.version>2.19</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>2.19</maven-surefire-plugin.version>
         <mockito.version>1.10.19</mockito.version>
-        <querydsl.version>3.7.0</querydsl.version>
+        <querydsl.version>4.1.4</querydsl.version>
         <rebuy.common.version>4.1.0</rebuy.common.version>
         <rebuy.customer-client.version>2.7.0</rebuy.customer-client.version>
-        <rebuy.messaging.version>3.5.0</rebuy.messaging.version>
+        <rebuy.messaging.version>3.6.0</rebuy.messaging.version>
         <rebuy.projector.version>4.1.0</rebuy.projector.version>
         <rebuy.security.version>5.1.0</rebuy.security.version>
         <rebuy.consul-client.version>1.4.1</rebuy.consul-client.version>
-        <spring-integration-amqp.version>4.2.4.RELEASE</spring-integration-amqp.version>
-        <spring-integration-core.version>4.2.4.RELEASE</spring-integration-core.version>
         <spring-security-oauth2.version>2.0.9.RELEASE</spring-security-oauth2.version>
-        <spring.boot.version>1.3.5.RELEASE</spring.boot.version>
+        <spring.boot.version>1.4.0.RELEASE</spring.boot.version>
+        <log4j2-gelf.version>1.3.0</log4j2-gelf.version>
+        <javax.el-api.version>3.0.0</javax.el-api.version>
 
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
     </properties>
@@ -63,30 +61,26 @@
             <version>${jackson-databind.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.mysema.querydsl</groupId>
+            <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
             <version>${querydsl.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.mysema.querydsl</groupId>
+            <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
             <version>${querydsl.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.rebuy.library</groupId>
             <artifactId>messaging</artifactId>
             <version>${rebuy.messaging.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.integration</groupId>
-                    <artifactId>spring-integration-amqp</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.integration</groupId>
-                    <artifactId>spring-integration-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.rebuy.library</groupId>
@@ -122,17 +116,17 @@
             <groupId>com.rebuy</groupId>
             <artifactId>consul-java-client</artifactId>
             <version>${rebuy.consul-client.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>${HikariCP.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${javax.servlet-api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -145,9 +139,9 @@
             <version>${flyway-core.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.realityforge.gelf4j</groupId>
-            <artifactId>gelf4j</artifactId>
-            <version>${gelf4j.version}</version>
+            <groupId>org.graylog2.log4j2</groupId>
+            <artifactId>log4j2-gelf</artifactId>
+            <version>${log4j2-gelf.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -165,7 +159,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j</artifactId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -191,16 +185,6 @@
                     <artifactId>tomcat-jdbc</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-amqp</artifactId>
-            <version>${spring-integration-amqp.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-core</artifactId>
-            <version>${spring-integration-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
@@ -254,14 +238,19 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>${javax.el-api.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>${project.parent.artifactId}-${project.artifactId}</finalName>
         <plugins>
             <plugin>
-                <groupId>com.mysema.maven</groupId>
-                <artifactId>maven-apt-plugin</artifactId>
-                <version>${maven-apt-plugin.version}</version>
+              <groupId>com.mysema.maven</groupId>
+              <artifactId>apt-maven-plugin</artifactId>
+              <version>${apt-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -270,7 +259,7 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <outputDirectory>target/generated-sources/querydsl</outputDirectory>
-                            <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+                            <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
                         </configuration>
                     </execution>
                 </executions>
