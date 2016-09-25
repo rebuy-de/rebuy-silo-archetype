@@ -16,8 +16,8 @@
         <GELF name="gelfAppender" server="logstash-gelf.service.vagrant.consul" port="22201" includeExceptionCause="true">
             <PatternLayout pattern="%logger{36} - %msg%n"/>
             <Filters>
-                <Filter type="MarkerFilter" marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL"/>
-                <Filter type="MarkerFilter" marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
+                <MarkerFilter marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <MarkerFilter marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
             </Filters>
             <KeyValuePair key="environment" value="development"/>
             <KeyValuePair key="facility" value="${rootArtifactId}"/>

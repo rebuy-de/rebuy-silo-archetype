@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 
+import javax.annotation.PostConstruct;
 import java.io.InputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -23,6 +24,7 @@ public class LogConfiguration
     @Autowired
     private Environment env;
 
+    @PostConstruct
     private void configureLog4j()
     {
         for (String profile : env.getActiveProfiles()) {
