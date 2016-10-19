@@ -17,7 +17,7 @@ public class Application
     public static void main(String[] args)
     {
         if (!Charset.forName("UTF-8").equals(Charset.defaultCharset())) {
-            throw new RuntimeException("Default charset must be UTF-8");
+            throw new IllegalStateException("Default charset must be UTF-8");
         }
 
         new SpringApplicationBuilder()

@@ -8,3 +8,6 @@ spring:
 
 flyway:
     locations: classpath:db.test, classpath:db.common
+
+messaging:
+    host: localhost

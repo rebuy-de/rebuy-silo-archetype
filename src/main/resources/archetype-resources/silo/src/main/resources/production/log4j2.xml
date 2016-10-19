@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <RollingFile name="rollingFile" fileName="./shared/logs/error-production.log" filePattern="./shared/logs/error-production.log.%i">
+            <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy fileIndex="min" max="5"/>
+        </RollingFile>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+        </Console>
+    </Appenders>
+    <Appenders>
+        <GELF name="gelfAppender" server="logstash-gelf.service.dc1.consul" port="9000" includeExceptionCause="true">
+            <PatternLayout pattern="%logger{36} - %msg%n"/>
+            <Filters>
+                <MarkerFilter marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <MarkerFilter marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
+            </Filters>
+            <KeyValuePair key="environment" value="production"/>
+            <KeyValuePair key="facility" value="${rootArtifactId}"/>
+        </GELF>
+    </Appenders>
+    <Loggers>
+        <Logger name="${package}.${artifactId}" level="info" />
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="gelfAppender"/>
+            <AppenderRef ref="rollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

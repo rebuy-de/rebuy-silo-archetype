@@ -9,3 +9,7 @@ remoteTokenServices:
 
 consul:
     agent: 127.0.0.1
+
+messaging:
+    user: CHANGEME
+    password: CHANGEME

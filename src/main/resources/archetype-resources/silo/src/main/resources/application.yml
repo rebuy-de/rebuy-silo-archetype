@@ -5,7 +5,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:CHANGEME://${spring.config.name}.CHANGME.service.${stage}.consul/CHANGEME
+        url: jdbc:CHANGEME://${spring.config.name}.CHANGEME.service.${stage}.consul/CHANGEME
         username: CHANGEME
         password: CHANGEME
         schema: CHANGEME
@@ -28,6 +28,8 @@ clients:
         keepAliveDurationMs: 300000
 
 flyway:
+    baseline-version: 0
+    baseline-on-migrate: true
     locations: classpath:db.migration, classpath:db.common
     schemas: flyway_migrations
     table: CHANGEME
@@ -46,3 +48,12 @@ consul:
     name: ${spring.config.name}-silo
     agent: 192.168.33.10
     siloPort: ${server.port}
+
+messaging:
+    host: ${spring.config.name}.rabbitmq.service.${stage}.consul
+    virtualHost:
+    exchange: rebuy
+    durable: true
+    autoDelete: false
+    user:
+    password:
