@@ -11,8 +11,6 @@
         <Console name="STDOUT" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
         </Console>
-    </Appenders>
-    <Appenders>
         <GELF name="gelfAppender" server="logstash-gelf.service.sandbox.consul" port="22201" includeExceptionCause="true">
             <PatternLayout pattern="%logger{36} - %msg%n"/>
             <Filters>
