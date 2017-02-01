@@ -2,6 +2,7 @@ stage: vagrant
 
 server:
     port: 0
+    max-http-header-size: 32768
 
 spring:
     datasource:
