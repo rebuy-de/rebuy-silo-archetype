@@ -58,3 +58,5 @@ messaging:
     autoDelete: false
     user:
     password:
+    consumerExchange: rebuy
+    publisherExchange: rebuy
