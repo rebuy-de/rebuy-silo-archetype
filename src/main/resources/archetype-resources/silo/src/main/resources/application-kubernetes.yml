@@ -1,0 +1,12 @@
+stage: dc1
+
+clients:
+    permissionClient:
+        host: customer-silo.proxy.dc1.rebuy
+
+remoteTokenServices:
+    endpoint: customer-silo.proxy.dc1.rebuy
+
+messaging:
+    user: CHANGEME
+    password: CHANGEME
