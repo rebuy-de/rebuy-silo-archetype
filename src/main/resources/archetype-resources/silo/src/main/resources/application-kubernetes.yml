@@ -2,10 +2,10 @@ stage: dc1
 
 clients:
     permissionClient:
-        host: customer-silo.proxy.dc1.rebuy
+        host: customer-silo.default.svc.cluster.local.
 
 remoteTokenServices:
-    endpoint: customer-silo.proxy.dc1.rebuy
+    endpoint: customer-silo.default.svc.cluster.local.
 
 messaging:
     user: CHANGEME
