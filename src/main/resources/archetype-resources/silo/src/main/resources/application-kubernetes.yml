@@ -1,5 +1,8 @@
 stage: dc1
 
+server:
+    port: 8080
+
 clients:
     permissionClient:
         host: customer-silo.default.svc.cluster.local.
@@ -8,5 +11,6 @@ remoteTokenServices:
     endpoint: customer-silo.default.svc.cluster.local.
 
 messaging:
+    host: rabbitmq.default.svc.cluster.local
     user: CHANGEME
     password: CHANGEME

@@ -11,7 +11,7 @@
                 <MarkerFilter marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
             </Filters>
             <KeyValuePair key="environment" value="production"/>
-            <KeyValuePair key="facility" value="ebay-listing-silo"/>
+            <KeyValuePair key="facility" value="${rootArtifactId}"/>
         </GELF>
     </Appenders>
     <Loggers>
