@@ -1,6 +1,6 @@
 spring:
     main:
-        show_banner: false
+        banner-mode: "off"
 
     jpa:
         hibernate:

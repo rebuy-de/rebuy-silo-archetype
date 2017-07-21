@@ -9,7 +9,6 @@ spring:
         url: jdbc:CHANGEME://${spring.config.name}.CHANGEME.service.${stage}.consul/CHANGEME
         username: CHANGEME
         password: CHANGEME
-        schema: CHANGEME
         maximum-pool-size: 3
 
     http:
@@ -60,3 +59,7 @@ messaging:
     password:
     consumerExchange: rebuy
     publisherExchange: rebuy
+
+endpoints:
+    prometheus:
+        sensitive: false
