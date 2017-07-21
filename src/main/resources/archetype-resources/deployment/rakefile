@@ -1,0 +1,2 @@
+require "rebuy_deployment"
+load Rebuy_Deployment.new.get_rakefile_path

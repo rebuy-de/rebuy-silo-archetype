@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: ${rootArtifactId}-silo
+  labels:
+    team: CHANGEME
+    tier: silo
+    app: ${rootArtifactId}-silo
+
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: ${rootArtifactId}-silo

@@ -58,7 +58,7 @@ public class SecurityLibraryConfiguration extends ResourceServerConfigurerAdapte
 
         PermissionCacheLoader permissionCacheLoader = new PermissionCacheLoader(permissionClient, tokenCache);
         PermissionCache permissionCache = new PermissionCache(
-            permissionCacheLoader, permissionCacheSettings.duration, permissionCacheSettings.timeunit
+            permissionCacheLoader, permissionCacheSettings.getDuration(), permissionCacheSettings.getTimeUnit()
         );
 
         return new RebuyPermissionEvaluator(permissionCache);

@@ -32,9 +32,9 @@ public class ClientConfiguration
     public RemoteTokenServices remoteTokenServices(RemoteTokenServicesSettings remoteTokenServicesSettings)
     {
         return new RemoteTokenServicesBuilder()
-            .setClientId(remoteTokenServicesSettings.clientId)
-            .setClientSecret(remoteTokenServicesSettings.secret)
-            .setHost(remoteTokenServicesSettings.endpoint)
+            .setClientId(remoteTokenServicesSettings.getClientId())
+            .setClientSecret(remoteTokenServicesSettings.getSecret())
+            .setHost(remoteTokenServicesSettings.getEndpoint())
             .build();
     }
 
@@ -42,15 +42,15 @@ public class ClientConfiguration
     public PermissionClient permissionClient(PermissionClientSettings permissionClientSettings)
     {
         PermissionClientConfig config = new PermissionClientConfig();
-        config.clientId = permissionClientSettings.clientId;
-        config.clientSecret = permissionClientSettings.secret;
-        config.host = permissionClientSettings.host;
-        config.port = permissionClientSettings.port;
+        config.clientId = permissionClientSettings.getClientId();
+        config.clientSecret = permissionClientSettings.getSecret();
+        config.host = permissionClientSettings.getHost();
+        config.port = permissionClientSettings.getPort();
 
         config.scheme = "http://";
 
         OkHttpClient client = new OkHttpClient.Builder()
-            .connectionPool(new ConnectionPool(2, permissionClientSettings.keepAliveDurationMs, TimeUnit.MILLISECONDS))
+            .connectionPool(new ConnectionPool(2, permissionClientSettings.getKeepAliveDurationMs(), TimeUnit.MILLISECONDS))
             .build();
 
         return new PermissionClient(config, client, objectMapper);

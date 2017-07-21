@@ -20,6 +20,8 @@
     </scm>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-archetype-plugin.version>2.2</maven-archetype-plugin.version>
         <wagon-ssh.version>2.2</wagon-ssh.version>
         <maven-release-plugin.version>2.5.2</maven-release-plugin.version>

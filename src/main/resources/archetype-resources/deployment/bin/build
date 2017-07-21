@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+REPO=074509403805.dkr.ecr.eu-west-1.amazonaws.com
+
+DIR=$( dirname $0 )
+
+cd ${DIR}/../..
+ROOT=`pwd`
+cd -
+
+docker run --rm=true \
+  --user=$(id -u):$(id -g) \
+  -e HOME=/tmp \
+  -v ${ROOT}:/project \
+  -v ${HOME}/.m2/repository:/m2/repository \
+  ${REPO}/rebuy-base-image-builder-maven

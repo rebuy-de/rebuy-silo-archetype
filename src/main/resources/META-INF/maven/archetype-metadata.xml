@@ -19,6 +19,18 @@
                 <include>README.md</include>
             </includes>
         </fileSet>
+
+        <fileSet encoding="UTF-8" filtered="true">
+            <directory>deployment</directory>
+        </fileSet>
+
+        <fileSet encoding="UTF-8" filtered="true">
+            <directory />
+            <includes>
+                <include>Capfile</include>
+                <include>.jenkins.yml</include>
+            </includes>
+        </fileSet>
     </fileSets>
 
     <modules>
