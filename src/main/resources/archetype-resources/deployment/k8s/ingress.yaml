@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+
+metadata:
+  name: ${rootArtifactId}-silo
+  labels:
+    team: CHANGEME
+    tier: silo
+    app: ${rootArtifactId}-silo
+
+spec:
+  rules:
+  - host: ${rootArtifactId}-silo.{{.clusterName}}.rebuy.cloud
+    http:
+     paths:
+     - path: /
+       backend:
+         serviceName: ${rootArtifactId}-silo
+         servicePort: 80

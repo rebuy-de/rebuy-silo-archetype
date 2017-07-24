@@ -10,17 +10,27 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("permissions.cache")
 public class PermissionCacheSettings
 {
-    public int duration;
+    private int duration;
 
-    public char timeunit;
+    private char timeUnit;
+
+    public int getDuration()
+    {
+        return duration;
+    }
 
     public void setDuration(int duration)
     {
         this.duration = duration;
     }
 
-    public void setTimeunit(char timeunit)
+    public char getTimeUnit()
     {
-        this.timeunit = timeunit;
+        return timeUnit;
+    }
+
+    public void setTimeUnit(char timeUnit)
+    {
+        this.timeUnit = timeUnit;
     }
 }

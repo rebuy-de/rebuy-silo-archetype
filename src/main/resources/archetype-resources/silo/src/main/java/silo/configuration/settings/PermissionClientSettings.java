@@ -10,19 +10,29 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("clients.permissionClient")
 public class PermissionClientSettings
 {
-    public String clientId;
+    private String clientId;
 
-    public String secret;
+    private String secret;
 
-    public String host;
+    private String host;
 
-    public int port;
+    private int port;
 
-    public long keepAliveDurationMs;
+    private long keepAliveDurationMs;
+
+    public String getClientId()
+    {
+        return clientId;
+    }
 
     public void setClientId(String clientId)
     {
         this.clientId = clientId;
+    }
+
+    public String getSecret()
+    {
+        return secret;
     }
 
     public void setSecret(String secret)
@@ -30,14 +40,29 @@ public class PermissionClientSettings
         this.secret = secret;
     }
 
+    public String getHost()
+    {
+        return host;
+    }
+
     public void setHost(String host)
     {
         this.host = host;
     }
 
+    public int getPort()
+    {
+        return port;
+    }
+
     public void setPort(int port)
     {
         this.port = port;
+    }
+
+    public long getKeepAliveDurationMs()
+    {
+        return keepAliveDurationMs;
     }
 
     public void setKeepAliveDurationMs(long keepAliveDurationMs)
