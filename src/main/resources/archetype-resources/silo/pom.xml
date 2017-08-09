@@ -28,7 +28,7 @@
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
         <mockito.version>1.10.19</mockito.version>
         <querydsl.version>4.1.4</querydsl.version>
-        <rebuy.common.version>5.2.3</rebuy.common.version>
+        <rebuy.common.version>5.4.0</rebuy.common.version>
         <rebuy.customer-client.version>3.0.0</rebuy.customer-client.version>
         <rebuy.messaging.version>4.5.0</rebuy.messaging.version>
         <rebuy.projector.version>4.1.0</rebuy.projector.version>
