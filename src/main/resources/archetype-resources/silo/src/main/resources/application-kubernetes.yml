@@ -3,6 +3,10 @@ stage: dc1
 server:
     port: 8080
 
+spring:
+    datasource:
+        url: jdbc:CHANGEME://CHANGEME.aws.rebuy.loc/rebuy
+
 clients:
     permissionClient:
         host: customer-silo.default.svc.cluster.local.
