@@ -15,6 +15,7 @@
         </GELF>
     </Appenders>
     <Loggers>
+        <Logger name="org.springframework.integration.support.MessageBuilder" level="warn" />
         <Logger name="${package}.${artifactId}" level="info" />
         <Root level="info">
             <AppenderRef ref="STDOUT" level="warn" />
