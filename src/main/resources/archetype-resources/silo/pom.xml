@@ -280,7 +280,7 @@
                 <configuration>
                     <groups>${package}.${artifactId}.annotation.IntegrationTest</groups>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                    <argLine>${jacoco.agent.it.arg}</argLine>
+                    <argLine>-Dfile.encoding=UTF-8 ${jacoco.agent.it.arg}</argLine>
                 </configuration>
                 <executions>
                     <execution>
