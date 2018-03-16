@@ -1,2 +1,3 @@
 -- THIS IS AN EXAMPLE - THINK BEFORE YOU USE IT
+-- DROP SCHEMA IF EXISTS ${rootArtifactId};
 -- CREATE SCHEMA ${rootArtifactId};

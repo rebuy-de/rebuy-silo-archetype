@@ -5,7 +5,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:CHANGEME://CHANGEME.aws.rebuy.loc/rebuy
+        url: jdbc:postgresql://postgres-1.aws.rebuy.loc/rebuy
 
 clients:
     permissionClient:
