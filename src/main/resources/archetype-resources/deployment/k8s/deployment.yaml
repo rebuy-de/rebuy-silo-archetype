@@ -49,10 +49,11 @@ spec:
             -XX:CompressedClassSpaceSize=32m
             -XX:ReservedCodeCacheSize=128M
             -XX:+UseG1GC
-            -XX:HeapDumpPath=/tmp/silo.hprof
+            {{ if eq .clusterName "production" }}
             -javaagent:/usr/local/newrelic/newrelic.jar
-            -Dnewrelic.config.app_name=${rootArtifactId}-silo
-            -Dnewrelic.config.license_key=9000b22712da65fae970780dc2b2f1752527d917
+            -Dnewrelic.config.app_name==${rootArtifactId}-silo
+            -Dnewrelic.config.license_key=CHANGEME
+            {{ end }}
         ports:
         - containerPort: 8080
         resources:

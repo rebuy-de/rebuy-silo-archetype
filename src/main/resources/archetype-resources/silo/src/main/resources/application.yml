@@ -6,10 +6,11 @@ server:
 
 spring:
     datasource:
-        url: jdbc:CHANGEME://${spring.config.name}.CHANGEME.service.${stage}.consul/CHANGEME
-        username: CHANGEME
+        url: jdbc:postgresql://${spring.config.name}.postgres.service.${stage}.consul/CHANGEME
+        username: ${spring.config.name}
         password: CHANGEME
-        maximum-pool-size: 3
+        hikari:
+            maximum-pool-size: 3
 
     http:
         encoding:
@@ -43,6 +44,9 @@ remoteTokenServices:
     clientId: ${spring.config.name}
     secret: CHANGEME
     endpoint: customer-silo.vg
+    cacheDuration: 10
+    cacheTimeUnit: m
+    cacheSize: 100
 
 consul:
     name: ${spring.config.name}-silo

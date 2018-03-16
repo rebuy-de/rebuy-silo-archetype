@@ -1,4 +1,3 @@
 -- THIS IS AN EXAMPLE - THINK BEFORE YOU USE IT
--- CREATE DATABASE IF NOT EXISTS ${rootArtifactId}
---     DEFAULT COLLATE utf8_unicode_ci
---     DEFAULT CHARACTER SET utf8;
+-- DROP SCHEMA IF EXISTS ${rootArtifactId};
+-- CREATE SCHEMA ${rootArtifactId};

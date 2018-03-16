@@ -16,6 +16,12 @@ public class RemoteTokenServicesSettings
 
     private String endpoint;
 
+    private int cacheDuration;
+
+    private char cacheTimeUnit;
+
+    private int cacheSize;
+
     public String getClientId()
     {
         return clientId;
@@ -44,5 +50,35 @@ public class RemoteTokenServicesSettings
     public void setEndpoint(String endpoint)
     {
         this.endpoint = endpoint;
+    }
+
+    public int getCacheDuration()
+    {
+        return cacheDuration;
+    }
+
+    public void setCacheDuration(int cacheDuration)
+    {
+        this.cacheDuration = cacheDuration;
+    }
+
+    public char getCacheTimeUnit()
+    {
+        return cacheTimeUnit;
+    }
+
+    public void setCacheTimeUnit(char cacheTimeUnit)
+    {
+        this.cacheTimeUnit = cacheTimeUnit;
+    }
+
+    public int getCacheSize()
+    {
+        return cacheSize;
+    }
+
+    public void setCacheSize(int cacheSize)
+    {
+        this.cacheSize = cacheSize;
     }
 }

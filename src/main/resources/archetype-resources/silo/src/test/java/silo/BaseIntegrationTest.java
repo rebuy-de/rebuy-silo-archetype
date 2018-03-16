@@ -4,7 +4,7 @@
 package ${package}.${artifactId};
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rebuy.library.security.testhelper.AuthBuilder;
+import com.rebuy.library.security.test.AuthBuilder;
 import ${package}.${artifactId}.annotation.IntegrationTest;
 import org.junit.Before;
 import org.junit.experimental.categories.Category;

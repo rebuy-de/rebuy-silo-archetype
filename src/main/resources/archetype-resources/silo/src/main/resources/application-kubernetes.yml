@@ -5,7 +5,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:CHANGEME://CHANGEME.aws.rebuy.loc/rebuy
+        url: jdbc:postgresql://postgres-1.aws.rebuy.loc/rebuy
 
 clients:
     permissionClient:
@@ -13,6 +13,7 @@ clients:
 
 remoteTokenServices:
     endpoint: customer-silo.default.svc.cluster.local.
+    cacheSize: 3000
 
 messaging:
     host: rabbitmq.default.svc.cluster.local
