@@ -43,6 +43,9 @@ remoteTokenServices:
     clientId: ${spring.config.name}
     secret: CHANGEME
     endpoint: customer-silo.vg
+    cacheDuration: 10
+    cacheTimeUnit: m
+    cacheSize: 100
 
 consul:
     name: ${spring.config.name}-silo

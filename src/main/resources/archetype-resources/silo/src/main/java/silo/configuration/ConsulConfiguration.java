@@ -4,9 +4,11 @@
 package ${package}.${artifactId}.configuration;
 
 import com.rebuy.consul.ConsulService;
+import com.rebuy.consul.ConsulServiceBuilder;
 import com.rebuy.consul.listeners.ContextClosedEventListener;
 import com.rebuy.consul.listeners.ContextStoppedEventListener;
 import com.rebuy.consul.listeners.EmbeddedServletContainerInitializedEventListener;
+import ${package}.${artifactId}.configuration.settings.ConsulSettings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,5 +37,19 @@ public class ConsulConfiguration
     public EmbeddedServletContainerInitializedEventListener embeddedServletContainerInitializedEventListener()
     {
         return new EmbeddedServletContainerInitializedEventListener(consulService);
+    }
+
+    @Bean
+    public ConsulService consulService(ConsulSettings consulSettings)
+    {
+        ConsulServiceBuilder consulServiceBuilder = new ConsulServiceBuilder();
+
+        return consulServiceBuilder
+            .agent(consulSettings.agent)
+            .port(consulSettings.siloPort)
+            .name(consulSettings.name)
+            .tag("silo")
+            .tag("vhost")
+            .build();
     }
 }

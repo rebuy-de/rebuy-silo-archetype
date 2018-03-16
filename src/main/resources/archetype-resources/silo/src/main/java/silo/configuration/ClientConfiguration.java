@@ -4,21 +4,21 @@
 package ${package}.${artifactId}.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rebuy.consul.ConsulService;
-import com.rebuy.consul.ConsulServiceBuilder;
+import com.rebuy.library.security.builder.RemoteTokenServicesBuilder;
+import com.rebuy.library.security.cache.RemoteTokenServicesCache;
 import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.client.PermissionClientConfig;
-import com.rebuy.library.security.builder.RemoteTokenServicesBuilder;
 import ${package}.${artifactId}.configuration.settings.PermissionClientSettings;
 import ${package}.${artifactId}.configuration.settings.RemoteTokenServicesSettings;
-import ${package}.${artifactId}.configuration.settings.ConsulSettings;
+import io.prometheus.client.guava.cache.CacheMetricsCollector;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
+import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+
 import java.util.concurrent.TimeUnit;
 
 @Configuration
@@ -29,44 +29,40 @@ public class ClientConfiguration
     private ObjectMapper objectMapper;
 
     @Bean
-    public RemoteTokenServices remoteTokenServices(RemoteTokenServicesSettings remoteTokenServicesSettings)
+    public ResourceServerTokenServices resourceServerTokenServices(
+        RemoteTokenServicesSettings remoteTokenServicesSettings,
+        CacheMetricsCollector cacheMetricsCollector)
     {
-        return new RemoteTokenServicesBuilder()
-            .setClientId(remoteTokenServicesSettings.getClientId())
-            .setClientSecret(remoteTokenServicesSettings.getSecret())
-            .setHost(remoteTokenServicesSettings.getEndpoint())
+        ResourceServerTokenServices remoteTokenService = new RemoteTokenServicesBuilder()
+            .clientId(remoteTokenServicesSettings.getClientId())
+            .clientSecret(remoteTokenServicesSettings.getSecret())
+            .host(remoteTokenServicesSettings.getEndpoint())
             .build();
+
+        return new RemoteTokenServicesCache(
+            remoteTokenService,
+            remoteTokenServicesSettings.getCacheDuration(),
+            remoteTokenServicesSettings.getCacheTimeUnit(),
+            remoteTokenServicesSettings.getCacheSize(),
+            cacheMetricsCollector
+        );
     }
 
     @Bean
     public PermissionClient permissionClient(PermissionClientSettings permissionClientSettings)
     {
         PermissionClientConfig config = new PermissionClientConfig();
-        config.clientId = permissionClientSettings.getClientId();
-        config.clientSecret = permissionClientSettings.getSecret();
-        config.host = permissionClientSettings.getHost();
-        config.port = permissionClientSettings.getPort();
+        config.setClientId(permissionClientSettings.getClientId());
+        config.setClientSecret(permissionClientSettings.getSecret());
+        config.setHost(permissionClientSettings.getHost());
+        config.setPort(permissionClientSettings.getPort());
 
-        config.scheme = "http://";
+        config.setScheme("http://");
 
         OkHttpClient client = new OkHttpClient.Builder()
             .connectionPool(new ConnectionPool(2, permissionClientSettings.getKeepAliveDurationMs(), TimeUnit.MILLISECONDS))
             .build();
 
         return new PermissionClient(config, client, objectMapper);
-    }
-
-    @Bean
-    public ConsulService consulService(ConsulSettings consulSettings)
-    {
-        ConsulServiceBuilder consulServiceBuilder = new ConsulServiceBuilder();
-
-        return consulServiceBuilder
-            .agent(consulSettings.agent)
-            .port(consulSettings.siloPort)
-            .name(consulSettings.name)
-            .tag("silo")
-            .tag("vhost")
-            .build();
     }
 }

@@ -13,6 +13,7 @@ clients:
 
 remoteTokenServices:
     endpoint: customer-silo.default.svc.cluster.local.
+    cacheSize: 3000
 
 messaging:
     host: rabbitmq.default.svc.cluster.local

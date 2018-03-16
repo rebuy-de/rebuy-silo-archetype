@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
-import org.springframework.data.web.SortHandlerMethodArgumentResolver;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.integration.config.EnableIntegration;
@@ -41,9 +40,5 @@ public class WebConfig extends WebMvcConfigurerAdapter
         pageableHandlerMethodArgumentResolver.setPrefix("page.");
         pageableHandlerMethodArgumentResolver.setOneIndexedParameters(true);
         argumentResolvers.add(pageableHandlerMethodArgumentResolver);
-
-        SortHandlerMethodArgumentResolver sortResolver = new SortHandlerMethodArgumentResolver();
-        sortResolver.setSortParameter("page.sort");
-        argumentResolvers.add(sortResolver);
     }
 }

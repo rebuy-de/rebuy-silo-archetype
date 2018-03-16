@@ -3,10 +3,12 @@
 #set( $symbol_escape = '\' )
 package ${package}.${artifactId}.configuration;
 
-import com.rebuy.library.messaging.configuration.ConfirmHandlerConfiguration;
+import com.rebuy.library.messaging.configuration.ConfirmationHandlerConfiguration;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
-public class LocalConfirmationHandlerConfiguration extends ConfirmHandlerConfiguration
+@Profile("!testing")
+public class LocalConfirmationHandlerConfiguration extends ConfirmationHandlerConfiguration
 {
 }
