@@ -28,7 +28,7 @@ import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 public class SecurityLibraryConfiguration extends ResourceServerConfigurerAdapter
 {
     @Autowired
-    private RemoteTokenServices remoteTokenServices;
+    private ResourceServerTokenServices resourceServerTokenServices;
 
     @Autowired
     private PermissionClient permissionClient;
@@ -49,7 +49,7 @@ public class SecurityLibraryConfiguration extends ResourceServerConfigurerAdapte
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception
     {
         resources.resourceId("${rootArtifactId}");
-        resources.tokenServices(remoteTokenServices);
+        resources.tokenServices(resourceServerTokenServices);
     }
 
     @Bean(name = "permissionEvaluator")
@@ -67,6 +67,6 @@ public class SecurityLibraryConfiguration extends ResourceServerConfigurerAdapte
     @Bean
     public AuthorizationService authorizationService(TokenCache tokenCache)
     {
-        return new AuthorizationService(tokenCache, remoteTokenServices);
+        return new AuthorizationService(tokenCache, resourceServerTokenServices);
     }
 }
