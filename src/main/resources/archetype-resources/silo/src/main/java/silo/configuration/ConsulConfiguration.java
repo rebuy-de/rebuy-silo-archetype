@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile("!kubernetes")
+@Profile({"vagrant", "sandbox"})
 public class ConsulConfiguration
 {
     @Autowired
