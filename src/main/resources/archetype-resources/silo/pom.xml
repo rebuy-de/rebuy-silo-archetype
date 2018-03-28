@@ -331,7 +331,7 @@
                 <configuration>
                     <user>CHANGEME</user>
                     <password>CHANGEME</password>
-                    <table>${artifactId}_schema</table>
+                    <table>CHANGEME</table>
                     <schemas>
                         <schema>flyway_migrations</schema>
                     </schemas>
