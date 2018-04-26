@@ -51,7 +51,7 @@ spec:
             -XX:+UseG1GC
             {{ if eq .clusterName "production" }}
             -javaagent:/usr/local/newrelic/newrelic.jar
-            -Dnewrelic.config.app_name==${rootArtifactId}-silo
+            -Dnewrelic.config.app_name=${rootArtifactId}-silo
             -Dnewrelic.config.license_key=CHANGEME
             {{ end }}
         ports:
@@ -59,10 +59,10 @@ spec:
         resources:
           limits:
             cpu: 1024m
-            memory: 512Mi
+            memory: 768Mi
           requests:
             cpu: 128m
-            memory: 512Mi
+            memory: 768Mi
         readinessProbe:
           httpGet:
             path: /health
