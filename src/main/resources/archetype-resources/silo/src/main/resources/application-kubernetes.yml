@@ -1,4 +1,4 @@
-stage: dc1
+stage: kubernetes
 
 server:
     port: 8080
