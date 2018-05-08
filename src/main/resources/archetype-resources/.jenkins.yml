@@ -6,7 +6,7 @@ docker:
   upstreamProjects:
     - 'base-image-builder-maven-docker'
   mailerRecipients:
-    - 'CHANEME'
+    - 'CHANGEME'
   buildScript: 'deployment/bin/build'
   dockerFilePaths:
     - 'deployment/docker/Dockerfile'
