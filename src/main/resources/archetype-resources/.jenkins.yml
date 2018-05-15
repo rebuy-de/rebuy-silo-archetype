@@ -1,12 +1,12 @@
 silo:
   mailerRecipients:
-    - 'CHANGEME'
+    - '${mailerRecipients}'
 
 docker:
   upstreamProjects:
     - 'base-image-builder-maven-docker'
   mailerRecipients:
-    - 'CHANGEME'
+    - '${mailerRecipients}'
   buildScript: 'deployment/bin/build'
   dockerFilePaths:
     - 'deployment/docker/Dockerfile'

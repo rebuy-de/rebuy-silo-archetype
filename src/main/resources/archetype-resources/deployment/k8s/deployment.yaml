@@ -5,7 +5,7 @@ kind: Deployment
 metadata:
   name: ${rootArtifactId}-silo
   labels:
-    team: CHANGEME
+    team: ${team}
     tier: silo
     app: ${rootArtifactId}-silo
 
@@ -24,7 +24,7 @@ spec:
     metadata:
       name: ${rootArtifactId}-silo
       labels:
-        team: CHANGEME
+        team: ${team}
         tier: silo
         app: ${rootArtifactId}-silo
       annotations:
@@ -52,7 +52,7 @@ spec:
             {{ if eq .clusterName "production" }}
             -javaagent:/usr/local/newrelic/newrelic.jar
             -Dnewrelic.config.app_name=${rootArtifactId}-silo
-            -Dnewrelic.config.license_key=CHANGEME
+            -Dnewrelic.config.license_key=${newrelicLicenseKey}
             {{ end }}
         ports:
         - containerPort: 8080

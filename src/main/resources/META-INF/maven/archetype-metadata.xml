@@ -5,6 +5,16 @@
         xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+    <requiredProperties>
+        <requiredProperty key="newrelicLicenseKey" />
+        <requiredProperty key="team" />
+        <requiredProperty key="databasePassword" />
+        <requiredProperty key="clientSecret" />
+        <requiredProperty key="mailerRecipients" />
+        <requiredProperty key="rabbitmqPassword" />
+        <requiredProperty key="flywayTableName" />
+    </requiredProperties>
+
     <fileSets>
         <fileSet encoding="UTF-8">
             <directory>doc</directory>
