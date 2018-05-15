@@ -29,10 +29,10 @@
         <mockito.version>1.10.19</mockito.version>
         <querydsl.version>4.1.4</querydsl.version>
         <spring-security-oauth2.version>2.0.9.RELEASE</spring-security-oauth2.version>
-        <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
+        <spring.boot.version>1.5.11.RELEASE</spring.boot.version>
         <log4j2-gelf.version>1.3.1</log4j2-gelf.version>
         <javax.el-api.version>3.0.0</javax.el-api.version>
-        <prometheus-simpleclient.version>0.0.22</prometheus-simpleclient.version>
+        <prometheus-simpleclient.version>0.4.0</prometheus-simpleclient.version>
         <postgresql.version>9.4.1212</postgresql.version>
 
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
@@ -329,9 +329,9 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>${flyway-core.version}</version>
                 <configuration>
-                    <user>CHANGEME</user>
-                    <password>CHANGEME</password>
-                    <table>CHANGEME</table>
+                    <user>${rootArtifactId}</user>
+                    <password>${databasePassword}</password>
+                    <table>${flywayTableName}</table>
                     <schemas>
                         <schema>flyway_migrations</schema>
                     </schemas>

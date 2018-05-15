@@ -6,9 +6,9 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://${spring.config.name}.postgres.service.${stage}.consul/CHANGEME
-        username: ${spring.config.name}
-        password: CHANGEME
+        url: jdbc:postgresql://${spring.application.name}.postgres.service.${stage}.consul/rebuy
+        username: ${spring.application.name}
+        password: ${databasePassword}
         hikari:
             maximum-pool-size: 3
 
@@ -17,13 +17,14 @@ spring:
             charset: UTF-8
             enabled: true
             force: true
-    config:
+
+    application:
         name: ${rootArtifactId}
 
 clients:
     permissionClient:
-        clientId: ${spring.config.name}
-        secret: CHANGEME
+        clientId: ${spring.application.name}
+        secret: ${clientSecret}
         host: customer-silo.vg
         port: 80
         keepAliveDurationMs: 300000
@@ -33,7 +34,7 @@ flyway:
     baseline-on-migrate: true
     locations: classpath:db.migration, classpath:db.common
     schemas: flyway_migrations
-    table: CHANGEME
+    table: ${flywayTableName}
 
 permissions:
     cache:
@@ -41,20 +42,20 @@ permissions:
         timeunit: h
 
 remoteTokenServices:
-    clientId: ${spring.config.name}
-    secret: CHANGEME
+    clientId: ${spring.application.name}
+    secret: ${clientSecret}
     endpoint: customer-silo.vg
     cacheDuration: 10
     cacheTimeUnit: m
     cacheSize: 100
 
 consul:
-    name: ${spring.config.name}-silo
+    name: ${spring.application.name}-silo
     agent: 192.168.33.10
     siloPort: ${server.port}
 
 messaging:
-    host: ${spring.config.name}.rabbitmq.service.${stage}.consul
+    host: ${spring.application.name}.rabbitmq.service.${stage}.consul
     virtualHost:
     exchange: rebuy
     durable: true

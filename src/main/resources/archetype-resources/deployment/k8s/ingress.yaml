@@ -5,7 +5,7 @@ kind: Ingress
 metadata:
   name: ${rootArtifactId}-silo
   labels:
-    team: CHANGEME
+    team: ${team}
     tier: silo
     app: ${rootArtifactId}-silo
 

@@ -17,5 +17,5 @@ remoteTokenServices:
 
 messaging:
     host: rabbitmq.default.svc.cluster.local
-    user: CHANGEME
-    password: CHANGEME
+    user: ${spring.application.name}
+    password: ${rabbitmqPassword}
