@@ -10,13 +10,13 @@
 
     <groupId>com.rebuy.archetypes</groupId>
     <artifactId>rebuy-silo-archetype</artifactId>
-    <version>8.0.2-SNAPSHOT</version>
+    <version>8.1.0</version>
     <packaging>maven-archetype</packaging>
     <name>rebuy-silo-archetype</name>
 
     <scm>
         <developerConnection>scm:git:git@github.com:rebuy-de/rebuy-silo-archetype.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>rebuy-silo-archetype-8.1.0</tag>
     </scm>
 
     <properties>
