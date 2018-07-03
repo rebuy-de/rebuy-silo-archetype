@@ -4,7 +4,7 @@ silo:
 
 docker:
   upstreamProjects:
-    - 'base-image-builder-maven-docker'
+    - 'rebuy-de/base-image-java/master'
   mailerRecipients:
     - '${mailerRecipients}'
   buildScript: 'deployment/bin/build'
