@@ -6,7 +6,6 @@ metadata:
   name: ${rootArtifactId}-silo
   labels:
     team: ${team}
-    tier: silo
     app: ${rootArtifactId}-silo
 
 spec:
@@ -25,7 +24,6 @@ spec:
       name: ${rootArtifactId}-silo
       labels:
         team: ${team}
-        tier: silo
         app: ${rootArtifactId}-silo
       annotations:
         prometheus.io/scrape: "true"
