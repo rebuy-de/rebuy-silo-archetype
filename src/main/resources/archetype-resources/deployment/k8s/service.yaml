@@ -6,7 +6,6 @@ metadata:
   name: ${rootArtifactId}-silo
   labels:
     team: ${team}
-    tier: silo
     app: ${rootArtifactId}-silo
 
 spec:
