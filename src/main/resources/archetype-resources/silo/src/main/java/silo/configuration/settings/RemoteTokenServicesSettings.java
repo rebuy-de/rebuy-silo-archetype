@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties("remoteTokenServices")
+@ConfigurationProperties("remote-token-services")
 public class RemoteTokenServicesSettings
 {
     private String clientId;

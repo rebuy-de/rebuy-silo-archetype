@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties("clients.permissionClient")
+@ConfigurationProperties("clients.permission-client")
 public class PermissionClientSettings
 {
     private String clientId;

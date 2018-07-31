@@ -1,10 +1,10 @@
 stage: sandbox
 
 clients:
-    permissionClient:
+    permission-client:
         host: customer-silo.localhost
 
-remoteTokenServices:
+remote-token-services:
     endpoint: customer-silo.localhost
 
 consul:

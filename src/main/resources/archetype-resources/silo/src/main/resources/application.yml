@@ -22,7 +22,7 @@ spring:
         name: ${rootArtifactId}
 
 clients:
-    permissionClient:
+    permission-client:
         clientId: ${spring.application.name}
         secret: ${clientSecret}
         host: customer-silo.vg
@@ -41,7 +41,7 @@ permissions:
         duration: 24
         timeunit: h
 
-remoteTokenServices:
+remote-token-services:
     clientId: ${spring.application.name}
     secret: ${clientSecret}
     endpoint: customer-silo.vg
