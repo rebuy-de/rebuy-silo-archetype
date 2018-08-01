@@ -14,7 +14,8 @@ import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @Configuration
 @Profile("testing")

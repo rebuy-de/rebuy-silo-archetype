@@ -8,10 +8,10 @@ spring:
         url: jdbc:postgresql://postgres-1.aws.rebuy.loc/rebuy
 
 clients:
-    permissionClient:
+    permission-client:
         host: customer-silo.default.svc.cluster.local.
 
-remoteTokenServices:
+remote-token-services:
     endpoint: customer-silo.default.svc.cluster.local.
     cacheSize: 3000
 
