@@ -17,33 +17,28 @@
         <tag>HEAD</tag>
     </scm>
     <properties>
-        <HikariCP.version>2.6.2</HikariCP.version>
-        <flyway-core.version>4.2.0</flyway-core.version>
-        <h2.version>1.4.190</h2.version>
+        <h2.version>1.4.196</h2.version>
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <json-path.version>2.2.0</json-path.version>
         <junit.version>4.12</junit.version>
         <apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
         <maven-failsafe-plugin.version>2.18.1</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
-        <mockito.version>1.10.19</mockito.version>
-        <querydsl.version>4.1.4</querydsl.version>
         <spring-security-oauth2.version>2.0.9.RELEASE</spring-security-oauth2.version>
-        <spring.boot.version>1.5.11.RELEASE</spring.boot.version>
+        <spring.boot.version>2.0.4.RELEASE</spring.boot.version>
         <log4j2-gelf.version>1.3.1</log4j2-gelf.version>
         <javax.el-api.version>3.0.0</javax.el-api.version>
-        <prometheus-simpleclient.version>0.4.0</prometheus-simpleclient.version>
-        <postgresql.version>9.4.1212</postgresql.version>
+        <prometheus-simpleclient.version>0.5.0</prometheus-simpleclient.version>
 
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
 
         <rebuy.common.version>5.4.0</rebuy.common.version>
         <rebuy.customer-client.version>3.0.0</rebuy.customer-client.version>
-        <rebuy.messaging.version>5.0.0</rebuy.messaging.version>
+        <rebuy.messaging.version>7.2.1</rebuy.messaging.version>
         <rebuy.projector.version>4.1.0</rebuy.projector.version>
-        <rebuy.security.version>6.1.3</rebuy.security.version>
+        <rebuy.security.version>7.0.0</rebuy.security.version>
         <security-test.version>1.0.0</security-test.version>
-        <rebuy.consul-client.version>1.6.0</rebuy.consul-client.version>
+        <rebuy.consul-client.version>2.3.0</rebuy.consul-client.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -60,19 +55,11 @@
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
-            <version>${querydsl.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
-            <version>${querydsl.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.rebuy.library</groupId>
@@ -88,16 +75,6 @@
             <groupId>com.rebuy.library</groupId>
             <artifactId>security</artifactId>
             <version>${rebuy.security.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>log4j-over-slf4j</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.rebuy.library</groupId>
@@ -108,12 +85,6 @@
             <groupId>com.rebuy.sdk</groupId>
             <artifactId>common</artifactId>
             <version>${rebuy.common.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>            
         </dependency>
         <dependency>
             <groupId>com.rebuy.sdk</groupId>
@@ -124,22 +95,14 @@
             <groupId>com.rebuy</groupId>
             <artifactId>consul-java-client</artifactId>
             <version>${rebuy.consul-client.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>${HikariCP.version}</version>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>${flyway-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.graylog2.log4j2</groupId>
@@ -181,13 +144,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>${spring.boot.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.tomcat</groupId>
                     <artifactId>tomcat-jdbc</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
@@ -221,25 +187,12 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.hamcrest</groupId>
-                    <artifactId>hamcrest-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring.boot.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.el</groupId>
@@ -249,11 +202,6 @@
         <dependency>
             <groupId>io.prometheus</groupId>
             <artifactId>simpleclient</artifactId>
-            <version>${prometheus-simpleclient.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_spring_boot</artifactId>
             <version>${prometheus-simpleclient.version}</version>
         </dependency>
         <dependency>
@@ -269,7 +217,10 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>${postgresql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
     </dependencies>
     <build>
@@ -299,6 +250,7 @@
                     <groups>${package}.${artifactId}.annotation.IntegrationTest</groups>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <argLine>-Dfile.encoding=UTF-8 ${jacoco.agent.it.arg}</argLine>
+                    <runOrder>random</runOrder>
                 </configuration>
                 <executions>
                     <execution>
@@ -322,25 +274,7 @@
                 <configuration>
                     <excludedGroups>${package}.${artifactId}.annotation.IntegrationTest</excludedGroups>
                     <argLine>${jacoco.agent.ut.arg}</argLine>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>${flyway-core.version}</version>
-                <configuration>
-                    <user>${rootArtifactId}</user>
-                    <password>${databasePassword}</password>
-                    <table>${flywayTableName}</table>
-                    <schemas>
-                        <schema>flyway_migrations</schema>
-                    </schemas>
-                    <baselineOnMigrate>true</baselineOnMigrate>
-                    <baselineVersion>0</baselineVersion>
-                    <locations>
-                        <location>classpath:db.migration</location>
-                        <location>classpath:db.common</location>
-                    </locations>
+                    <runOrder>random</runOrder>
                 </configuration>
             </plugin>
             <plugin>

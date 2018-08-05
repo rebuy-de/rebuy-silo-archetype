@@ -21,20 +21,23 @@ spring:
     application:
         name: ${rootArtifactId}
 
+    flyway:
+        locations: classpath:db/migration, classpath:db/common
+        schemas: flyway_migrations
+        table: ${flywayTableName}
+        baseline-version: "0"
+        baseline-on-migrate: true
+
+    jpa:
+        open-in-view: false
+
 clients:
     permission-client:
         clientId: ${spring.application.name}
         secret: ${clientSecret}
-        host: customer-silo.vg
+        host: customer-silo.vagrant.cloud
         port: 80
         keepAliveDurationMs: 300000
-
-flyway:
-    baseline-version: 0
-    baseline-on-migrate: true
-    locations: classpath:db.migration, classpath:db.common
-    schemas: flyway_migrations
-    table: ${flywayTableName}
 
 permissions:
     cache:
@@ -44,7 +47,7 @@ permissions:
 remote-token-services:
     clientId: ${spring.application.name}
     secret: ${clientSecret}
-    endpoint: customer-silo.vg
+    endpoint: customer-silo.vagrant.cloud
     cacheDuration: 10
     cacheTimeUnit: m
     cacheSize: 100
@@ -64,7 +67,11 @@ messaging:
     password:
     consumerExchange: rebuy
     publisherExchange: rebuy
+    schema-name: ${rootArtifactId}
+    queue-prefix: ${spring.application.name}
 
-endpoints:
-    prometheus:
-        sensitive: false
+management:
+    endpoints:
+        web:
+            exposure:
+                include: info, health, prometheus

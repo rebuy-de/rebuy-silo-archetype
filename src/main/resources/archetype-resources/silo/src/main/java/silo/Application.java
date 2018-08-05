@@ -3,7 +3,8 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId};
 
-import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
+import com.rebuy.consul.EnableConsul;
+import com.rebuy.library.messaging.annotation.EnableMessaging;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -13,7 +14,8 @@ import java.nio.charset.Charset;
 
 @SpringBootApplication
 @EnableConfigurationProperties
-@EnablePrometheusEndpoint
+@EnableMessaging
+@EnableConsul
 public class Application
 {
     public static void main(String[] args)

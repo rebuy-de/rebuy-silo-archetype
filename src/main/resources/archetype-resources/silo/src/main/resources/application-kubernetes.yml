@@ -6,6 +6,8 @@ server:
 spring:
     datasource:
         url: jdbc:postgresql://postgres-1.aws.rebuy.loc/rebuy
+        hikari:
+            maximum-pool-size: 5
 
 clients:
     permission-client:
