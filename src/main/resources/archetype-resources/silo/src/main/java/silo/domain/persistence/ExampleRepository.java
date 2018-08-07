@@ -5,10 +5,10 @@ package ${package}.${artifactId}.domain.persistence;
 
 import ${package}.${artifactId}.domain.entity.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ExampleRepository extends JpaRepository<Example, Long>, QueryDslPredicateExecutor<Example>
+public interface ExampleRepository extends JpaRepository<Example, Long>, QuerydslPredicateExecutor<Example>
 {
 }

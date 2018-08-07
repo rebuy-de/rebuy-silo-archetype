@@ -28,7 +28,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
-        prometheus.io/path: "/prometheus"
+        prometheus.io/path: "/actuator/prometheus"
 
     spec:
       terminationGracePeriodSeconds: 120
@@ -41,11 +41,8 @@ spec:
           value: kubernetes
         - name: SILO_JAVA_ARGS
           value: >
-            -Xms300M
-            -Xmx300M
-            -XX:MaxMetaspaceSize=128m
-            -XX:CompressedClassSpaceSize=32m
-            -XX:ReservedCodeCacheSize=128M
+            -Xms500M
+            -Xmx500M
             -XX:+UseG1GC
             {{ if eq .clusterName "production" }}
             -javaagent:/usr/local/newrelic/newrelic.jar
@@ -63,13 +60,13 @@ spec:
             memory: 768Mi
         readinessProbe:
           httpGet:
-            path: /health
+            path: /actuator/health
             port: 8080
           initialDelaySeconds: 15
           timeoutSeconds: 1
         livenessProbe:
           httpGet:
-            path: /health
+            path: /actuator/health
             port: 8080
           initialDelaySeconds: 120
           timeoutSeconds: 1

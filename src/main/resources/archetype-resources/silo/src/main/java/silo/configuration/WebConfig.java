@@ -12,14 +12,14 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.integration.config.EnableIntegration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
 @Configuration
 @EnableAspectJAutoProxy
 @EnableIntegration
-public class WebConfig extends WebMvcConfigurerAdapter
+public class WebConfig implements WebMvcConfigurer
 {
     @Autowired
     private ObjectMapper objectMapper;
@@ -30,7 +30,6 @@ public class WebConfig extends WebMvcConfigurerAdapter
         MappingJackson2HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter();
         jacksonConverter.setObjectMapper(objectMapper);
         converters.add(jacksonConverter);
-        super.configureMessageConverters(converters);
     }
 
     @Override

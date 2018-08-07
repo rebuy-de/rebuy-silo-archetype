@@ -42,10 +42,4 @@ public class ClientTestConfiguration
 
         return client;
     }
-
-    @Bean
-    public ConsulService consulService()
-    {
-        return mock(ConsulService.class);
-    }
 }
