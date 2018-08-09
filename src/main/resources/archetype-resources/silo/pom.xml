@@ -39,6 +39,7 @@
         <rebuy.security.version>7.0.0</rebuy.security.version>
         <security-test.version>1.0.0</security-test.version>
         <rebuy.consul-client.version>2.3.0</rebuy.consul-client.version>
+        <opentracing-starter.version>0.2.0</opentracing-starter.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -221,6 +222,12 @@
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.rebuy-de</groupId>
+            <artifactId>opentracing-starter</artifactId>
+            <version>${opentracing-starter.version}</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
     <build>
