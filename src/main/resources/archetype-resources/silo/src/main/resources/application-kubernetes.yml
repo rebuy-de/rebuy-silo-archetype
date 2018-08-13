@@ -21,3 +21,10 @@ messaging:
     host: rabbitmq.default.svc.cluster.local
     user: ${spring.application.name}
     password: ${rabbitmqPassword}
+
+opentracing:
+    jaeger:
+        udpSender:
+            host: jaeger-agent.default.svc.cluster.local
+        constSampler:
+            decision: true
