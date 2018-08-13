@@ -32,7 +32,7 @@
 
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
 
-        <rebuy.common.version>5.4.0</rebuy.common.version>
+        <rebuy.common.version>5.12.0</rebuy.common.version>
         <rebuy.customer-client.version>3.0.0</rebuy.customer-client.version>
         <rebuy.messaging.version>7.2.1</rebuy.messaging.version>
         <rebuy.projector.version>4.1.0</rebuy.projector.version>
