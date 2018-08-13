@@ -26,5 +26,7 @@ opentracing:
     jaeger:
         udpSender:
             host: jaeger-agent.default.svc.cluster.local
-        constSampler:
-            decision: true
+        sampler:
+            type: probabilistic
+            param: 0.01
+
