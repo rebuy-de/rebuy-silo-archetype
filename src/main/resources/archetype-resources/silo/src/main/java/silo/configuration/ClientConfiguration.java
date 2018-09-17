@@ -57,7 +57,7 @@ public class ClientConfiguration
         config.setHost(permissionClientSettings.getHost());
         config.setPort(permissionClientSettings.getPort());
 
-        config.setScheme("http://");
+        config.setScheme("http");
 
         OkHttpClient client = new OkHttpClient.Builder()
             .connectionPool(new ConnectionPool(2, permissionClientSettings.getKeepAliveDurationMs(), TimeUnit.MILLISECONDS))
