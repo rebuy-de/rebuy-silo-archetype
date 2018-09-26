@@ -26,7 +26,6 @@ opentracing:
     jaeger:
         udpSender:
             host: jaeger-agent.default.svc.cluster.local
-        sampler:
-            type: probabilistic
-            param: 0.01
-
+        remoteControlledSampler:
+            hostPort: jaeger-agent.default.svc.cluster.local:5778
+            samplingRate: 0.0001
