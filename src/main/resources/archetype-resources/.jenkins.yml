@@ -1,7 +1,7 @@
 silo:
+  jdk: 'jdk-10'
   mailerRecipients:
     - '${mailerRecipients}'
-
 docker:
   upstreamProjects:
     - 'rebuy-de/base-image-java/master'

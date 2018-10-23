@@ -15,4 +15,4 @@ docker run --rm=true \
   -e HOME=/tmp \
   -v ${ROOT}:/project \
   -v ${HOME}/.m2/repository:/m2/repository \
-  ${REPO}/rebuy-base-image-builder-maven
+  ${REPO}/java10-maven
