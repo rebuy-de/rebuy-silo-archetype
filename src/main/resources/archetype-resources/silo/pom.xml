@@ -24,8 +24,8 @@
         <apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
         <maven-failsafe-plugin.version>2.18.1</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
-        <spring-security-oauth2.version>2.0.9.RELEASE</spring-security-oauth2.version>
-        <spring.boot.version>2.0.4.RELEASE</spring.boot.version>
+        <spring-security-oauth2.version>2.3.4.RELEASE</spring-security-oauth2.version>
+        <spring.boot.version>2.0.6.RELEASE</spring.boot.version>
         <log4j2-gelf.version>1.3.1</log4j2-gelf.version>
         <javax.el-api.version>3.0.0</javax.el-api.version>
         <prometheus-simpleclient.version>0.5.0</prometheus-simpleclient.version>

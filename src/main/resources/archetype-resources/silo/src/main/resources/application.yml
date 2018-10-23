@@ -7,6 +7,7 @@ server:
 spring:
     datasource:
         url: jdbc:postgresql://${spring.application.name}.postgres.service.${stage}.consul/rebuy
+        platform: postgresql
         username: ${spring.application.name}
         password: ${databasePassword}
         hikari:
