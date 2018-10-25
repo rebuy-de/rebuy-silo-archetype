@@ -1,4 +1,4 @@
-FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/rebuy-base-image-java
+FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java10
 
 RUN mkdir -p /service \
  && useradd \
