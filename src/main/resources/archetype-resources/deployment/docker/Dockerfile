@@ -1,4 +1,4 @@
-FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java10
+FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java11
 
 RUN mkdir -p /service \
  && useradd \

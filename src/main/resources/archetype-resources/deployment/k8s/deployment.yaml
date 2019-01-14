@@ -67,6 +67,7 @@ spec:
             {{ end }}
         ports:
         - containerPort: 8080
+
         resources:
           limits:
             cpu: 1024m
@@ -74,12 +75,14 @@ spec:
           requests:
             cpu: 128m
             memory: 768Mi
+
         readinessProbe:
           httpGet:
             path: /actuator/health
             port: 8080
           initialDelaySeconds: 15
           timeoutSeconds: 1
+
         livenessProbe:
           httpGet:
             path: /actuator/health
