@@ -4,6 +4,7 @@
 package ${package}.${artifactId};
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rebuy.library.messaging.annotation.MockMessaging;
 import com.rebuy.library.security.test.AuthBuilder;
 import ${package}.${artifactId}.annotation.IntegrationTest;
 import org.junit.Before;
@@ -25,6 +26,7 @@ import org.springframework.web.context.WebApplicationContext;
     properties = {"spring.profiles.active=testing"},
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
+@MockMessaging
 public abstract class BaseIntegrationTest
 {
     @Autowired
