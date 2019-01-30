@@ -6,7 +6,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://${spring.application.name}.postgres.service.${stage}.consul/rebuy
+        url: jdbc:postgresql://postgres.service.${stage}.consul/rebuy
         platform: postgresql
         username: ${spring.application.name}
         password: ${databasePassword}
@@ -59,7 +59,7 @@ consul:
     siloPort: ${server.port}
 
 messaging:
-    host: ${spring.application.name}.rabbitmq.service.${stage}.consul
+    host: rabbitmq.service.${stage}.consul
     virtualHost:
     exchange: rebuy
     durable: true
