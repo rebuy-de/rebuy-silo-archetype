@@ -24,10 +24,7 @@ spring:
 
     flyway:
         locations: classpath:db/migration, classpath:db/common
-        schemas: flyway_migrations
-        table: ${flywayTableName}
-        baseline-version: "0"
-        baseline-on-migrate: true
+        schemas: ${rootArtifactId}
 
     jpa:
         open-in-view: false
