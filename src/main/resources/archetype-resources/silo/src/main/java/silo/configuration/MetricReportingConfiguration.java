@@ -10,6 +10,7 @@ import io.prometheus.client.hotspot.BufferPoolsExports;
 import io.prometheus.client.hotspot.ClassLoadingExports;
 import io.prometheus.client.hotspot.GarbageCollectorExports;
 import io.prometheus.client.hotspot.MemoryPoolsExports;
+import io.prometheus.client.hotspot.MemoryAllocationExports;
 import io.prometheus.client.hotspot.StandardExports;
 import io.prometheus.client.hotspot.ThreadExports;
 import io.prometheus.client.hotspot.VersionInfoExports;
@@ -41,6 +42,7 @@ public class MetricReportingConfiguration
     {
         new StandardExports().register(collectorRegistry);
         new MemoryPoolsExports().register(collectorRegistry);
+        new MemoryAllocationExports().register(collectorRegistry);
         new BufferPoolsExports().register(collectorRegistry);
         new GarbageCollectorExports().register(collectorRegistry);
         new ThreadExports().register(collectorRegistry);
