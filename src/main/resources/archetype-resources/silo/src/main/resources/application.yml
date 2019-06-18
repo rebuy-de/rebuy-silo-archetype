@@ -24,7 +24,7 @@ spring:
 
     flyway:
         locations: classpath:db/migration, classpath:db/common
-        schemas: ${rootArtifactId}
+        schemas: ${databaseSchema}
 
     jpa:
         open-in-view: false
@@ -65,7 +65,7 @@ messaging:
     password:
     consumerExchange: rebuy
     publisherExchange: rebuy
-    schema-name: ${rootArtifactId}
+    schema-name: ${databaseSchema}
     queue-prefix: ${spring.application.name}
 
 management:
