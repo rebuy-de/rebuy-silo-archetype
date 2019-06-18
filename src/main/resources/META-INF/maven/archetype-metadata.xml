@@ -13,7 +13,6 @@
         <requiredProperty key="clientSecret" />
         <requiredProperty key="mailerRecipients" />
         <requiredProperty key="rabbitmqPassword" />
-        <requiredProperty key="flywayTableName" />
     </requiredProperties>
 
     <fileSets>
