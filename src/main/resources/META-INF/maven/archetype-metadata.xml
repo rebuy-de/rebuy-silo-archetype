@@ -9,10 +9,10 @@
         <requiredProperty key="newrelicLicenseKey" />
         <requiredProperty key="team" />
         <requiredProperty key="databasePassword" />
+        <requiredProperty key="databaseSchema" />
         <requiredProperty key="clientSecret" />
         <requiredProperty key="mailerRecipients" />
         <requiredProperty key="rabbitmqPassword" />
-        <requiredProperty key="flywayTableName" />
     </requiredProperties>
 
     <fileSets>
