@@ -57,8 +57,7 @@ spec:
           value: kubernetes
         - name: SILO_JAVA_ARGS
           value: >
-            -Xms500M
-            -Xmx500M
+            -XX:MaxRAMPercentage=75
             -XX:+UseG1GC
             {{ if eq .clusterName "production" }}
             -javaagent:/usr/local/newrelic/newrelic.jar
