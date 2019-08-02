@@ -3,7 +3,7 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId}.web.controller;
 
-import ${package}.${artifactId}.web.dto.response.ExampleResponseDto;
+import ${package}.web.dto.response.ExampleResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

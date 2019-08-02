@@ -73,7 +73,7 @@
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
                     <includes>
-                        <include>web/*.java</include>
+                        <include>**/*.java</include>
                     </includes>
                 </fileSet>
                 <fileSet encoding="UTF-8">
@@ -85,7 +85,7 @@
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/test/java</directory>
                     <includes>
-                        <include>web/*.java</include>
+                        <include>**/*.java</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -105,9 +105,7 @@
                         <include>silo/domain/service/*.java</include>
                         <include>silo/web/*.java</include>
                         <include>silo/web/controller/*.java</include>
-                        <include>silo/web/dto/*.java</include>
-                        <include>silo/web/dto/response/*.java</include>
-                        <include>silo/web/dto/request/*.java</include>
+                        <include>silo/web/projector/*.java</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" encoding="UTF-8">
