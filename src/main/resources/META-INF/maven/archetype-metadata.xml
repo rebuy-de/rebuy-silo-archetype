@@ -38,7 +38,7 @@
             <directory />
             <includes>
                 <include>Capfile</include>
-                <include>.jenkins.yml</include>
+                <include>Jenkinsfile</include>
             </includes>
         </fileSet>
     </fileSets>
