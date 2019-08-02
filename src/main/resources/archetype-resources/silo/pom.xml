@@ -59,12 +59,12 @@
         <dependency>
             <groupId>${groupId}.${rootArtifactId}</groupId>
             <artifactId>web</artifactId>
-            <version>${version}</version>
+            <version>${self.web.version}</version>
         </dependency>
         <dependency>
             <groupId>${groupId}.${rootArtifactId}</groupId>
             <artifactId>messages</artifactId>
-            <version>${version}</version>
+            <version>${self.messages.version}</version>
         </dependency>
 
         <dependency>
