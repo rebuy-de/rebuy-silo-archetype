@@ -24,5 +24,14 @@
 
     <properties>
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
+        <rebuy.projector.version>7.0.0</rebuy.projector.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.rebuy.library</groupId>
+            <artifactId>projector</artifactId>
+            <version>${rebuy.projector.version}</version>
+        </dependency>
+    </dependencies>
 </project>
