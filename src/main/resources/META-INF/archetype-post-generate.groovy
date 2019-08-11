@@ -1,7 +1,6 @@
 def baseDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
+def runFile = new File(baseDir, "deployment/docker/silo/run.sh")
 
-def buildFile = new File(baseDir, "deployment/bin/build")
+println "Making $runFile executable"
 
-println "Making $buildFile executable"
-
-buildFile.setExecutable(true, false)
+runFile.setExecutable(true, false)

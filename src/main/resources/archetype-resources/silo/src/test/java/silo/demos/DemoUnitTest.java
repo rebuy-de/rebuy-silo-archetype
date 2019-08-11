@@ -3,11 +3,9 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId}.demos;
 
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 import org.junit.Test;
-
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertTrue;
 

@@ -11,7 +11,9 @@
         <requiredProperty key="databasePassword" />
         <requiredProperty key="databaseSchema" />
         <requiredProperty key="clientSecret" />
-        <requiredProperty key="mailerRecipients" />
+        <requiredProperty key="mailerRecipients">
+            <validationRegex><![CDATA[^dl-scb-.*@rebuy\.com$]]></validationRegex>
+        </requiredProperty>
         <requiredProperty key="rabbitmqPassword" />
     </requiredProperties>
 
@@ -23,24 +25,18 @@
             </includes>
         </fileSet>
 
-        <fileSet encoding="UTF-8">
+        <fileSet encoding="UTF-8" filtered="true">
             <directory />
             <includes>
                 <include>README.md</include>
                 <include>.java-version</include>
+                <include>Capfile</include>
+                <include>Jenkinsfile</include>
             </includes>
         </fileSet>
 
         <fileSet encoding="UTF-8" filtered="true">
             <directory>deployment</directory>
-        </fileSet>
-
-        <fileSet encoding="UTF-8" filtered="true">
-            <directory />
-            <includes>
-                <include>Capfile</include>
-                <include>Jenkinsfile</include>
-            </includes>
         </fileSet>
     </fileSets>
 
@@ -50,7 +46,7 @@
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
                     <includes>
-                        <include>message/*.java</include>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
                 <fileSet encoding="UTF-8">
@@ -62,7 +58,13 @@
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/test/java</directory>
                     <includes>
-                        <include>message/*.java</include>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <includes>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -73,7 +75,7 @@
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
                     <includes>
-                        <include>**/*.java</include>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
                 <fileSet encoding="UTF-8">
@@ -85,7 +87,13 @@
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/test/java</directory>
                     <includes>
-                        <include>**/*.java</include>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <includes>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -96,16 +104,7 @@
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
                     <includes>
-                        <include>silo/*.java</include>
-                        <include>silo/configuration/*.java</include>
-                        <include>silo/configuration/settings/*.java</include>
-                        <include>silo/domain/*.java</include>
-                        <include>silo/domain/entity/*.java</include>
-                        <include>silo/domain/persistence/*.java</include>
-                        <include>silo/domain/service/*.java</include>
-                        <include>silo/web/*.java</include>
-                        <include>silo/web/controller/*.java</include>
-                        <include>silo/web/projector/*.java</include>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" encoding="UTF-8">
@@ -118,10 +117,13 @@
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/test/java</directory>
                     <includes>
-                        <include>silo/*.java</include>
-                        <include>silo/demos/*.java</include>
-                        <include>silo/annotation/*.java</include>
-                        <include>silo/configuration/*.java</include>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <includes>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
             </fileSets>
