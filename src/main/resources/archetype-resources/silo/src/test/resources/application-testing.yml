@@ -6,8 +6,12 @@ spring:
         hibernate:
             ddlAuto: none
 
-flyway:
-    locations: classpath:db.test, classpath:db.common
+    flyway:
+        locations: classpath:db/test, classpath:db/common
 
 messaging:
     host: localhost
+
+app:
+    scheduling:
+        enable: false

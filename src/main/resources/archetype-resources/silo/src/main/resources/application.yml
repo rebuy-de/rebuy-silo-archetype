@@ -29,6 +29,10 @@ spring:
     jpa:
         open-in-view: false
 
+
+logging:
+    config: classpath:${stage}/log4j2.xml
+
 clients:
     permission-client:
         clientId: ${spring.application.name}

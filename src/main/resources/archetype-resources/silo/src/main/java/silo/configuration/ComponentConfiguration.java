@@ -26,20 +26,4 @@ public class ComponentConfiguration
     {
         return new PropertySourcesPlaceholderConfigurer();
     }
-
-    @Bean
-    public ObjectMapper objectMapper()
-    {
-        ObjectMapper mapper = new ObjectMapper();
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
-        dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
-        mapper.setDateFormat(dateFormat);
-
-        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.PUBLIC_ONLY);
-        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        return mapper;
-    }
 }

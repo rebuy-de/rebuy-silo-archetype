@@ -5,6 +5,7 @@ package ${package}.${artifactId};
 
 import com.rebuy.consul.EnableConsul;
 import com.rebuy.library.messaging.annotation.EnableMessaging;
+import com.rebuy.library.objectmapper.annotation.EnableObjectMapper;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -17,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 @EnableConfigurationProperties
 @EnableMessaging
 @EnableConsul
+@EnableObjectMapper
 public class Application
 {
     public static void main(String[] args)

@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:experimental
-FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java11-maven as builder
+FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java11-maven AS builder
 
 COPY . /project
 
