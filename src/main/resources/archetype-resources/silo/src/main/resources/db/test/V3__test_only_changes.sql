@@ -1,3 +1,0 @@
--- THIS IS AN EXAMPLE - THINK BEFORE YOU USE IT
--- DROP SCHEMA IF EXISTS ${databaseSchema};
--- CREATE SCHEMA ${databaseSchema};

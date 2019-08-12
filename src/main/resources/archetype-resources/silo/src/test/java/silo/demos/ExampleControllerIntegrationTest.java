@@ -4,10 +4,8 @@
 package ${package}.${artifactId}.demos;
 
 import ${package}.${artifactId}.BaseIntegrationTest;
-import ${package}.${artifactId}.annotation.IntegrationTest;
 import ${package}.${artifactId}.configuration.ClientTestConfiguration;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 
 import java.util.UUID;
@@ -19,7 +17,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Category(IntegrationTest.class)
 public class ExampleControllerIntegrationTest extends BaseIntegrationTest
 {
     @Test

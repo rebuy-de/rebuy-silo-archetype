@@ -13,7 +13,6 @@ import ${package}.${artifactId}.configuration.settings.RemoteTokenServicesSettin
 import io.prometheus.client.guava.cache.CacheMetricsCollector;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -25,9 +24,6 @@ import java.util.concurrent.TimeUnit;
 @Profile("!testing")
 public class ClientConfiguration
 {
-    @Autowired
-    private ObjectMapper objectMapper;
-
     @Bean
     public ResourceServerTokenServices resourceServerTokenServices(
         RemoteTokenServicesSettings remoteTokenServicesSettings,
@@ -49,7 +45,7 @@ public class ClientConfiguration
     }
 
     @Bean
-    public PermissionClient permissionClient(PermissionClientSettings permissionClientSettings)
+    public PermissionClient permissionClient(PermissionClientSettings permissionClientSettings, ObjectMapper objectMapper)
     {
         PermissionClientConfig config = new PermissionClientConfig();
         config.setClientId(permissionClientSettings.getClientId());

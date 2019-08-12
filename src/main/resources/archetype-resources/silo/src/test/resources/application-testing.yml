@@ -1,3 +1,5 @@
+stage: testing
+
 spring:
     main:
         banner-mode: "off"
@@ -5,9 +7,16 @@ spring:
     jpa:
         hibernate:
             ddlAuto: none
+        properties:
+            hibernate:
+                show_sql: false
+                format_sql: true
 
-    flyway:
-        locations: classpath:db/test, classpath:db/common
+    datasource:
+        url: jdbc:tc:postgresql:11://localhost/rebuy
+        driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+        hikari:
+            maximum-pool-size: 10
 
 messaging:
     host: localhost

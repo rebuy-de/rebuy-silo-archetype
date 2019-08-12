@@ -3,7 +3,6 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId}.configuration;
 
-import com.rebuy.consul.ConsulService;
 import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.client.TokenDto;
 import org.springframework.context.annotation.Bean;
