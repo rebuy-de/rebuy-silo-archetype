@@ -23,7 +23,7 @@ spring:
         name: ${rootArtifactId}
 
     flyway:
-        locations: classpath:db/migration, classpath:db/common
+        locations: classpath:db/common
         schemas: ${databaseSchema}
 
     jpa:

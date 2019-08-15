@@ -7,7 +7,7 @@ load Rebuy_Deployment.new.get_receipt_path
 set :application, '${rootArtifactId}-silo'
 set :repository, 'git@github.com:rebuy-de/${rootArtifactId}-silo.git'
 set :restart_type, 'svc'
-set :copy_exclude, [".git/*", ".git", ".gitignore", "pom.xml", "Capfile", "deployment/*", "deployment", "silo", "silo/*", "messages", "messages/*", "*-sources.jar", "docs/*", "docs", "*.md"]
+set :copy_exclude, [".git/*", ".git", ".gitignore", "pom.xml", "Capfile", "deployment/*", "deployment", "silo", "silo/*", "messages", "messages/*", "web", "web/*", "*-sources.jar", "docs/*", "docs", "*.md"]
 set :build_script, "mvn package && mv silo/target/*.jar ."
 
 after "deploy:update", "deploy:cleanup"

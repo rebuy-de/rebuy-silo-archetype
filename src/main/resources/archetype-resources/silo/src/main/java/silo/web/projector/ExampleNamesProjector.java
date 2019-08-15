@@ -3,9 +3,9 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId}.web.projector;
 
-import ${package}.${artifactId}.domain.entity.Example;
 import com.rebuy.library.projector.SimpleProjector;
 
+import ${package}.${artifactId}.domain.entity.Example;
 import org.springframework.stereotype.Component;
 import java.util.List;
 

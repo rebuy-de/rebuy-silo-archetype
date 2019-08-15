@@ -6,7 +6,6 @@ package ${package}.${artifactId}.configuration;
 import com.rebuy.library.security.cache.PermissionCache;
 import com.rebuy.library.security.cache.PermissionCacheLoader;
 import com.rebuy.library.security.cache.TokenCache;
-import com.rebuy.library.security.cache.TokenCacheLoader;
 import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.service.AuthorizationService;
 import com.rebuy.library.security.service.RebuyPermissionEvaluator;
@@ -30,9 +29,6 @@ public class SecurityLibraryConfiguration extends ResourceServerConfigurerAdapte
     @Autowired
     private ResourceServerTokenServices resourceServerTokenServices;
 
-    @Autowired
-    private PermissionClient permissionClient;
-
     @Override
     public void configure(HttpSecurity http) throws Exception
     {
@@ -53,7 +49,7 @@ public class SecurityLibraryConfiguration extends ResourceServerConfigurerAdapte
     }
 
     @Bean(name = "permissionEvaluator")
-    public RebuyPermissionEvaluator rebuyPermissionEvaluator(PermissionCacheSettings permissionCacheSettings, TokenCache tokenCache)
+    public RebuyPermissionEvaluator rebuyPermissionEvaluator(PermissionCacheSettings permissionCacheSettings, TokenCache tokenCache, PermissionClient permissionClient)
     {
 
         PermissionCacheLoader permissionCacheLoader = new PermissionCacheLoader(permissionClient, tokenCache);

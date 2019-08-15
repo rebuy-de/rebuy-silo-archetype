@@ -4,8 +4,6 @@
 package ${package}.${artifactId}.demos;
 
 import ${package}.${artifactId}.BaseIntegrationTest;
-import ${package}.${artifactId}.Application;
-import ${package}.${artifactId}.annotation.IntegrationTest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
