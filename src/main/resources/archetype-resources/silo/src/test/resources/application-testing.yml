@@ -15,8 +15,6 @@ spring:
     datasource:
         url: jdbc:tc:postgresql:11://localhost/rebuy
         driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
-        hikari:
-            maximum-pool-size: 10
 
 messaging:
     host: localhost
