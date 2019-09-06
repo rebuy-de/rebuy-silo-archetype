@@ -10,6 +10,7 @@ import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.client.PermissionClientConfig;
 import ${package}.${artifactId}.configuration.settings.PermissionClientSettings;
 import ${package}.${artifactId}.configuration.settings.RemoteTokenServicesSettings;
+import io.opentracing.Tracer;
 import io.prometheus.client.guava.cache.CacheMetricsCollector;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
@@ -27,12 +28,15 @@ public class ClientConfiguration
     @Bean
     public ResourceServerTokenServices resourceServerTokenServices(
         RemoteTokenServicesSettings remoteTokenServicesSettings,
-        CacheMetricsCollector cacheMetricsCollector)
+        CacheMetricsCollector cacheMetricsCollector,
+        Tracer tracer
+    )
     {
         ResourceServerTokenServices remoteTokenService = new RemoteTokenServicesBuilder()
             .clientId(remoteTokenServicesSettings.getClientId())
             .clientSecret(remoteTokenServicesSettings.getSecret())
             .host(remoteTokenServicesSettings.getEndpoint())
+            .tracer(tracer)
             .build();
 
         return new RemoteTokenServicesCache(
@@ -45,7 +49,11 @@ public class ClientConfiguration
     }
 
     @Bean
-    public PermissionClient permissionClient(PermissionClientSettings permissionClientSettings, ObjectMapper objectMapper)
+    public PermissionClient permissionClient(
+        PermissionClientSettings permissionClientSettings,
+        ObjectMapper objectMapper,
+        Tracer tracer
+    )
     {
         PermissionClientConfig config = new PermissionClientConfig();
         config.setClientId(permissionClientSettings.getClientId());
@@ -59,6 +67,6 @@ public class ClientConfiguration
             .connectionPool(new ConnectionPool(2, permissionClientSettings.getKeepAliveDurationMs(), TimeUnit.MILLISECONDS))
             .build();
 
-        return new PermissionClient(config, client, objectMapper);
+        return new PermissionClient(config, client, objectMapper, tracer);
     }
 }
