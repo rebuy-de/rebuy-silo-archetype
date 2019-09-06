@@ -22,8 +22,8 @@ messaging:
 
 opentracing:
     jaeger:
-        udpSender:
+        udp-sender:
             host: jaeger-agent.default.svc.cluster.local
-        remoteControlledSampler:
-            hostPort: jaeger-agent.default.svc.cluster.local:5778
-            samplingRate: 0.0001
+        remote-controlled-saampler:
+            host-port: jaeger-agent.default.svc.cluster.local:5778
+            sampling-rate: 0.0001
