@@ -34,7 +34,7 @@
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
         <rebuy.common.version>7.1.0</rebuy.common.version>
         <rebuy.customer-client.version>7.0.1</rebuy.customer-client.version>
-        <rebuy.messaging.version>8.0.0</rebuy.messaging.version>
+        <rebuy.messaging.version>9.2.0</rebuy.messaging.version>
         <rebuy.projector.version>7.0.0</rebuy.projector.version>
         <rebuy.security.version>7.2.0</rebuy.security.version>
         <rebuy.security-test.version>1.0.0</rebuy.security-test.version>
