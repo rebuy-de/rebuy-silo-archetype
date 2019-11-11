@@ -1,3 +1,4 @@
+
 stage: vagrant
 
 server:
@@ -6,30 +7,25 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://postgres.service.${stage}.consul/rebuy
+        url: jdbc:postgresql://vagrant.cloud/rebuy
         platform: postgresql
         username: ${spring.application.name}
         password: ${databasePassword}
         hikari:
             maximum-pool-size: 3
             minimum-idle: 1
-
     http:
         encoding:
             charset: UTF-8
             enabled: true
             force: true
-
     application:
         name: ${rootArtifactId}
-
     flyway:
         locations: classpath:db/common
         schemas: ${databaseSchema}
-
     jpa:
         open-in-view: false
-
 
 logging:
     config: classpath:${stage}/log4j2.xml
@@ -61,13 +57,13 @@ consul:
     siloPort: ${server.port}
 
 messaging:
-    host: rabbitmq.service.${stage}.consul
-    virtualHost:
+    host: vagrant.cloud
+    virtualHost: null
     exchange: rebuy
     durable: true
     autoDelete: false
-    user:
-    password:
+    user: null
+    password: null
     consumerExchange: rebuy
     publisherExchange: rebuy
     schema-name: ${databaseSchema}
