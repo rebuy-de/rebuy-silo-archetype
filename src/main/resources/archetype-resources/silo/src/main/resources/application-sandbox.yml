@@ -1,3 +1,4 @@
+
 stage: sandbox
 
 clients:
@@ -9,3 +10,10 @@ remote-token-services:
 
 consul:
     agent: 127.0.0.1
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost/rebuy
+
+messaging:
+    host: localhost
