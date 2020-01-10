@@ -38,7 +38,6 @@
         <rebuy.projector.version>7.0.0</rebuy.projector.version>
         <rebuy.security.version>7.3.0</rebuy.security.version>
         <rebuy.security-test.version>1.0.0</rebuy.security-test.version>
-        <rebuy.consul-client.version>2.3.0</rebuy.consul-client.version>
         <rebuy.objectmapper.version>1.2.0</rebuy.objectmapper.version>
         <opentracing-starter.version>0.6.0</opentracing-starter.version>
     </properties>
@@ -103,11 +102,6 @@
             <groupId>com.rebuy.sdk</groupId>
             <artifactId>customer-client</artifactId>
             <version>${rebuy.customer-client.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.rebuy</groupId>
-            <artifactId>consul-java-client</artifactId>
-            <version>${rebuy.consul-client.version}</version>
         </dependency>
         <dependency>
             <groupId>com.rebuy.library</groupId>
