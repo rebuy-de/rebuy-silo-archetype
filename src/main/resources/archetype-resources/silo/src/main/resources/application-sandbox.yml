@@ -8,9 +8,6 @@ clients:
 remote-token-services:
     endpoint: customer-silo.localhost
 
-consul:
-    agent: 127.0.0.1
-
 spring:
     datasource:
         url: jdbc:postgresql://localhost/rebuy

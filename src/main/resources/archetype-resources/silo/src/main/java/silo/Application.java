@@ -3,7 +3,6 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId};
 
-import com.rebuy.consul.EnableConsul;
 import com.rebuy.library.messaging.annotation.EnableMessaging;
 import com.rebuy.library.objectmapper.annotation.EnableObjectMapper;
 import org.springframework.boot.Banner;
@@ -17,7 +16,6 @@ import java.nio.charset.StandardCharsets;
 @SpringBootApplication
 @EnableConfigurationProperties
 @EnableMessaging
-@EnableConsul
 @EnableObjectMapper
 public class Application
 {
