@@ -17,8 +17,6 @@ remote-token-services:
 
 messaging:
     host: rabbitmq.default.svc.cluster.local
-    user: ${spring.application.name}
-    password: ${rabbitmqPassword}
 
 opentracing:
     jaeger:
