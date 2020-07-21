@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:experimental
+# syntax=rebuy.local/dockerfile
 ARG BASE_TAG=8
 FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java11-maven:${BASE_TAG} AS builder
 
