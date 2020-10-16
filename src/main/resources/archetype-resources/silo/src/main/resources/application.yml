@@ -10,7 +10,7 @@ spring:
         url: jdbc:postgresql://vagrant.cloud/rebuy
         platform: postgresql
         username: ${spring.application.name}
-        password: ${databasePassword}
+        password: ${spring.application.name}
         hikari:
             maximum-pool-size: 3
             minimum-idle: 1

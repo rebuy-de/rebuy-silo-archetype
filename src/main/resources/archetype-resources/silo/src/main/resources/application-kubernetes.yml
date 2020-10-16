@@ -6,6 +6,7 @@ server:
 spring:
     datasource:
         url: jdbc:postgresql://postgres-11.aws.rebuy.loc/rebuy
+        password: ${databasePassword}
 
 clients:
     permission-client:
