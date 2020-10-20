@@ -23,7 +23,7 @@
         <testcontainers.version>1.11.1</testcontainers.version>
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <json-path.version>2.2.0</json-path.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
         <maven-failsafe-plugin.version>2.18.1</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
