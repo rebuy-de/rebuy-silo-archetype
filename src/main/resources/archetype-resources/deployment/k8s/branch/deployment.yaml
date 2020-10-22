@@ -35,6 +35,7 @@ spec:
           {{"{{"}}- with secret "terraform/${rootArtifactId}-silo" -{{"}}"}}
           messaging.user={{"{{"}} .Data.data.rabbitmq_user {{"}}"}}
           messaging.password={{"{{"}} .Data.data.rabbitmq_password {{"}}"}}
+          spring.datasource.password={{"{{"}} .Data.data.postgres_password {{"}}"}}
           {{"{{"}}- end {{"}}"}}
         vault.hashicorp.com/role: "${rootArtifactId}-silo"
         vault.hashicorp.com/agent-pre-populate-only: "true"
