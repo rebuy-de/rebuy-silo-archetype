@@ -87,11 +87,18 @@ spec:
             cpu: 128m
             memory: 768Mi
 
-        readinessProbe:
+        startupProbe:
           httpGet:
             path: /actuator/health
             port: 8080
           initialDelaySeconds: 15
+          timeoutSeconds: 1
+          failureThreshold: 60
+
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
           timeoutSeconds: 1
 
         livenessProbe:
