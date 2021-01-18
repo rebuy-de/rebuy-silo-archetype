@@ -33,7 +33,7 @@
         <prometheus-simpleclient.version>0.6.0</prometheus-simpleclient.version>
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
         <rebuy.common.version>8.1.0</rebuy.common.version>
-        <rebuy.customer-client.version>8.0.0</rebuy.customer-client.version>
+        <rebuy.customer-client.version>10.0.0</rebuy.customer-client.version>
         <rebuy.messaging.version>9.4.0</rebuy.messaging.version>
         <rebuy.projector.version>7.0.0</rebuy.projector.version>
         <rebuy.security.version>7.3.0</rebuy.security.version>
