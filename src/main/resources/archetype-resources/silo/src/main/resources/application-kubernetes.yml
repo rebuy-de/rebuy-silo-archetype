@@ -9,10 +9,10 @@ spring:
 
 clients:
     permission-client:
-        host: customer-silo.default.svc.cluster.local.
+        host: customer-silo.default.svc.cluster.local
 
 remote-token-services:
-    endpoint: customer-silo.default.svc.cluster.local.
+    endpoint: customer-silo.default.svc.cluster.local
     cacheSize: 3000
 
 messaging:
