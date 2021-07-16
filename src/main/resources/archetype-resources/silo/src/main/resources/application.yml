@@ -4,6 +4,12 @@ stage: vagrant
 server:
     port: 0
     max-http-header-size: 32768
+    servlet:
+        encoding:
+            charset: UTF-8
+            enabled: true
+            force: true
+    forward-headers-strategy: native
 
 spring:
     datasource:
@@ -14,11 +20,6 @@ spring:
         hikari:
             maximum-pool-size: 3
             minimum-idle: 1
-    http:
-        encoding:
-            charset: UTF-8
-            enabled: true
-            force: true
     application:
         name: ${rootArtifactId}
     flyway:

@@ -99,13 +99,13 @@ spec:
 
         readinessProbe:
           httpGet:
-            path: /actuator/health
+            path: /actuator/health/readiness
             port: 8080
           timeoutSeconds: 1
 
         livenessProbe:
           httpGet:
-            path: /actuator/health
+            path: /actuator/health/liveness
             port: 8080
           initialDelaySeconds: 120
           timeoutSeconds: 1
