@@ -39,7 +39,6 @@ public class MetricReportingConfiguration
     @PostConstruct
     public void init()
     {
-        new StandardExports().register(collectorRegistry);
         new MemoryPoolsExports().register(collectorRegistry);
         new MemoryAllocationExports().register(collectorRegistry);
         new BufferPoolsExports().register(collectorRegistry);
