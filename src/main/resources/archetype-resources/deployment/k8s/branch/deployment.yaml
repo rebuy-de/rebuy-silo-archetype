@@ -25,6 +25,7 @@ spec:
       labels:
         team: ${team}
         app: ${rootArtifactId}-silo
+        rebuy.com/toolstack: jvm.spring-boot.v2.3
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
@@ -83,10 +84,10 @@ spec:
 
         resources:
           limits:
-            cpu: 1024m
+            cpu: 1000m
             memory: 768Mi
           requests:
-            cpu: 128m
+            cpu: 100m
             memory: 768Mi
 
         startupProbe:
