@@ -1,5 +1,5 @@
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
@@ -12,10 +12,13 @@ metadata:
 
 spec:
   rules:
-  - host: ${rootArtifactId}-silo.{{.clusterName}}.rebuy.cloud
-    http:
-     paths:
-     - path: /
-       backend:
-         serviceName: ${rootArtifactId}-silo
-         servicePort: 80
+    - host: ${rootArtifactId}-silo.{{.clusterName}}.rebuy.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ${rootArtifactId}-silo
+                port:
+                  number: 80
