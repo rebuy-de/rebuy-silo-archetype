@@ -15,8 +15,8 @@ spring:
     datasource:
         url: jdbc:postgresql://vagrant.cloud/rebuy
         platform: postgresql
-        username: ${spring.application.name}
-        password: ${spring.application.name}
+        username: ${postgres_user:${spring.application.name}}
+        password: ${postgres_password:${spring.application.name}}
         hikari:
             maximum-pool-size: 3
             minimum-idle: 1
@@ -58,8 +58,8 @@ messaging:
     exchange: rebuy
     durable: true
     autoDelete: false
-    user: null
-    password: null
+    user: ${rabbitmq_user:guest}
+    password: ${rabbitmq_password:guest}
     consumerExchange: rebuy
     publisherExchange: rebuy
     schema-name: ${databaseSchema}

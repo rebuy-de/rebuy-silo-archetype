@@ -40,6 +40,7 @@
         <rebuy.security-test.version>7.3.0</rebuy.security-test.version>
         <rebuy.objectmapper.version>5.0.0</rebuy.objectmapper.version>
         <opentracing-starter.version>0.6.0</opentracing-starter.version>
+        <spring-vault-core.version>2.3.2</spring-vault-core.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -234,6 +235,11 @@
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.vault</groupId>
+            <artifactId>spring-vault-core</artifactId>
+            <version>${spring-vault-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.rebuy-de</groupId>
