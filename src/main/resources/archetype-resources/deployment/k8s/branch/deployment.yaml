@@ -31,17 +31,6 @@ spec:
         prometheus.io/port: "8080"
         prometheus.io/path: "/actuator/prometheus"
         sidecar.istio.io/inject: 'true'
-        traffic.sidecar.istio.io/excludeOutboundPorts: '8200'
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/agent-inject-secret-credentials.properties: "terraform/${rootArtifactId}-silo"
-        vault.hashicorp.com/agent-inject-template-credentials.properties: |
-          {{"{{"}}- with secret "terraform/${rootArtifactId}-silo" -{{"}}"}}
-          messaging.user={{"{{"}} .Data.data.rabbitmq_user {{"}}"}}
-          messaging.password={{"{{"}} .Data.data.rabbitmq_password {{"}}"}}
-          spring.datasource.password={{"{{"}} .Data.data.postgres_password {{"}}"}}
-          {{"{{"}}- end {{"}}"}}
-        vault.hashicorp.com/role: "${rootArtifactId}-silo"
-        vault.hashicorp.com/agent-pre-populate-only: "true"
 
     spec:
       terminationGracePeriodSeconds: 120
@@ -73,7 +62,6 @@ spec:
           value: >
             -XX:MaxRAMPercentage=75
             -XX:+UseG1GC
-            -Dspring.config.additional-location=file:/vault/secrets/credentials.properties
             {{ if eq .clusterName "production" }}
             -javaagent:/usr/local/newrelic/newrelic.jar
             -Dnewrelic.config.app_name=${rootArtifactId}-silo
