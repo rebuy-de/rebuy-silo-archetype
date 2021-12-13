@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>${groupId}</groupId>
@@ -41,6 +40,7 @@
         <rebuy.objectmapper.version>5.0.0</rebuy.objectmapper.version>
         <opentracing-starter.version>0.6.0</opentracing-starter.version>
         <spring-vault-core.version>2.3.2</spring-vault-core.version>
+        <log4j2.version>2.15.0</log4j2.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -246,6 +246,27 @@
             <artifactId>opentracing-starter</artifactId>
             <version>${opentracing-starter.version}</version>
             <type>pom</type>
+        </dependency>
+        <!-- Can be removed when we spring boot >=2.5.8 or >=2.6.2 is used -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jul</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
         </dependency>
     </dependencies>
     <build>
