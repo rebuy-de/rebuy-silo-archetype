@@ -40,7 +40,7 @@
         <rebuy.objectmapper.version>5.0.0</rebuy.objectmapper.version>
         <opentracing-starter.version>0.6.0</opentracing-starter.version>
         <spring-vault-core.version>2.3.2</spring-vault-core.version>
-        <log4j2.version>2.15.0</log4j2.version>
+        <log4j2.version>2.16.0</log4j2.version>
     </properties>
     <dependencyManagement>
         <dependencies>
