@@ -13,7 +13,7 @@ spring:
                 format_sql: true
 
     datasource:
-        url: jdbc:tc:postgresql:13://localhost/rebuy
+        url: jdbc:tc:postgresql:14://localhost/rebuy
         driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
 
 messaging:
