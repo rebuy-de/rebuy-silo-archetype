@@ -5,7 +5,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://postgres-11.aws.rebuy.loc/rebuy
+        url: jdbc:postgresql://postgres-14.aws.rebuy.loc/rebuy
 
 clients:
     permission-client:
