@@ -37,7 +37,7 @@
         <rebuy.projector.version>8.0.0</rebuy.projector.version>
         <rebuy.security.version>7.4.0</rebuy.security.version>
         <rebuy.security-test.version>7.3.0</rebuy.security-test.version>
-        <rebuy.objectmapper.version>5.0.0</rebuy.objectmapper.version>
+        <rebuy.objectmapper.version>5.0.1</rebuy.objectmapper.version>
         <opentracing-starter.version>0.6.0</opentracing-starter.version>
         <spring-vault-core.version>2.3.2</spring-vault-core.version>
         <log4j2.version>2.17.1</log4j2.version>
