@@ -25,7 +25,7 @@ spec:
       labels:
         team: ${team}
         app: ${rootArtifactId}-silo
-        rebuy.com/toolstack: jvm.spring-boot.v2.3
+        rebuy.com/toolstack: jvm.spring-boot.v2.6
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
