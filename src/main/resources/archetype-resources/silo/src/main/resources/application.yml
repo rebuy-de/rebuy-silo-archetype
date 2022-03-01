@@ -1,3 +1,4 @@
+#set($symbol_dollar = '$')
 
 stage: vagrant
 
@@ -15,8 +16,8 @@ spring:
     datasource:
         url: jdbc:postgresql://vagrant.cloud/rebuy
         platform: postgresql
-        username: ${postgres_user:${spring.application.name}}
-        password: ${postgres_password:${spring.application.name}}
+        username: ${symbol_dollar}{postgres_user:${symbol_dollar}{spring.application.name}}
+        password: ${symbol_dollar}{postgres_password:${symbol_dollar}{spring.application.name}}
         hikari:
             maximum-pool-size: 3
             minimum-idle: 1
@@ -58,8 +59,8 @@ messaging:
     exchange: rebuy
     durable: true
     autoDelete: false
-    user: ${rabbitmq_user:guest}
-    password: ${rabbitmq_password:guest}
+    user: ${symbol_dollar}{rabbitmq_user:guest}
+    password: ${symbol_dollar}{rabbitmq_password:guest}
     consumerExchange: rebuy
     publisherExchange: rebuy
     schema-name: ${databaseSchema}
