@@ -32,7 +32,7 @@ public class ExampleControllerIntegrationTest extends BaseIntegrationTest
         mockMvc
             .perform(get("/examples").header("Authorization", "Bearer " + systemToken))
             .andExpect(status().isOk())
-            .andExpect(header().string("Content-Type", "application/json;charset=UTF-8"))
+            .andExpect(header().string("Content-Type", "application/json"))
             .andExpect(jsonPath("id", is(1)));
     }
 }

@@ -1,4 +1,4 @@
-CREATE SCHEMA ${databaseSchema};
+CREATE SCHEMA IF NOT EXISTS ${databaseSchema};
 
 DROP TABLE IF EXISTS ${databaseSchema}.messages;
 
