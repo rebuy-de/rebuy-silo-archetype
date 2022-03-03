@@ -18,7 +18,7 @@
                 <MarkerFilter marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
             </Filters>
             <KeyValuePair key="environment" value="sandbox"/>
-            <KeyValuePair key="facility" value="${rootArtifactId}-silo"/>
+            <KeyValuePair key="facility" value="${projectName}"/>
         </GELF>
     </Appenders>
     <Loggers>

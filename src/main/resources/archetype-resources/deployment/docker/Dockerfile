@@ -23,4 +23,4 @@ ENTRYPOINT /service/run.sh
 
 COPY --chown=0:0 deployment/docker/silo/run.sh /service/run.sh
 
-COPY --chown=0:0 --from=builder /project/silo/target/${rootArtifactId}-silo.jar /service/silo.jar
+COPY --chown=0:0 --from=builder /project/silo/target/${projectName}.jar /service/silo.jar

@@ -22,7 +22,7 @@ spring:
             maximum-pool-size: 3
             minimum-idle: 1
     application:
-        name: ${rootArtifactId}-silo
+        name: ${projectName}
     flyway:
         locations: classpath:db/common
         schemas: ${databaseSchema}
