@@ -14,7 +14,7 @@
     <version>${version}</version>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:rebuy-de/${project.parent.artifactId}-silo.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:rebuy-de/${projectName}.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 

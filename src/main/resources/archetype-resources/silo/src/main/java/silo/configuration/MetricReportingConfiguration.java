@@ -4,6 +4,7 @@
 package ${package}.${artifactId}.configuration;
 
 import io.prometheus.client.guava.cache.CacheMetricsCollector;
+import io.prometheus.client.hotspot.DefaultExports;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
