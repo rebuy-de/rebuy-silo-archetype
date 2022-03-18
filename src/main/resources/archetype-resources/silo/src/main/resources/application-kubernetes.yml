@@ -25,3 +25,6 @@ opentracing:
         remote-controlled-sampler:
             host-port: jaeger-agent.default.svc.cluster.local:5778
             sampling-rate: 0.0001
+
+logging:
+    config: classpath:kubernetes/log4j2.xml
