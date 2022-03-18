@@ -5,7 +5,6 @@ kind: Service
 metadata:
   name: ${rootArtifactId}-silo
   labels:
-    team: ${team}
     app: ${rootArtifactId}-silo
 
 spec:

@@ -5,7 +5,6 @@ kind: Ingress
 metadata:
   name: ${rootArtifactId}-silo
   labels:
-    team: ${team}
     app: ${rootArtifactId}-silo
   annotations:
     traefik.ingress.kubernetes.io/router.middlewares: default-ssl@kubernetescrd

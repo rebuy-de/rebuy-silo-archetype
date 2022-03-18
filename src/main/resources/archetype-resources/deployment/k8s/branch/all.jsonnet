@@ -30,7 +30,6 @@ local metadata = {
     'rebuy.com/preset': vars.presetName,
     'rebuy.com/live-traffic': if preset.liveTraffic then 'enabled' else 'disabled',
     'rebuy.com/toolstack': 'jvm.spring-boot.v2.6',
-    team: '${team}',
   },
 };
 
