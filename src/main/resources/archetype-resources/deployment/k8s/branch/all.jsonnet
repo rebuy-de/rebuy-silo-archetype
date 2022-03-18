@@ -4,17 +4,26 @@ local presets = {
   production: {
     replicas: 2,
     liveTraffic: true,
-    cpuRequests: '100m',
+    resources: {
+      limits: { cpu: '1000m', memory: '768Mi' },
+      requests: { cpu: '100m', memory: '768Mi' },
+    },
   },
   testing: {
     replicas: 1,
     liveTraffic: false,
-    cpuRequests: '100m',
+    resources: {
+      limits: { cpu: '1000m', memory: '768Mi' },
+      requests: { cpu: '100m', memory: '768Mi' },
+    },
   },
   staging: {
     replicas: 2,
     liveTraffic: true,
-    cpuRequests: '100m',
+    resources: {
+      limits: { cpu: '1000m', memory: '768Mi' },
+      requests: { cpu: '100m', memory: '768Mi' },
+    },
   },
 };
 
@@ -100,12 +109,12 @@ local selector = {
                 }],
                 resources: {
                   limits: {
-                    cpu: 1,
-                    memory: '768Mi',
+                    cpu: preset.resources.limits.cpu,
+                    memory: preset.resources.limits.memory,
                   },
                   requests: {
-                    cpu: preset.cpuRequests,
-                    memory: '768Mi',
+                    cpu: preset.resources.requests.cpu,
+                    memory: preset.resources.requests.memory,
                   },
                 },
                 startupProbe: {
