@@ -7,7 +7,6 @@
 
     <requiredProperties>
         <requiredProperty key="projectName" />
-        <requiredProperty key="newrelicLicenseKey" />
         <requiredProperty key="databaseSchema" />
         <requiredProperty key="clientSecret" />
         <requiredProperty key="mailerRecipients">
