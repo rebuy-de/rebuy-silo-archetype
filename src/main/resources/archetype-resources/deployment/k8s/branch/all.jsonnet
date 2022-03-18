@@ -107,16 +107,7 @@ local selector = {
                 ports: [{
                   containerPort: 8080,
                 }],
-                resources: {
-                  limits: {
-                    cpu: preset.resources.limits.cpu,
-                    memory: preset.resources.limits.memory,
-                  },
-                  requests: {
-                    cpu: preset.resources.requests.cpu,
-                    memory: preset.resources.requests.memory,
-                  },
-                },
+                resources: preset.resources,
                 startupProbe: {
                   httpGet: {
                     path: '/actuator/health',
