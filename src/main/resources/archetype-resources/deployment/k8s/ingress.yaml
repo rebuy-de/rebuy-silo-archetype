@@ -3,21 +3,21 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
-  name: ${rootArtifactId}-silo
+  name: ${projectName}
   labels:
-    app: ${rootArtifactId}-silo
+    app: ${projectName}
   annotations:
     traefik.ingress.kubernetes.io/router.middlewares: default-ssl@kubernetescrd
 
 spec:
   rules:
-    - host: ${rootArtifactId}-silo.{{.clusterName}}.rebuy.cloud
+    - host: ${projectName}.{{.clusterName}}.rebuy.cloud
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: ${rootArtifactId}-silo
+                name: ${projectName}
                 port:
                   number: 80
