@@ -5,7 +5,6 @@ kind: Ingress
 metadata:
   name: ${projectName}
   labels:
-    team: ${team}
     app: ${projectName}
   annotations:
     traefik.ingress.kubernetes.io/router.middlewares: default-ssl@kubernetescrd
