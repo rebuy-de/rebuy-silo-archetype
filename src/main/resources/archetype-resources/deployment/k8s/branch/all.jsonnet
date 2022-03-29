@@ -99,7 +99,7 @@ local selector = {
                   {
                     name: 'SILO_JAVA_ARGS',
                     value: std.join(' ', [
-                      '-XX:MaxRAMPercentage=75',
+                      '-XX:MaxRAMPercentage=70',
                       '-XX:+UseG1GC',
                     ]),
                   },
