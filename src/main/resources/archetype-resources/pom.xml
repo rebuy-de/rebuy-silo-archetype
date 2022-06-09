@@ -32,8 +32,13 @@
         <jacoco.outputDir>${project.basedir}/target/jacoco</jacoco.outputDir>
         <jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
         <jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
+        <jacoco.reportPath>${jacoco.outputDir}/jacoco.exec</jacoco.reportPath>
         <sonar.jacoco.reportPath>${jacoco.outputDir}/${jacoco.out.ut.file}</sonar.jacoco.reportPath>
         <sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
+        <sonar.coverage.jacoco.xmlReportPaths>${jacoco.outputDir}/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.exclusions>**/configuration/**/*</sonar.coverage.exclusions>
+        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     </properties>
 
     <build>
@@ -61,12 +66,11 @@
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
                         <configuration>
-                            <append>true</append>
+                            <dataFile>${jacoco.reportPath}</dataFile>
                         </configuration>
                         <executions>
                             <execution>
                                 <id>prepare-ut-agent</id>
-                                <phase>process-test-classes</phase>
                                 <goals>
                                     <goal>prepare-agent</goal>
                                 </goals>
@@ -86,6 +90,32 @@
                                     <destFile>${sonar.jacoco.itReportPath}</destFile>
                                     <propertyName>jacoco.agent.it.arg</propertyName>
                                     <append>true</append>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>merge-all-jacoco</id>
+                                <goals><goal>merge</goal></goals>
+                                <phase>package</phase>
+                                <configuration>
+                                    <destFile>${jacoco.reportPath}</destFile>
+                                    <fileSets>
+                                        <fileSet>
+                                            <directory>${jacoco.outputDir}</directory>
+                                            <includes>
+                                                <include>*.exec</include>
+                                            </includes>
+                                        </fileSet>
+                                    </fileSets>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>report</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${jacoco.outputDir}</outputDirectory>
                                 </configuration>
                             </execution>
                         </executions>
