@@ -1,5 +1,5 @@
 # syntax=rebuy.local/dockerfile
-ARG BASE_TAG=8
+ARG BASE_TAG=9
 FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java17-maven:${BASE_TAG} AS builder
 
 COPY . /project
