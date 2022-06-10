@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
 
-library('jenkins-libraries@v3.3.0')
+library('jenkins-libraries@v3.4.0')
 
 springBoot2Pipeline(jdk: 'jdk17', qualityGateCheck: true, email: '${mailerRecipients}')
