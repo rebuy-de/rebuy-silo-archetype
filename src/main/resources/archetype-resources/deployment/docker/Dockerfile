@@ -1,4 +1,3 @@
-# syntax=rebuy.local/dockerfile
 ARG BASE_TAG=9
 FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java17-maven:${BASE_TAG} AS builder
 
@@ -6,7 +5,7 @@ COPY . /project
 
 ENV HOME=/tmp
 
-RUN --mount=id=maven-cache,type=cache,target=/m2/repository,sharing=shared /build.sh
+RUN /build.sh
 
 FROM 074509403805.dkr.ecr.eu-west-1.amazonaws.com/java17:${BASE_TAG}
 
