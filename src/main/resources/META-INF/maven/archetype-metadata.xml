@@ -9,9 +9,6 @@
         <requiredProperty key="projectName" />
         <requiredProperty key="databaseSchema" />
         <requiredProperty key="clientSecret" />
-        <requiredProperty key="mailerRecipients">
-            <validationRegex><![CDATA[^dl-scb-.*@rebuy\.com$]]></validationRegex>
-        </requiredProperty>
     </requiredProperties>
 
     <fileSets>

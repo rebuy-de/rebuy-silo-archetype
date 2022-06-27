@@ -1,0 +1,16 @@
+name: Spring Boot Pipeline
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    types: [opened, reopened, synchronize]
+  schedule:
+    - cron: '30 2 * * *'
+
+jobs:
+  action:
+    uses: rebuy-de/github-actions-workflows/.github/workflows/spring-boot-pipeline.yaml@main
+    with:
+      jdk: "17"
+    secrets: inherit
