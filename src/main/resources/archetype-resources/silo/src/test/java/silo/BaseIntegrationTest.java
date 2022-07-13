@@ -5,7 +5,7 @@ package ${package}.${artifactId};
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rebuy.library.messaging.annotation.MockMessaging;
-import com.rebuy.library.security.test.AuthBuilder;
+import com.rebuy.library.security.test.AuthProvider;
 import ${package}.${artifactId}.annotation.IntegrationTest;
 import org.junit.Before;
 import org.junit.experimental.categories.Category;
@@ -45,7 +45,8 @@ public abstract class BaseIntegrationTest
 
     protected MockMvc mockMvc;
 
-    protected AuthBuilder authBuilder = new AuthBuilder();
+    @Autowired
+    protected AuthProvider authProvider;
 
     @Before
     public void setUp() throws Exception

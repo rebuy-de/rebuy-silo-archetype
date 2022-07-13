@@ -45,7 +45,7 @@ permissions:
         duration: 24
         timeunit: h
 
-remote-token-services:
+opaque-token-introspector:
     clientId: ${spring.application.name}
     secret: ${clientSecret}
     endpoint: customer-silo.vagrant.cloud

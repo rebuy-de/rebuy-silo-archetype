@@ -11,7 +11,7 @@ clients:
     permission-client:
         host: customer-silo.default.svc.cluster.local
 
-remote-token-services:
+opaque-token-introspector:
     endpoint: customer-silo.default.svc.cluster.local
     cacheSize: 3000
 

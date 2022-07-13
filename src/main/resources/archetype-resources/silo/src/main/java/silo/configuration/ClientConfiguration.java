@@ -4,12 +4,12 @@
 package ${package}.${artifactId}.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rebuy.library.security.builder.RemoteTokenServicesBuilder;
-import com.rebuy.library.security.cache.RemoteTokenServicesCache;
+import com.rebuy.library.security.builder.OpaqueTokenIntrospectorBuilder;
+import com.rebuy.library.security.cache.OpaqueTokenIntrospectorCache;
 import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.client.PermissionClientConfig;
+import ${package}.${artifactId}.configuration.settings.OpaqueTokenIntrospectorSettings;
 import ${package}.${artifactId}.configuration.settings.PermissionClientSettings;
-import ${package}.${artifactId}.configuration.settings.RemoteTokenServicesSettings;
 import io.opentracing.Tracer;
 import io.prometheus.client.guava.cache.CacheMetricsCollector;
 import okhttp3.ConnectionPool;
@@ -17,7 +17,7 @@ import okhttp3.OkHttpClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+import org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,24 +26,24 @@ import java.util.concurrent.TimeUnit;
 public class ClientConfiguration
 {
     @Bean
-    public ResourceServerTokenServices resourceServerTokenServices(
-        RemoteTokenServicesSettings remoteTokenServicesSettings,
+    public OpaqueTokenIntrospector opaqueTokenIntrospector(
+        OpaqueTokenIntrospectorSettings settings,
         CacheMetricsCollector cacheMetricsCollector,
         Tracer tracer
     )
     {
-        ResourceServerTokenServices remoteTokenService = new RemoteTokenServicesBuilder()
-            .clientId(remoteTokenServicesSettings.getClientId())
-            .clientSecret(remoteTokenServicesSettings.getSecret())
-            .host(remoteTokenServicesSettings.getEndpoint())
+        OpaqueTokenIntrospector opaqueTokenIntrospector = new OpaqueTokenIntrospectorBuilder()
+            .clientId(settings.getClientId())
+            .clientSecret(settings.getSecret())
+            .host(settings.getEndpoint())
             .tracer(tracer)
             .build();
 
-        return new RemoteTokenServicesCache(
-            remoteTokenService,
-            remoteTokenServicesSettings.getCacheDuration(),
-            remoteTokenServicesSettings.getCacheTimeUnit(),
-            remoteTokenServicesSettings.getCacheSize(),
+        return new OpaqueTokenIntrospectorCache(
+            opaqueTokenIntrospector,
+            settings.getCacheDuration(),
+            settings.getCacheTimeUnit(),
+            settings.getCacheSize(),
             cacheMetricsCollector
         );
     }

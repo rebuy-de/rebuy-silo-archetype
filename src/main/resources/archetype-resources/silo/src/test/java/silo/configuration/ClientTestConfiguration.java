@@ -8,7 +8,7 @@ import com.rebuy.library.security.client.TokenDto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
+import org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector;
 
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -23,9 +23,9 @@ public class ClientTestConfiguration
     public static final UUID ACCESS_TOKEN = UUID.randomUUID();
 
     @Bean
-    public RemoteTokenServices remoteTokenServices()
+    public OpaqueTokenIntrospector opaqueTokenIntrospector()
     {
-        return mock(RemoteTokenServices.class);
+        return mock(OpaqueTokenIntrospector.class);
     }
 
     @Bean

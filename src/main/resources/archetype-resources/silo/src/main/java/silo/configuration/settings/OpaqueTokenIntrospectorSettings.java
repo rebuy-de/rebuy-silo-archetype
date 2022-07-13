@@ -7,8 +7,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties("remote-token-services")
-public class RemoteTokenServicesSettings
+@ConfigurationProperties("opaque-token-introspector")
+public class OpaqueTokenIntrospectorSettings
 {
     private String clientId;
 
