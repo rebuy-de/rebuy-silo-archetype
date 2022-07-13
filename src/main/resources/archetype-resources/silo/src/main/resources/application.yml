@@ -79,3 +79,6 @@ opentracing:
         cloud:
             async:
                 enabled: false
+
+web-context-logging:
+    on-exception-handler: true

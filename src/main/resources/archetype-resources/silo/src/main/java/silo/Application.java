@@ -5,6 +5,7 @@ package ${package}.${artifactId};
 
 import com.rebuy.library.messaging.annotation.EnableMessaging;
 import com.rebuy.library.objectmapper.annotation.EnableObjectMapper;
+import com.rebuy.library.webcontextlogging.annotation.EnableWebContextLogging;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -17,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 @EnableConfigurationProperties
 @EnableMessaging
 @EnableObjectMapper
+@EnableWebContextLogging
 public class Application
 {
     public static void main(String[] args)
