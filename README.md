@@ -1,6 +1,7 @@
 # rebuy-silo-archetype
 
-Maven stuff
+Maven [archtype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for new silos.
+Please refer to the [documentation](https://github.com/rebuy-de/documentation/blob/master/guidelines/coding/java/new-silo.md) on how to create a new silo.
 
 ## Primary responsible person (PRP)
 
