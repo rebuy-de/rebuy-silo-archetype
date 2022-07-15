@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.actuate.metrics.AutoConfigureMetrics;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 import org.springframework.security.web.FilterChainProxy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -39,9 +38,6 @@ public abstract class BaseIntegrationTest
 
     @Autowired
     protected FilterChainProxy filterChainProxy;
-
-    @Autowired
-    protected RemoteTokenServices remoteTokenServices;
 
     protected MockMvc mockMvc;
 
