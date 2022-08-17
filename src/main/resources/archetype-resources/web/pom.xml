@@ -24,7 +24,7 @@
 
     <properties>
         <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
-        <rebuy.projector.version>8.0.0</rebuy.projector.version>
+        <rebuy.projector.version>8.1.2</rebuy.projector.version>
     </properties>
 
     <dependencies>
@@ -32,6 +32,7 @@
             <groupId>com.rebuy.library</groupId>
             <artifactId>projector</artifactId>
             <version>${rebuy.projector.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

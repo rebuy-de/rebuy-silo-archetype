@@ -16,29 +16,29 @@
         <tag>HEAD</tag>
     </scm>
     <properties>
+        <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
         <self.messages.version>${version}</self.messages.version>
         <self.web.version>${version}</self.web.version>
 
-        <testcontainers.version>1.16.2</testcontainers.version>
-        <json-path.version>2.6.0</json-path.version>
+        <testcontainers.version>1.17.3</testcontainers.version>
+        <json-path.version>2.7.0</json-path.version>
         <apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
-        <maven-failsafe-plugin.version>2.18.1</maven-failsafe-plugin.version>
-        <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
-        <spring-security-oauth2-resource-server.version>5.7.2</spring-security-oauth2-resource-server.version>
-        <spring.boot.version>2.6.2</spring.boot.version>
+        <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <spring-security-oauth2-resource-server.version>5.7.3</spring-security-oauth2-resource-server.version>
+        <spring.boot.version>2.7.2</spring.boot.version>
         <log4j2-gelf.version>1.3.1</log4j2-gelf.version>
-        <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
-        <rebuy.common.version>11.2.0</rebuy.common.version>
-        <rebuy.customer-client.version>14.0.0</rebuy.customer-client.version>
-        <rebuy.messaging.version>12.0.4</rebuy.messaging.version>
-        <rebuy.projector.version>8.0.0</rebuy.projector.version>
+        <rebuy.common.version>14.1.0</rebuy.common.version>
+        <rebuy.customer-client.version>15.0.0</rebuy.customer-client.version>
+        <rebuy.messaging.version>12.3.2</rebuy.messaging.version>
+        <rebuy.projector.version>8.1.2</rebuy.projector.version>
         <rebuy.security.version>8.0.0</rebuy.security.version>
         <rebuy.security-test.version>8.0.0</rebuy.security-test.version>
-        <rebuy.objectmapper.version>5.0.1</rebuy.objectmapper.version>
+        <rebuy.objectmapper.version>5.0.4</rebuy.objectmapper.version>
         <rebuy.web-context-logging.version>1.0.0</rebuy.web-context-logging.version>
-        <opentracing-starter.version>0.6.0</opentracing-starter.version>
+        <opentracing-starter.version>1.0.0</opentracing-starter.version>
         <spring-vault-core.version>2.3.2</spring-vault-core.version>
-        <log4j2.version>2.17.1</log4j2.version>
+        <log4j2.version>2.18.0</log4j2.version>
     </properties>
     <dependencyManagement>
         <dependencies>
