@@ -20,6 +20,7 @@ messaging:
 
 opentracing:
     jaeger:
+        enable-b3-propagation: true
         udp-sender:
             host: jaeger-agent.default.svc.cluster.local
         remote-controlled-sampler:
