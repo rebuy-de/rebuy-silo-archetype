@@ -72,13 +72,5 @@ management:
             exposure:
                 include: info, health, prometheus, mappings
 
-opentracing:
-    jaeger:
-        log-spans: false
-    spring:
-        cloud:
-            async:
-                enabled: false
-
 web-context-logging:
     on-exception-handler: true
