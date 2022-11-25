@@ -10,7 +10,6 @@ import com.rebuy.library.security.client.PermissionClient;
 import com.rebuy.library.security.client.PermissionClientConfig;
 import ${package}.${artifactId}.configuration.settings.OpaqueTokenIntrospectorSettings;
 import ${package}.${artifactId}.configuration.settings.PermissionClientSettings;
-import io.opentracing.Tracer;
 import io.prometheus.client.guava.cache.CacheMetricsCollector;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
@@ -28,15 +27,13 @@ public class ClientConfiguration
     @Bean
     public OpaqueTokenIntrospector opaqueTokenIntrospector(
         OpaqueTokenIntrospectorSettings settings,
-        CacheMetricsCollector cacheMetricsCollector,
-        Tracer tracer
+        CacheMetricsCollector cacheMetricsCollector
     )
     {
         OpaqueTokenIntrospector opaqueTokenIntrospector = new OpaqueTokenIntrospectorBuilder()
             .clientId(settings.getClientId())
             .clientSecret(settings.getSecret())
             .host(settings.getEndpoint())
-            .tracer(tracer)
             .build();
 
         return new OpaqueTokenIntrospectorCache(
@@ -51,8 +48,7 @@ public class ClientConfiguration
     @Bean
     public PermissionClient permissionClient(
         PermissionClientSettings permissionClientSettings,
-        ObjectMapper objectMapper,
-        Tracer tracer
+        ObjectMapper objectMapper
     )
     {
         PermissionClientConfig config = new PermissionClientConfig();
@@ -67,6 +63,6 @@ public class ClientConfiguration
             .connectionPool(new ConnectionPool(2, permissionClientSettings.getKeepAliveDurationMs(), TimeUnit.MILLISECONDS))
             .build();
 
-        return new PermissionClient(config, client, objectMapper, tracer);
+        return new PermissionClient(config, client, objectMapper);
     }
 }

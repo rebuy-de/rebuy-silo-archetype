@@ -5,7 +5,7 @@ package ${package}.${artifactId}.demos;
 
 import ${package}.${artifactId}.BaseIntegrationTest;
 import ${package}.${artifactId}.configuration.ClientTestConfiguration;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
 

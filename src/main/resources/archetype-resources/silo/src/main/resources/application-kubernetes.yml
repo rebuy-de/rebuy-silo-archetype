@@ -18,14 +18,5 @@ opaque-token-introspector:
 messaging:
     host: rabbitmq.default.svc.cluster.local
 
-opentracing:
-    jaeger:
-        enable-b3-propagation: true
-        udp-sender:
-            host: jaeger-agent.default.svc.cluster.local
-        remote-controlled-sampler:
-            host-port: jaeger-agent.default.svc.cluster.local:5778
-            sampling-rate: 0.0001
-
 logging:
     config: classpath:kubernetes/log4j2.xml

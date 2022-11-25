@@ -3,14 +3,14 @@
     <parent>
         <groupId>com.github.rebuy-de</groupId>
         <artifactId>uber-pom</artifactId>
-        <version>1.3.0</version>
+        <version>1.4.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.rebuy.archetypes</groupId>
     <artifactId>rebuy-silo-archetype</artifactId>
-    <version>15.6.1-SNAPSHOT</version>
+    <version>16.0.1-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
     <name>rebuy-silo-archetype</name>
 
