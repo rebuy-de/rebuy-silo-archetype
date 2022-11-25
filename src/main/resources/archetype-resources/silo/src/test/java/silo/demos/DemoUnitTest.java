@@ -3,18 +3,17 @@
 #set($symbol_escape='\' )
 package ${package}.${artifactId}.demos;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.Assertions;
 
-import static org.junit.Assert.assertTrue;
-
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class DemoUnitTest
 {
     @Test
     public void maven_should_run_this_test()
     {
-        assertTrue(true);
+        Assertions.assertTrue(true);
     }
 }

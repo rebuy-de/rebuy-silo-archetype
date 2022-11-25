@@ -6,28 +6,28 @@ package ${package}.${artifactId};
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rebuy.library.messaging.annotation.MockMessaging;
 import com.rebuy.library.security.test.AuthProvider;
-import ${package}.${artifactId}.annotation.IntegrationTest;
-import org.junit.Before;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.actuate.metrics.AutoConfigureMetrics;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.web.FilterChainProxy;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@Category(IntegrationTest.class)
+@ExtendWith(SpringExtension.class)
+@Tag("integration")
 @SpringBootTest(
     classes = Application.class,
-    properties = {"spring.profiles.active=testing"},
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 @MockMessaging
 @AutoConfigureMetrics
+@ActiveProfiles("testing")
 public abstract class BaseIntegrationTest
 {
     @Autowired
@@ -44,7 +44,7 @@ public abstract class BaseIntegrationTest
     @Autowired
     protected AuthProvider authProvider;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception
     {
         mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).addFilter(filterChainProxy).build();

@@ -4,15 +4,14 @@
 package ${package}.${artifactId}.demos;
 
 import ${package}.${artifactId}.BaseIntegrationTest;
-import org.junit.Test;
-
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class DemoIntegrationTest extends BaseIntegrationTest
 {
     @Test
     public void maven_should_run_this_test()
     {
-        assertTrue(true);
+        Assertions.assertTrue(true);
     }
 }

@@ -194,8 +194,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -284,10 +284,13 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
                 <configuration>
-                    <groups>${package}.${artifactId}.annotation.IntegrationTest</groups>
+                    <groups>integration</groups>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <argLine>-Dfile.encoding=UTF-8 ${jacoco.agent.it.arg}</argLine>
                     <runOrder>random</runOrder>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${project.build.outputDirectory}</additionalClasspathElement>
+                    </additionalClasspathElements>
                 </configuration>
                 <executions>
                     <execution>
@@ -309,7 +312,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <excludedGroups>${package}.${artifactId}.annotation.IntegrationTest</excludedGroups>
+                    <excludedGroups>integration</excludedGroups>
                     <argLine>${jacoco.agent.ut.arg}</argLine>
                     <runOrder>random</runOrder>
                 </configuration>
