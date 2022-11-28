@@ -2,7 +2,7 @@ name: Spring Boot Pipeline
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
     types: [opened, reopened, synchronize]
   schedule:

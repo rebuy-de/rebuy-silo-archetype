@@ -24,7 +24,6 @@
             <includes>
                 <include>README.md</include>
                 <include>.java-version</include>
-                <include>Jenkinsfile</include>
             </includes>
         </fileSet>
 
