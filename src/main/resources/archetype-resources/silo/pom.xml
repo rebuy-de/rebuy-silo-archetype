@@ -30,6 +30,7 @@
         <log4j2-gelf.version>1.3.1</log4j2-gelf.version>
         <rebuy.common.version>15.1.0</rebuy.common.version>
         <rebuy.customer-client.version>15.0.0</rebuy.customer-client.version>
+        <rebuy.instrumentation.version>1.0.0</rebuy.instrumentation.version>
         <rebuy.messaging.version>14.0.0</rebuy.messaging.version>
         <rebuy.projector.version>8.2.0</rebuy.projector.version>
         <rebuy.security.version>9.0.0</rebuy.security.version>
@@ -70,6 +71,11 @@
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.rebuy.library</groupId>
+            <artifactId>instrumentation</artifactId>
+            <version>${rebuy.instrumentation.version}</version>
         </dependency>
         <dependency>
             <groupId>com.rebuy.library</groupId>
@@ -325,6 +331,7 @@
                     <execution>
                         <goals>
                             <goal>repackage</goal>
+                            <goal>build-info</goal>
                         </goals>
                     </execution>
                 </executions>
