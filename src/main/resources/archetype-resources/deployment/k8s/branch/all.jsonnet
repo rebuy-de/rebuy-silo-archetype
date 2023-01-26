@@ -10,8 +10,8 @@ silo({
     limits: { memory: '768Mi' },
   },
   staging: {
+    replicas: 1,
     resources: {
-      replicas: 1,
       requests: { memory: '600Mi', cpu: '50m' },
       limits: { memory: '600Mi' },
     },
