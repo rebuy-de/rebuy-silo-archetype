@@ -4,15 +4,18 @@
         <Console name="STDOUT" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
         </Console>
-        <GELF name="gelfAppender" server="graylog2.default.svc.cluster.local" port="12201" includeExceptionCause="true" protocol="tcp">
-            <PatternLayout pattern="%logger{36} - %msg%n"/>
-            <Filters>
-                <MarkerFilter marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL"/>
-                <MarkerFilter marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
-            </Filters>
-            <KeyValuePair key="environment" value="production"/>
-            <KeyValuePair key="facility" value="${projectName}"/>
-        </GELF>
+        <Gelf name="gelfAppender"
+              ExtractStackTrace="true"
+              Facility="${projectName}"
+              FilterStackTrace="true"
+              Host="tcp:graylog2.default.svc.cluster.local"
+              IncludeFullMdc="true"
+              MaximumMessageSize="8192"
+              MdcProfiling="true"
+              Port="12201"
+              Version="1.1">
+            <Field name="environment" literal="production" />
+        </Gelf>
     </Appenders>
     <Loggers>
         <Logger name="org.springframework.integration.support.MessageBuilder" level="warn" />
