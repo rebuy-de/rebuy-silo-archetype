@@ -7,13 +7,9 @@ spring:
     datasource:
         url: jdbc:postgresql://postgres-14.aws.rebuy.loc/rebuy
 
-clients:
-    permission-client:
-        host: customer-silo.default.svc.cluster.local
-
-opaque-token-introspector:
-    endpoint: customer-silo.default.svc.cluster.local
-    cacheSize: 3000
+rebuy:
+    security:
+        endpoint: http://customer-silo.default.svc.cluster.local
 
 messaging:
     host: rabbitmq.default.svc.cluster.local

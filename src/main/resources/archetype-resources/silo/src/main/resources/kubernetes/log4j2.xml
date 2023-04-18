@@ -14,7 +14,7 @@
               MdcProfiling="true"
               Port="12201"
               Version="1.1">
-            <Field name="environment" literal="production" />
+            <Field name="environment" literal="kubernetes" />
         </Gelf>
     </Appenders>
     <Loggers>

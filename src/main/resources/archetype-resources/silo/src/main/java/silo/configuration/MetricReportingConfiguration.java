@@ -3,20 +3,22 @@
 #set( $symbol_escape = '\' )
 package ${package}.${artifactId}.configuration;
 
+import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.guava.cache.CacheMetricsCollector;
 import io.prometheus.client.hotspot.DefaultExports;
+import jakarta.annotation.PostConstruct;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 @Configuration
 public class MetricReportingConfiguration
 {
     @Bean
-    public CacheMetricsCollector cacheMetricsCollector()
+    public CacheMetricsCollector cacheMetricsCollector(CollectorRegistry collectorRegistry)
     {
-        return new CacheMetricsCollector().register();
+        return new CacheMetricsCollector().register(collectorRegistry);
     }
 
     @PostConstruct

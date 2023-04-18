@@ -1,127 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.rebuy-de</groupId>
         <artifactId>uber-pom</artifactId>
-        <version>1.4.0</version>
+        <version>2.2.0</version>
     </parent>
-
-    <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>pom</packaging>
     <name>${artifactId} service (restful reBuy)</name>
-
+    <modules>
+        <module>messages</module>
+        <module>silo</module>
+        <module>web</module>
+    </modules>
     <scm>
         <developerConnection>scm:git:git@github.com:rebuy-de/${projectName}.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
-    <modules>
-        <module>messages</module>
-        <module>web</module>
-        <module>silo</module>
-    </modules>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
-        <jacoco.outputDir>${project.basedir}/target/jacoco</jacoco.outputDir>
-        <jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
-        <jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
-        <jacoco.reportPath>${jacoco.outputDir}/jacoco.exec</jacoco.reportPath>
-        <sonar.jacoco.reportPath>${jacoco.outputDir}/${jacoco.out.ut.file}</sonar.jacoco.reportPath>
-        <sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
-        <sonar.coverage.jacoco.xmlReportPaths>${jacoco.outputDir}/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-        <sonar.coverage.exclusions>**/configuration/**/*</sonar.coverage.exclusions>
-        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     </properties>
-
     <build>
         <finalName>${artifactId}</finalName>
     </build>
-
-    <profiles>
-        <profile>
-            <id>sonar-coverage</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.jacoco</groupId>
-                            <artifactId>jacoco-maven-plugin</artifactId>
-                            <version>${jacoco-maven-plugin.version}</version>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-                <plugins>
-                    <plugin>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <configuration>
-                            <dataFile>${jacoco.reportPath}</dataFile>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>prepare-ut-agent</id>
-                                <goals>
-                                    <goal>prepare-agent</goal>
-                                </goals>
-                                <configuration>
-                                    <destFile>${sonar.jacoco.reportPath}</destFile>
-                                    <propertyName>jacoco.agent.ut.arg</propertyName>
-                                    <append>true</append>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>prepare-it-agent</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>prepare-agent-integration</goal>
-                                </goals>
-                                <configuration>
-                                    <destFile>${sonar.jacoco.itReportPath}</destFile>
-                                    <propertyName>jacoco.agent.it.arg</propertyName>
-                                    <append>true</append>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>merge-all-jacoco</id>
-                                <goals><goal>merge</goal></goals>
-                                <phase>package</phase>
-                                <configuration>
-                                    <destFile>${jacoco.reportPath}</destFile>
-                                    <fileSets>
-                                        <fileSet>
-                                            <directory>${jacoco.outputDir}</directory>
-                                            <includes>
-                                                <include>*.exec</include>
-                                            </includes>
-                                        </fileSet>
-                                    </fileSets>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>report</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>report</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${jacoco.outputDir}</outputDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
