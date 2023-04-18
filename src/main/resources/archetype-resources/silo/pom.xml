@@ -8,7 +8,6 @@
     </parent>
     <groupId>${groupId}.${rootArtifactId}</groupId>
     <artifactId>silo</artifactId>
-    <version>${version}</version>
     <packaging>jar</packaging>
     <name>${rootArtifactId} (restful reBuy) silo</name>
     <scm>
@@ -16,61 +15,33 @@
         <tag>HEAD</tag>
     </scm>
     <properties>
-        <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
-        <self.messages.version>${version}</self.messages.version>
-        <self.web.version>${version}</self.web.version>
-
-        <testcontainers.version>1.17.6</testcontainers.version>
-        <json-path.version>2.7.0</json-path.version>
-        <apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
-        <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-        <spring-security-oauth2-resource-server.version>5.7.3</spring-security-oauth2-resource-server.version>
-        <spring.boot.version>2.7.2</spring.boot.version>
+        <json-path.version>2.8.0</json-path.version>
         <logstash-gelf.version>1.15.0</logstash-gelf.version>
-        <rebuy.common.version>15.1.0</rebuy.common.version>
-        <rebuy.customer-client.version>15.0.0</rebuy.customer-client.version>
-        <rebuy.instrumentation.version>1.0.0</rebuy.instrumentation.version>
-        <rebuy.messaging.version>14.0.0</rebuy.messaging.version>
-        <rebuy.projector.version>8.2.0</rebuy.projector.version>
-        <rebuy.security.version>9.0.0</rebuy.security.version>
-        <rebuy.security-test.version>9.0.0</rebuy.security-test.version>
-        <rebuy.objectmapper.version>5.0.4</rebuy.objectmapper.version>
-        <rebuy.web-context-logging.version>1.0.0</rebuy.web-context-logging.version>
-        <spring-vault-core.version>2.3.2</spring-vault-core.version>
-        <log4j2.version>2.19.0</log4j2.version>
+        <querydsl.version>5.0.0</querydsl.version>
+        <rebuy.customer-client.version>16.0.0</rebuy.customer-client.version>
+        <rebuy.instrumentation.version>1.1.0</rebuy.instrumentation.version>
+        <rebuy.messaging.version>15.1.1</rebuy.messaging.version>
+        <rebuy.objectmapper.version>5.1.0</rebuy.objectmapper.version>
+        <rebuy.projector.version>9.1.0</rebuy.projector.version>
+        <rebuy.sdk.common.version>17.0.0</rebuy.sdk.common.version>
+        <rebuy.security-test.version>11.2.0</rebuy.security-test.version>
+        <rebuy.security.version>11.2.0</rebuy.security.version>
+        <rebuy.testutils.version>6.1.0</rebuy.testutils.version>
+        <rebuy.web-context-logging.version>2.1.0</rebuy.web-context-logging.version>
+        <spring-vault-core.version>3.0.2</spring-vault-core.version>
+        <testcontainers.version>1.18.0</testcontainers.version>
     </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>${groupId}.${rootArtifactId}</groupId>
-            <artifactId>web</artifactId>
-            <version>${self.web.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${groupId}.${rootArtifactId}</groupId>
-            <artifactId>messages</artifactId>
-            <version>${self.messages.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.querydsl</groupId>
-            <artifactId>querydsl-apt</artifactId>
-            <scope>provided</scope>
+            <groupId>biz.paluch.logging</groupId>
+            <artifactId>logstash-gelf</artifactId>
+            <version>${logstash-gelf.version}</version>
         </dependency>
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
+            <version>${querydsl.version}</version>
+            <classifier>jakarta</classifier>
         </dependency>
         <dependency>
             <groupId>com.rebuy.library</groupId>
@@ -81,6 +52,11 @@
             <groupId>com.rebuy.library</groupId>
             <artifactId>messaging</artifactId>
             <version>${rebuy.messaging.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rebuy.library</groupId>
+            <artifactId>objectmapper</artifactId>
+            <version>${rebuy.objectmapper.version}</version>
         </dependency>
         <dependency>
             <groupId>com.rebuy.library</groupId>
@@ -98,9 +74,14 @@
             <version>${rebuy.security-test.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.rebuy.library</groupId>
+            <artifactId>web-context-logging</artifactId>
+            <version>${rebuy.web-context-logging.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.rebuy.sdk</groupId>
             <artifactId>common</artifactId>
-            <version>${rebuy.common.version}</version>
+            <version>${rebuy.sdk.common.version}</version>
         </dependency>
         <dependency>
             <groupId>com.rebuy.sdk</groupId>
@@ -108,27 +89,52 @@
             <version>${rebuy.customer-client.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.rebuy.library</groupId>
-            <artifactId>objectmapper</artifactId>
-            <version>${rebuy.objectmapper.version}</version>
+            <groupId>com.rebuy.service.item-storage</groupId>
+            <artifactId>messages</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.rebuy.library</groupId>
-            <artifactId>web-context-logging</artifactId>
-            <version>${rebuy.web-context-logging.version}</version>
+            <groupId>com.rebuy.service.item-storage</groupId>
+            <artifactId>web</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.prometheus</groupId>
+            <artifactId>simpleclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.prometheus</groupId>
+            <artifactId>simpleclient_guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.prometheus</groupId>
+            <artifactId>simpleclient_hotspot</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>biz.paluch.logging</groupId>
-            <artifactId>logstash-gelf</artifactId>
-            <version>${logstash-gelf.version}</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -142,7 +148,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -161,37 +167,18 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.tomcat</groupId>
-                    <artifactId>tomcat-jdbc</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.springframework.vault</groupId>
+            <artifactId>spring-vault-core</artifactId>
+            <version>${spring-vault-core.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-resource-server</artifactId>
-            <version>${spring-security-oauth2-resource-server.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${testcontainers.version}</version>
-            <scope>test</scope>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-apt</artifactId>
+            <version>${querydsl.version}</version>
+            <classifier>jakarta</classifier>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
@@ -200,13 +187,19 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
+            <groupId>com.rebuy.library</groupId>
+            <artifactId>testutils</artifactId>
+            <version>${rebuy.testutils.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -220,113 +213,26 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_hotspot</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_guava</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
+            <groupId>org.testcontainers</groupId>
             <artifactId>postgresql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-prometheus</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.vault</groupId>
-            <artifactId>spring-vault-core</artifactId>
-            <version>${spring-vault-core.version}</version>
-        </dependency>
-        <!-- Can be removed when we spring boot >=2.6.3 is used -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-jul</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j2.version}</version>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
         <finalName>${project.parent.artifactId}-${project.artifactId}</finalName>
         <plugins>
             <plugin>
-                <groupId>com.mysema.maven</groupId>
-                <artifactId>apt-maven-plugin</artifactId>
-                <version>${apt-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <outputDirectory>target/generated-sources/querydsl</outputDirectory>
-                            <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
-                <configuration>
-                    <groups>integration</groups>
-                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                    <argLine>-Dfile.encoding=UTF-8 ${jacoco.agent.it.arg}</argLine>
-                    <runOrder>random</runOrder>
-                    <additionalClasspathElements>
-                        <additionalClasspathElement>${project.build.outputDirectory}</additionalClasspathElement>
-                    </additionalClasspathElements>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>integration-test</id>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                        <configuration>
-                            <includes>
-                                <include>**/*.class</include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-                <configuration>
-                    <excludedGroups>integration</excludedGroups>
-                    <argLine>${jacoco.agent.ut.arg}</argLine>
-                    <runOrder>random</runOrder>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring.boot.version}</version>
                 <executions>
                     <execution>
                         <goals>

@@ -35,6 +35,10 @@
             <directory>.github</directory>
         </fileSet>
 
+        <fileSet encoding="UTF-8" filtered="true">
+            <directory>.mvn</directory>
+        </fileSet>
+
     </fileSets>
 
     <modules>
@@ -52,18 +56,6 @@
                         <include>**/*</include>
                     </includes>
                 </fileSet>
-                <fileSet filtered="true" packaged="true" encoding="UTF-8">
-                    <directory>src/test/java</directory>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                </fileSet>
-                <fileSet encoding="UTF-8">
-                    <directory>src/test/resources</directory>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                </fileSet>
             </fileSets>
         </module>
 
@@ -77,18 +69,6 @@
                 </fileSet>
                 <fileSet encoding="UTF-8">
                     <directory>src/main/resources</directory>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="true" packaged="true" encoding="UTF-8">
-                    <directory>src/test/java</directory>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                </fileSet>
-                <fileSet encoding="UTF-8">
-                    <directory>src/test/resources</directory>
                     <includes>
                         <include>**/*</include>
                     </includes>

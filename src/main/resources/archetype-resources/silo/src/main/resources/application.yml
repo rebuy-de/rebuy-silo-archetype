@@ -33,25 +33,15 @@ logging:
     config: classpath:vagrant/log4j2.xml
 
 clients:
-    permission-client:
-        clientId: ${spring.application.name}
-        secret: ${clientSecret}
-        host: customer-silo.vagrant.cloud
-        port: 80
-        keepAliveDurationMs: 300000
+    common:
+        read-timeout: 5000
+        connect-timeout: 5000
 
-permissions:
-    cache:
-        duration: 24
-        timeunit: h
-
-opaque-token-introspector:
-    clientId: ${spring.application.name}
-    secret: ${clientSecret}
-    endpoint: customer-silo.vagrant.cloud
-    cacheDuration: 10
-    cacheTimeUnit: m
-    cacheSize: 100
+rebuy:
+    security:
+        client-id: ${spring.application.name}
+        client-secret: ${clientSecret}
+        endpoint: http://customer-silo.vagrant.cloud
 
 messaging:
     host: vagrant.cloud

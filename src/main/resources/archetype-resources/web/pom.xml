@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>${groupId}</groupId>
         <artifactId>${rootArtifactId}</artifactId>
         <version>${version}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}.${rootArtifactId}</groupId>
     <artifactId>web</artifactId>
-    <name>${rootArtifactId} (restful reBuy) web</name>
     <packaging>jar</packaging>
-    <version>${version}</version>
-
+    <name>${rootArtifactId} (restful reBuy) web</name>
     <scm>
         <developerConnection>scm:git:git@github.com:rebuy-de/${projectName}.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
-    <build>
-        <finalName>web</finalName>
-    </build>
-
     <properties>
-        <jacoco.outputDir>${project.basedir}/../target/jacoco</jacoco.outputDir>
-        <rebuy.projector.version>8.2.0</rebuy.projector.version>
+        <rebuy.projector.version>9.1.0</rebuy.projector.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.rebuy.library</groupId>
@@ -35,4 +25,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <build>
+        <finalName>web</finalName>
+    </build>
 </project>
