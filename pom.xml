@@ -8,12 +8,12 @@
     </parent>
     <groupId>com.rebuy.archetypes</groupId>
     <artifactId>rebuy-silo-archetype</artifactId>
-    <version>17.2.0</version>
+    <version>17.2.1-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
     <name>rebuy-silo-archetype</name>
     <scm>
         <developerConnection>scm:git:git@github.com:rebuy-de/rebuy-silo-archetype.git</developerConnection>
-        <tag>rebuy-silo-archetype-17.2.0</tag>
+        <tag>HEAD</tag>
     </scm>
     <properties>
         <maven-archetype-plugin.version>3.2.1</maven-archetype-plugin.version>
